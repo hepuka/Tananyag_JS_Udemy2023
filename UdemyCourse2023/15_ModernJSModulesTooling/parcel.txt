@@ -1,0 +1,10 @@
+parancs a parcel bundle elindításához
+ha kész akkor egy külön szervert fog elindítani, a live servert kikapcsolhatjuk
+
+npx parcel index.html
+
+a másik verzió az indításra, npm paranccsal:
+npm start
+a package.json fájl script tag-jébe berakni ezt:  "start": "parcel index.html" és a "build": "parcel build index.html"
+
+dir könyvtárat generál, amiben benne vannak a bundle fájlok
