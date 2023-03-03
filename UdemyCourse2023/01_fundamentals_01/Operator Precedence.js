@@ -1,7 +1,8 @@
-////////////////////////////////////
 // Operator Precedence
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
-
+const now = 2037;
+const ageJonas = now - 1991;
+const ageSarah = now - 2018;
 console.log(now - 1991 > now - 2018);
 
 x = y = 25 - 10 - 5; // x = y = 10, x = 10
@@ -26,8 +27,8 @@ const johnMass = 92;
 const markHeight = 1.69;
 const johnHeight = 1.95;
 
-let markBmi = markMass / (markHeight * markHeight); //markHeight**2
-let johnBmi = johnMass / (johnHeight * johnHeight);
+let markBmi = markMass / Math.pow(markHeight, 2); //markHeight**2
+let johnBmi = johnMass / Math.pow(johnHeight, 2);
 let ismarkHigherBMI = markBmi > johnBmi;
 console.log(markBmi, johnBmi, ismarkHigherBMI);
 

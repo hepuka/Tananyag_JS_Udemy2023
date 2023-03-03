@@ -1,5 +1,5 @@
 // The switch Statement
-const day = "wednesday";
+const day = "friday";
 
 switch (day) {
   case "monday": // day === 'monday'
@@ -24,7 +24,7 @@ switch (day) {
     console.log("Not a valid day!");
 }
 
-if (day === "monday") {
+if (day === "friday") {
   console.log("Plan course structure");
   console.log("Go to coding meetup");
 } else if (day === "tuesday") {

@@ -34,6 +34,7 @@ let num1 = 18;
 let num2 = 7;
 let num3 = "18";
 let num4 = 18;
+let age = 45;
 console.log(num1 === num4); //a típust is ellenőrzi
 console.log(num1 === num2);
 console.log(num1 == num3); //true, mert a == számmá konvertálja a stringet, típuskonverziót hajt végre
