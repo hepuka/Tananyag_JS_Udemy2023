@@ -1,6 +1,6 @@
 // Reviewing Functions
 const calcAge = function (birthYeah) {
-  return 2037 - birthYeah;
+  return new Date().getFullYear() - birthYeah;
 };
 
 const yearsUntilRetirement2 = function (birthYeah, firstName) {

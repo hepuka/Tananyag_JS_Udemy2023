@@ -20,7 +20,7 @@ returned value of a function! So you can just call a function as array values
 (so don't store the tip values in separate variables first, but right in the new array) 😉
 */
 
-const bill = [125, 555, 44];
+const bills = [125, 555, 44];
 let tip = 0;
 let tips = [];
 let total = [];
@@ -31,7 +31,7 @@ const calcTip = (bill) => {
     : (tip = (20 * bill) / 100);
 };
 
-bill.map(function (bill) {
+bills.map((bill) => {
   tips.push(calcTip(bill));
   total.push(calcTip(bill) + bill);
 });

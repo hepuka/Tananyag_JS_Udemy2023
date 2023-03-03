@@ -1,4 +1,5 @@
 // Functions Calling Other Functions
+
 function cutFruitPieces(fruit) {
   return fruit * 4;
 }

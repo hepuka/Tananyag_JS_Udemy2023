@@ -6,8 +6,6 @@ Prettier - Coed formattert*/
 'use strict';
 
 ///////////////////////////////////////
-// PROBLEM 1:
-// We work for a company building a smart home thermometer.
 //Our most recent task is this: "Given an array of temperatures of one day,
 //calculate the temperature amplitude. Keep in mind that sometimes there might be a sensor error."
 
@@ -25,9 +23,8 @@ const calcTempAmplitude = function (temps) {
     if (currentTemp > max) max = currentTemp;
     if (currentTemp < min) min = currentTemp;
   }
-  console.log(max, min);
 
-  return max - min;
+  return `Min: ${min}, Max: ${max}, Diff: ${max - min}`;
 };
 
 const amplitude = calcTempAmplitude(temperatures);
@@ -64,6 +61,7 @@ console.log(amplitudeNew);
 ///////////////////////////////////////
 // Debugging with the Console and Breakpoints
 console.log('--------- Debugging with the Console and Breakpoints ---------');
+
 const measureKelvin = () => {
   const measurement = {
     type: 'temp',

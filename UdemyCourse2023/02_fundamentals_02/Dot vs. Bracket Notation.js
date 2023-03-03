@@ -1,4 +1,11 @@
-// Dot vs. Bracket Notation
+const jonas = {
+  firstName: "Jonas",
+  lastName: "Schmedtmann",
+  age: 2022 - 1977,
+  job: "teacher",
+  friends: ["Michael", "Peter", "Steven"],
+};
+
 console.log(jonas.lastName);
 console.log(jonas["lastName"]);
 
@@ -19,6 +26,7 @@ if (jonas[interestedIn]) {
   );
 } */
 
+//további property-k hozzáadása az objektumhoz
 jonas.location = "Portugal";
 jonas["twitter"] = "@jonasschmedtman";
 console.log(jonas);

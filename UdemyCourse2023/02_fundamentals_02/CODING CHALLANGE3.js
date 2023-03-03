@@ -18,7 +18,7 @@ const Mark = {
   mass: 78,
   height: 1.69,
 
-  markBMI: function () {
+  calcBMI: function () {
     return (this.BMI = this.mass / this.height ** 2);
   },
 };
@@ -28,13 +28,13 @@ const John = {
   mass: 92,
   height: 1.95,
 
-  johnBMI: function () {
+  calcBMI: function () {
     return (this.BMI = this.mass / this.height ** 2);
   },
 };
 
-Mark.markBMI();
-John.johnBMI();
+Mark.calcBMI();
+John.calcBMI();
 
 console.log(Mark.BMI, John.BMI);
 

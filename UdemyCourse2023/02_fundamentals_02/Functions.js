@@ -6,11 +6,11 @@
 
 "use strict";
 
-let hasDriversLicense = false;
-//const passTest = true;
+let hasDriverLicense = false;
+const passTest = true;
 
-//if (passTest) hasDriverLicense = true; //csak strick mód bekapcsolására jelez, hogy itt elírás van
-if (hasDriversLicense) console.log("I can drive :D");
+if (passTest) hasDriverLicense = true; //csak strick mód bekapcsolására jelez, hogy itt elírás van
+if (hasDriverLicense) console.log("I can drive :D");
 
 //const interface = "Audio"; //csak strict módba jelez, ogy ez egy foglalt szó
 //const private = 534; //ez is csak strict módban jelez
@@ -32,4 +32,3 @@ console.log(appleJuice);
 
 const appleOrangeJuice = fruitProcessor(2, 4);
 console.log(appleOrangeJuice);
-const num = Number("23");

@@ -1,5 +1,4 @@
-// Object Methods
-const jonas3 = {
+const jonas = {
   firstName: "Jonas",
   lastName: "Schmedtmann",
   birthYeah: 1977,
@@ -8,18 +7,19 @@ const jonas3 = {
   hasDriversLicense: true,
 
   calcAge: function () {
-    this.age = 2022 - this.birthYeah;
+    this.age = new Date().getFullYear() - this.birthYeah;
     return this.age;
   },
 
   getSummary: function () {
     return `${this.firstName} is a ${this.calcAge()}-year old ${
-      jonas3.job
+      jonas.job
     }, and he has ${this.hasDriversLicense ? "a" : "no"} driver's license.`;
   },
 };
 
-jonas3.calcAge();
-console.log(jonas3.getSummary());
+console.log(jonas.calcAge());
 
-console.log(jonas3);
+console.log(jonas.getSummary());
+
+console.log(jonas);
