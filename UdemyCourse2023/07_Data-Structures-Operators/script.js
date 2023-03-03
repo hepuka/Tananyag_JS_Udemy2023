@@ -37,9 +37,12 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
   //ES6 enhanced object literal- egy külső objektumot adok hozzá az objektumhoz
   openingHours: {
     //alaphelyzetben thu:{
+
+    //const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
     [weekdays[3]]: {
       open: 12,
       close: 22,
@@ -142,6 +145,7 @@ const [p = 0, q = 0, r = 0] = [5, 6];
 console.log(p, q, r);
 
 //destructuring Object
+console.log('----------Destructuring Object-------------');
 
 //{}-be kell rakni az objektum tulajdonságait amire szükség van
 const { name, openingHours, categories } = restaurant;

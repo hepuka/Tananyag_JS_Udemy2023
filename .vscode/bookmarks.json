@@ -1,7 +1,7 @@
 {
 	"files": [
 		{
-			"path": "JS/UdemyCourse2023/07_Data-Structures-Operators/script.js",
+			"path": "UdemyCourse2023/07_Data-Structures-Operators/script.js",
 			"bookmarks": [
 				{
 					"line": 10,
@@ -9,94 +9,94 @@
 					"label": "destructuring Arrays"
 				},
 				{
-					"line": 143,
+					"line": 146,
 					"column": 3,
 					"label": "estructuring Object"
 				},
 				{
-					"line": 200,
+					"line": 204,
 					"column": 23,
 					"label": "SPREAD OPERATOR"
 				},
 				{
-					"line": 266,
+					"line": 270,
 					"column": 23,
 					"label": "REST OPERATOR"
 				},
 				{
-					"line": 332,
+					"line": 336,
 					"column": 24,
 					"label": "NULLISH COALESCING OPERATOR"
 				},
 				{
-					"line": 341,
+					"line": 345,
 					"column": 0,
 					"label": "LOGICAL ASSIGNMENT OPERATOR"
 				},
 				{
-					"line": 382,
+					"line": 386,
 					"column": 32,
 					"label": "FOR-OF LOOP"
 				},
 				{
-					"line": 403,
+					"line": 407,
 					"column": 19,
 					"label": "ENHANCED OBJECT LITERALS"
 				},
 				{
-					"line": 415,
+					"line": 419,
 					"column": 38,
 					"label": "OPTIONAL CHAINING"
 				},
 				{
-					"line": 524,
+					"line": 528,
 					"column": 26,
 					"label": "SETS"
 				},
 				{
-					"line": 578,
+					"line": 582,
 					"column": 24,
 					"label": "MAPS FUNDAMENTAL"
 				},
 				{
-					"line": 644,
+					"line": 648,
 					"column": 24,
 					"label": "MAPS ITERATION"
 				},
 				{
-					"line": 690,
+					"line": 694,
 					"column": 24,
 					"label": "WHICH DATASTUCRURE TO USE"
 				},
 				{
-					"line": 694,
+					"line": 698,
 					"column": 24,
 					"label": "Working With Strings - Part 1"
 				},
 				{
-					"line": 748,
+					"line": 752,
 					"column": 24,
 					"label": "Working With Strings - Part 2"
 				},
 				{
-					"line": 892,
+					"line": 896,
 					"column": 21,
 					"label": "Coding Challenge1"
 				},
 				{
-					"line": 1018,
+					"line": 1022,
 					"column": 20,
 					"label": "Coding Challenge2"
 				},
 				{
-					"line": 1174,
+					"line": 1178,
 					"column": 30,
 					"label": "String Methods Practice"
 				}
 			]
 		},
 		{
-			"path": "JS/UdemyCourse2023/06_Behind the scenes/script.js",
+			"path": "UdemyCourse2023/07_Data-Structures-Operators/script.js",
 			"bookmarks": [
 				{
 					"line": 1,
@@ -131,82 +131,7 @@
 			]
 		},
 		{
-			"path": "JS/UdemyCourse2023/01_fundamentals_01/script.js",
-			"bookmarks": [
-				{
-					"line": 1,
-					"column": 3,
-					"label": "Math operators"
-				},
-				{
-					"line": 14,
-					"column": 3,
-					"label": "Assignment operators"
-				},
-				{
-					"line": 23,
-					"column": 3,
-					"label": "Comparison operators"
-				},
-				{
-					"line": 32,
-					"column": 3,
-					"label": "Operator Precedence"
-				},
-				{
-					"line": 69,
-					"column": 3,
-					"label": "Strings and Template Literals"
-				},
-				{
-					"line": 93,
-					"column": 21,
-					"label": "if / else Statements"
-				},
-				{
-					"line": 113,
-					"column": 3,
-					"label": "type conversion "
-				},
-				{
-					"line": 123,
-					"column": 3,
-					"label": "type coercion "
-				},
-				{
-					"line": 132,
-					"column": 3,
-					"label": "Truthy and Falsy Values"
-				},
-				{
-					"line": 159,
-					"column": 3,
-					"label": "Equality Operators"
-				},
-				{
-					"line": 190,
-					"column": 3,
-					"label": "Logical Operators"
-				},
-				{
-					"line": 249,
-					"column": 7,
-					"label": "switch Statement"
-				},
-				{
-					"line": 290,
-					"column": 3,
-					"label": "Statements and Expressions"
-				},
-				{
-					"line": 302,
-					"column": 20,
-					"label": "Ternary Operator"
-				}
-			]
-		},
-		{
-			"path": "JS/UdemyCourse2023/02_fundamentals_02/script.js",
+			"path": "UdemyCourse2023/07_Data-Structures-Operators/script.js",
 			"bookmarks": [
 				{
 					"line": 1,
@@ -281,7 +206,7 @@
 			]
 		},
 		{
-			"path": "JS/UdemyCourse2023/03_Developer Skills, Editor Setup/script.js",
+			"path": "UdemyCourse2023/07_Data-Structures-Operators/script.js",
 			"bookmarks": [
 				{
 					"line": 64,
@@ -296,7 +221,7 @@
 			]
 		},
 		{
-			"path": "JS/UdemyCourse2023/08_A Closer Look at Functions/script.js",
+			"path": "UdemyCourse2023/07_Data-Structures-Operators/script.js",
 			"bookmarks": [
 				{
 					"line": 2,
@@ -356,7 +281,7 @@
 			]
 		},
 		{
-			"path": "JS/UdemyCourse2023/09.Arrays-Bankist/script.js",
+			"path": "UdemyCourse2023/07_Data-Structures-Operators/script.js",
 			"bookmarks": [
 				{
 					"line": 2,
@@ -471,7 +396,7 @@
 			]
 		},
 		{
-			"path": "JS/UdemyCourse2023/10_Numbers-Dates-Timers-Bankist/script.js",
+			"path": "UdemyCourse2023/07_Data-Structures-Operators/script.js",
 			"bookmarks": [
 				{
 					"line": 2,
@@ -536,7 +461,7 @@
 			]
 		},
 		{
-			"path": "JS/UdemyCourse2023/11_Advanced-DOM-Bankist/script.js",
+			"path": "UdemyCourse2023/07_Data-Structures-Operators/script.js",
 			"bookmarks": [
 				{
 					"line": 13,
@@ -591,7 +516,7 @@
 			]
 		},
 		{
-			"path": "JS/UdemyCourse2023/12_OOP/script.js",
+			"path": "UdemyCourse2023/07_Data-Structures-Operators/script.js",
 			"bookmarks": [
 				{
 					"line": 1,
@@ -696,7 +621,7 @@
 			]
 		},
 		{
-			"path": "JS/UdemyCourse2023/14_Asynchronous/script.js",
+			"path": "UdemyCourse2023/07_Data-Structures-Operators/script.js",
 			"bookmarks": [
 				{
 					"line": 5,
@@ -761,7 +686,7 @@
 			]
 		},
 		{
-			"path": "JS/UdemyCourse2023/15_ModernJSModulesTooling/script.js",
+			"path": "UdemyCourse2023/07_Data-Structures-Operators/script.js",
 			"bookmarks": [
 				{
 					"line": 0,
@@ -782,6 +707,16 @@
 					"line": 112,
 					"column": 19,
 					"label": "CommonJS Modules"
+				}
+			]
+		},
+		{
+			"path": "UdemyCourse2023/07_Data-Structures-Operators/script.js",
+			"bookmarks": [
+				{
+					"line": 143,
+					"column": 2,
+					"label": "destructuring Object"
 				}
 			]
 		}
