@@ -1,0 +1,16 @@
+console.log('------CommonJS Modules------');
+
+//NPM rendszerben való exportálás és importálás szintaxisa
+
+/* 
+
+Export
+export.addTocart = function (product, quantity) {
+    cart.push({ product, quantity });
+    console.log(
+      `${quantity} ${product} added to cart (sipping cost is ${shippingCost})`
+    );
+  };
+  
+  Import
+  const { addTocart } = require('./shoppingCart.js'); */
