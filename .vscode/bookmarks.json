@@ -1,97 +1,12 @@
 {
 	"files": [
 		{
-			"path": "UdemyCourse2023/07_Data-Structures-Operators/script.js",
+			"path": "UdemyCourse2023/07_Data-Structures-Operators/18.Coding Challenge1.js",
 			"bookmarks": [
 				{
-					"line": 10,
-					"column": 2,
-					"label": "destructuring Arrays"
-				},
-				{
-					"line": 146,
-					"column": 3,
-					"label": "estructuring Object"
-				},
-				{
-					"line": 204,
-					"column": 23,
-					"label": "SPREAD OPERATOR"
-				},
-				{
-					"line": 270,
-					"column": 23,
-					"label": "REST OPERATOR"
-				},
-				{
-					"line": 336,
-					"column": 24,
-					"label": "NULLISH COALESCING OPERATOR"
-				},
-				{
-					"line": 345,
-					"column": 0,
-					"label": "LOGICAL ASSIGNMENT OPERATOR"
-				},
-				{
-					"line": 386,
-					"column": 32,
-					"label": "FOR-OF LOOP"
-				},
-				{
-					"line": 407,
-					"column": 19,
-					"label": "ENHANCED OBJECT LITERALS"
-				},
-				{
-					"line": 419,
-					"column": 38,
-					"label": "OPTIONAL CHAINING"
-				},
-				{
-					"line": 528,
-					"column": 26,
-					"label": "SETS"
-				},
-				{
-					"line": 582,
-					"column": 24,
-					"label": "MAPS FUNDAMENTAL"
-				},
-				{
-					"line": 648,
-					"column": 24,
-					"label": "MAPS ITERATION"
-				},
-				{
-					"line": 694,
-					"column": 24,
-					"label": "WHICH DATASTUCRURE TO USE"
-				},
-				{
-					"line": 698,
-					"column": 24,
-					"label": "Working With Strings - Part 1"
-				},
-				{
-					"line": 752,
-					"column": 24,
-					"label": "Working With Strings - Part 2"
-				},
-				{
-					"line": 896,
+					"line": 29,
 					"column": 21,
 					"label": "Coding Challenge1"
-				},
-				{
-					"line": 1022,
-					"column": 20,
-					"label": "Coding Challenge2"
-				},
-				{
-					"line": 1178,
-					"column": 30,
-					"label": "String Methods Practice"
 				}
 			]
 		},
