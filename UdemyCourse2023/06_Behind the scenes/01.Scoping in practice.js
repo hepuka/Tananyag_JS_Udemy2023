@@ -1,8 +1,5 @@
-///////////////////////////////////////
-// Scoping in Practice
 'use strict';
 /*
-
 - scope chain - a szülő elemek felé (a kódban felfele lévő) látja a változókat, de a gyerekfelé nem
 - a js az adott blokkon vagy függvényen belül keresi a változót, ha nem talál akkor egyel feljebb a szülőscope-ban keresi
 
@@ -52,7 +49,7 @@ function calcAge(birthYear) {
 }
 
 const firstName = 'Jonas';
-calcAge(1982);
+calcAge(1977);
 
 //console.log(age); itt már nem tudok az age-re hivatkozni
 //printAge(); itt már nem tudok az age-re hivatkozni
