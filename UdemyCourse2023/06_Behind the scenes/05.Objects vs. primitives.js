@@ -1,5 +1,5 @@
-///////////////////////////////////////
-// Objects vs. primitives
+
+
 console.log('-------------Objects vs. primitives-------');
 let age = 30;
 let oldAge = age; //30-ad vissza mert a felülírás cask ezután történik

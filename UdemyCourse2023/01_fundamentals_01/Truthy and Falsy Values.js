@@ -2,16 +2,17 @@
 // HAMISNAK, false-nak MINŐSÜLŐ ÉRTÉKEK
 // undefined, null, 0, '', NaN
 
-console.log(Boolean(0));
 console.log(Boolean(undefined));
 console.log(Boolean(null));
-console.log(Boolean(NaN));
+console.log(Boolean(0));
 console.log(Boolean(""));
+console.log(Boolean(NaN));
 
 console.log(Boolean("Jonas"));
 console.log(Boolean({}));
 
-const money = 100;
+let money=1;
+
 if (money) {
   console.log("Don't spend it all!");
 } else {
