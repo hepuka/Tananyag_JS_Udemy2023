@@ -1,11 +1,10 @@
-console.log('-------------Setters and Getters------------');
-
 const account = {
   owner: 'Jonas',
   movements: [200, 530, 120, 300],
 
   get latest() {
-    return this.movements.slice(-1).pop();
+   // return this.movements.slice(-1).pop();
+    return this.movements[this.movements.length-1]
   },
 
   set latest(mov) {
