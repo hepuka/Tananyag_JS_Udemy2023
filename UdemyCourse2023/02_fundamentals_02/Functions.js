@@ -32,3 +32,28 @@ console.log(appleJuice);
 
 const appleOrangeJuice = fruitProcessor(2, 4);
 console.log(appleOrangeJuice);
+
+
+//kerület,terület számítás
+
+const teglalapKeruletTerulet = (a,b,funkcio) =>{
+
+  let eredmeny;
+
+  if(funkcio==="kerulet"){
+
+    eredmeny = (a+b)*2
+
+  }else if(funkcio === "terulet"){
+
+    eredmeny=a*b;
+
+  }else{
+
+   return "Hibás funkciót adtál meg!"
+  }
+
+  return `${funkcio} = ${eredmeny}`;
+}
+
+console.log(teglalapKeruletTerulet(2,4,"terulet"))
