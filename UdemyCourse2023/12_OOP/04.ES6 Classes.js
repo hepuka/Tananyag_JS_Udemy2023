@@ -7,10 +7,9 @@ class PersonCl {
     this.birthYear = birthYear;
   }
 
-  // Instance methods
-  // Methods will be added to .prototype property
+  // Instance methods.Methods will be added to .prototype property
   calcAge() {
-    console.log(2022 - this.birthYear);
+    console.log(new Date().getFullYear() - this.birthYear);
   }
 
   greet() {
@@ -18,7 +17,6 @@ class PersonCl {
   }
 
   get age() {
-
     return new Date().getFullYear() - this.birthYear;
   }
 
@@ -46,11 +44,12 @@ const jessica = new PersonCl('Jessica Davis', 1977);
 const petike = new PersonCl('Majoros Peter', 2005);
 
 console.log(petike);
-
 petike.calcAge();
+
 console.log(jessica);
-jessica.calcAge();
-console.log(jessica.age);
+jessica.calcAge(); //függvénnyel kérdeztem le
+console.log(jessica.age); //getter-el kérdeztem le
+console.log(jessica.fullName); //getter-el kérdeztem le
 console.log(jessica.__proto__ === PersonCl.prototype);
 
 PersonCl.hey();
