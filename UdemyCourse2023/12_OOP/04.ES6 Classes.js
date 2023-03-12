@@ -18,7 +18,7 @@ class PersonCl {
   }
 
   get age() {
-    po-*
+
     return 2022 - this.birthYear;
   }
 
