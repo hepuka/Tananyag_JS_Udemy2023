@@ -19,7 +19,7 @@ class PersonCl {
 
   get age() {
 
-    return 2022 - this.birthYear;
+    return new Date().getFullYear() - this.birthYear;
   }
 
   get fullName() {

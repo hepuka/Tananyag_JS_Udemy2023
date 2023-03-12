@@ -10,7 +10,7 @@ const Person = function (firstName, birthYear) {
 
 console.log(Person.prototype);
 
-//Itt készítünk egy prototype metódust a Person osztálynak
+//Itt készítünk egy prototype metódust a Person osztálynak, hogy az osztály példányai megörökölhessék
 //minden példányra meghívható ami a Person osztályból készült, nem kell
 Person.prototype.calcAge = function () {
   console.log(2022 - this.birthYear);
