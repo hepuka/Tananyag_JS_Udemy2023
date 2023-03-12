@@ -4,7 +4,6 @@ const lufthansa = {
   airline: 'Lufthansa',
   iataCode: 'LH',
   bookings: [],
-  // book: function() {}
   book(flightNum, name) {
     console.log(
       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
@@ -23,18 +22,15 @@ const eurowings = {
 };
 
 //a lufthansa objektum book metódusát szedtem ki és mentettem el egy változóba
-const book = lufthansa.book;
+//const book = lufthansa.book;
 
-// Does NOT work
-//book(23, 'Sarah Williams');
-
-// Call method
-//ezzel a metódussal tudom meghívni egy objektum metódusát egy másik objektumra
-//változónév amibe kimentettem az objektum metódustát, majd call éen ennek argumentumaként megadni a másik objektum nevét, amire hívni akarjuk, majd megadni az argumentumokat
-book.call(eurowings, 23, 'Sarah Williams');
+// Call method, ezzel a metódussal tudom meghívni egy objektum metódusát egy másik objektumra
+//változónév amibe kimentettem az objektum metódustát, majd call és ennek argumentumaként megadni a másik objektum nevét, amire hívni akarjuk, majd megadni az argumentumokat
+lufthansa.book.call(eurowings, 23, 'Sarah Williams');
 console.log(eurowings);
 
-book.call(lufthansa, 239, 'Mary Cooper');
+//az obejktum saját metódusánál nem kell a call
+lufthansa.book(240, 'Mary Cooper');
 console.log(lufthansa);
 
 const swiss = {
@@ -43,17 +39,16 @@ const swiss = {
   bookings: [],
 };
 
-book.call(swiss, 583, 'Mary Cooper');
-
+lufthansa.book.call(swiss, 500, 'Mary Cooper');
 console.log(swiss);
 
-// Apply method
-const flightData = [583, 'George Cooper'];
-const flightData2 = [533, 'George Harrison'];
+// Apply method = SPREAD operátor
+const flightData = [600, 'George Cooper'];
+const flightData2 = [700, 'George Harrison'];
 
-//apply metódussal egy tömben lévő elemeket adhatunk át a book metódusnak
-book.apply(swiss, flightData);
+//apply metódussal a tömben lévő elemeket adjuk át egy metódusnak mint argumentum
+//call metódussal egyenként kell megadni az argumentumokat
+lufthansa.book.apply(swiss, flightData);
 
-//itt is a spread operátorral egy tömböt adunk át a book mentódusnak
-//ez esetben a call-nél használni kell a spread operátort
-book.call(swiss, ...flightData2);
+//ha a call metódusra akarjuk használni a tömbös megoldást és nem egyenként megadni az argumentumokat akkor spread opoerátort kell használni
+lufthansa.book.call(swiss, ...flightData2);

@@ -1,19 +1,29 @@
 console.log('---------Bind Method---------');
 
-//book.call(eurowings, 23, 'Sarah Williams');
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
 
-//bind metódust arra tudom használni pl., hogy a const book = lufthansa.book; -al kiszedem az obejktumból a metódust, majd erre a metódura meghívom a bind metódust és átadom nekii azt a z objektumot amire szeretném használni, végül mindezt elmentem egy változóba(bookEW). Ezután már ezt a bookEW-t tudom használni mint metódus és ennek megadni az argumentumokat
+//egy objektum metódusára meghívom a bind metódust és átadom neki azt a másik objektumot amire szeretném használni később, végül mindezt elmentem egy változóba(bookEW). Ezután már ezt a bookEW-t tudom használni mint metódus és ennek megadni az argumentumokat
 
 //ez azért is jó, mert ezt at eljárást több objektumra is meghívhatom, pl.: lufthansa, swiss
-const bookEW = book.bind(eurowings);
-const bookLH = book.bind(lufthansa);
-const bookLX = book.bind(swiss);
+const bookEW = lufthansa.book.bind(eurowings);
+const bookLH = lufthansa.book.bind(lufthansa);
+const bookLX = lufthansa.book.bind(swiss);
 
 bookEW(23, 'Steven Williams');
 bookLH(512, 'John Doe');
 
-const Mickey = [123, 'Mickey Mouse'];
 //bind-nál is működik, hogy a spread operátorral egy tömböt adunk át ami tartalmazza az argumentumokat
+const Mickey = [123, 'Mickey Mouse'];
 bookLX(...Mickey);
 
 //ez esetben elődefiniáltuk, hogy a bookEW23 metódus csak a 23-as számú járatra foglal helyet a eurowingnek. A nevet később adom meg mint különálló argumentum
