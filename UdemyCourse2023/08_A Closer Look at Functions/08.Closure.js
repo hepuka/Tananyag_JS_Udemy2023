@@ -104,7 +104,6 @@ nyugdij(65)(1977);
 //a függvény ismételten létrehozza a változót
 function leptetrossz() {
   let szamlalo = 0;
-
   szamlalo++;
   console.log(szamlalo);
 }
@@ -112,7 +111,6 @@ function leptetrossz() {
 //ez a megoldás sem jó
 function leptetrossz2() {
   let szamlalo = 0;
-
   function hozzaad() {
     szamlalo++;
   }
@@ -122,7 +120,6 @@ function leptetrossz2() {
 }
 
 //closure-ként működik, a fenti szabály miatt.
-
 //1.verzió
 function leptet() {
   let szamlalo = 0;
@@ -134,7 +131,6 @@ function leptet() {
 }
 
 //2.verzió
-
 //névtelen függvényt írunk, így ez egy kifejezés lesz
 let hozzaad = (function () {
   let szamlalo = 0;
@@ -145,19 +141,15 @@ let hozzaad = (function () {
   };
 })();
 
-/* leptetrossz();
-leptetrossz();
-leptetrossz();
-
-leptetrossz2();
-leptetrossz2();
-leptetrossz2(); */
-
+//1.verzió hívása
 let novel = leptet();
 novel();
 novel();
 novel();
 
+//2.verzió hívása
+hozzaad();
+hozzaad();
 hozzaad();
 hozzaad();
 hozzaad();
