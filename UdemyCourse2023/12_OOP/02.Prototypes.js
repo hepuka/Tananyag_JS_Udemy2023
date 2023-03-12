@@ -1,5 +1,13 @@
 console.log('----------Prototypes----------');
 
+const Person = function (firstName, birthYear) {
+  // Instance properties
+
+  //this a Person class-ra mutat
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
 console.log(Person.prototype);
 
 //Itt készítünk egy prototype metódust a Person osztálynak
@@ -7,6 +15,9 @@ console.log(Person.prototype);
 Person.prototype.calcAge = function () {
   console.log(2022 - this.birthYear);
 };
+
+const jonas = new Person('Jonas', 1977);
+const matilda = new Person('Matilda', 1981);
 
 jonas.calcAge();
 matilda.calcAge();
