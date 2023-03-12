@@ -1,4 +1,5 @@
 console.log('------Immediately Invoked Function Expressions (IIFE)--------');
+//azonnal meghívásra kerülő függvény kifejezések
 
 const runOnce = function () {
   console.log('This will never run again');
@@ -24,3 +25,14 @@ runOnce();
 
 //vat függvényszintű innen is látható
 console.log(notPrivate);
+
+//VARGAJS
+//azonnal meghívódó név nélküli függvény, ezért kel ()-be rakni az egész függvényt
+
+//a js nem utasításként hanem kifejezésként kezeli
+(function (teszt) {
+  let pont = Math.random() * 10; // 0-9 közötti szám generálása
+
+  console.log(pont >= 5);
+  console.log(teszt);
+})('Itt adom át a szöveget a függvénynek');

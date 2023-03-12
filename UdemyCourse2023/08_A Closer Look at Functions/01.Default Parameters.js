@@ -1,6 +1,7 @@
 'use strict';
 
 console.log('-----------Default Parameters------------');
+
 //ES6
 const bookings = [];
 
@@ -14,7 +15,7 @@ const createBooking = function (
   // numPassengers = numPassengers || 1;
   // price = price || 199;
 
-  //készítünk egy obejktumot a bejövő értékekből és azt eltároljuk egy tömben
+  //készítünk egy objektumot a bejövő értékekből és azt eltároljuk egy tömben
   const booking = {
     /*     flightNum: flightNum,
     numPassengers: numPassengers,
@@ -27,13 +28,14 @@ const createBooking = function (
     price,
   };
 
-  console.log(booking);
   bookings.push(booking);
 };
 
 createBooking('LH123');
 createBooking('LH123', 2);
 createBooking('LH123', 2, 800);
+
+console.log(bookings);
 
 //undefined-et kell használni ha valamelyik paramétert nem akarjuk megváltoztatni
 //itt az elsőnek és a harmadiknak szeretnénk csak értéket adni, a másodikat az alapértelmezetten szeretnénk hagyni
