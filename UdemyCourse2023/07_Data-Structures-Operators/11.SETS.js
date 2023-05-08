@@ -1,4 +1,3 @@
-///////////////////////////////////////
 console.log('-------------SETS----------------');
 
 //egyedi értékek kollekciója
@@ -15,15 +14,26 @@ const ordersSet = new Set([
   'Pizza',
 ]);
 console.log(ordersSet);
+
+//forEach használata Set-hez
+ordersSet.forEach(item => {
+  console.log(item);
+});
+
 console.log(new Set('Jonas'));
+
 console.log(ordersSet.size);
-console.log(ordersSet.has('Pizza')); //tru vagy false-al tér vissza, attól függően, hogy benne van-e a keresett érték a set-ben
+
+console.log(ordersSet.has('Pizza')); //true vagy false-al tér vissza, attól függően, hogy benne van-e a keresett érték a set-ben
 console.log(ordersSet.has('Bread'));
+
 ordersSet.add('Garlic Bread'); //hozzáaadunk egy új értéket a set-hez
 ordersSet.add('Garlic Bread'); //ezt már figyelmen kívül hagyja mert már hozzáadtuk
 console.log(ordersSet);
+
 ordersSet.delete('Risotto'); //törli a megadott elemet a set-ből
 console.log(ordersSet);
+
 // ordersSet.clear(); törli a teljes set-et
 
 //FOR-OF használható a set-ben
@@ -38,11 +48,9 @@ const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
 const staffUnique = new Set(staff);
 console.log(staffUnique);
 
-//konverzió set-ből tömböt, SPREAD operátorral
+//konverzió set-ből tömböt, SPREAD operátorral. Igy már eltudjuk érni az elemeket az indexxel. A Set nem indexelt, így a setből tömböt kell csinálni
 const staffUniqueArray = [...new Set(staff)];
 console.log(staffUniqueArray);
-
-//itt már eltudjuk érni az elemeket az indexxel. A Set nem indexelt, így a setből tömböt kell csinálni
 console.log(staffUniqueArray[1]);
 
 //visszaadja hány különböző elem van a tömbben

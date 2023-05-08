@@ -42,3 +42,33 @@ console.log(bookings);
 createBooking('LH123', undefined, 1000);
 
 console.log(bookings);
+
+///////Default parameters in function
+
+function add(x = 5, y = 5) {
+  return x + y;
+}
+console.log(add());
+console.log(add(2, 2));
+
+/////
+function addName(name = 'admin', hobby = 'programming') {
+  console.log(`The name is ${name} and the bobby is ${hobby}`);
+}
+addName('Hepuka', 'football');
+
+//////
+//objektum elemei függvények
+
+let person = {
+  name() {
+    return 'Hepuka';
+  },
+
+  age() {
+    return 46;
+  },
+};
+
+console.log(person.name());
+console.log(person.age());

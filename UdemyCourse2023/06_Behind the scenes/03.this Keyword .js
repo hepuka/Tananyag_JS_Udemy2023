@@ -54,3 +54,19 @@ matilda.calcAge(); //this arra az objektumra mutat amelyet a metódus hív. ez n
 //hibát ad
 const f = jonas.calcAge;
 //f(); ez egy reguláris függvényhívás és nem egy objektumhoz hozzáaadott metódus. Nincs neki tulajdonosa
+
+///this használata függvény a függvényben
+let persons = {
+  name: 'John',
+  hobbies: ['prog', 'skii', 'football'],
+  printHobbies: function () {
+    let _this = this;
+
+    this.hobbies.forEach(item => {
+      let str = `${_this.name} likes ${item}`;
+      console.log(str);
+    });
+  },
+};
+
+persons.printHobbies();

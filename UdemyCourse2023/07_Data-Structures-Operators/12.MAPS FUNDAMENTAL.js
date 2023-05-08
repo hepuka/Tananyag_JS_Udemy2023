@@ -29,10 +29,28 @@ rest
 
 console.log(rest);
 
-//MAP lekérdező metódusa a GET
+//függvény mint kulcs
+let person = new Map();
+person.set(function print() {
+  console.log('hey');
+}, 'Awais');
+
+//két tömb a Map-ben
+let persons = new Map([['awais'], [new Date(), 'today']]);
+console.log(persons);
+
+console.log(rest.name); //undefined, így nem lehet lekérdezni a Map elemeit
+
+//MAP lekérdező metódusát a GET-et kell használni
 console.log(rest.get('name'));
 console.log(rest.get(true));
 console.log(rest.get(1));
+
+//csak a kulcsokat adja vissza
+console.log(rest.keys());
+
+//csak az értékeket adja vissza
+console.log(rest.values());
 
 //példa a boolean típusú kulcsra
 const time = 14;
