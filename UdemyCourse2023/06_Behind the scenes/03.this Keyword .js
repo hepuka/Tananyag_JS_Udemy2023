@@ -60,13 +60,22 @@ let persons = {
   name: 'John',
   hobbies: ['prog', 'skii', 'football'],
   printHobbies: function () {
-    let _this = this;
+    this.hobbies.forEach(
+      function (hobby) {
+        let str = this.name + ' likes ' + hobby;
+        console.log(str);
+      }.bind(this)
+    );
+  },
 
-    this.hobbies.forEach(item => {
-      let str = `${_this.name} likes ${item}`;
+  //arrowfunction-al egyszerűbb a this használata
+  printHobbiesWithArrow() {
+    this.hobbies.forEach(hobby => {
+      let str = this.name + ' likes ' + hobby;
       console.log(str);
     });
   },
 };
 
 persons.printHobbies();
+persons.printHobbiesWithArrow();
