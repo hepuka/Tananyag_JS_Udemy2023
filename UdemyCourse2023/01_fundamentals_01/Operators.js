@@ -116,11 +116,85 @@ if (hasDriversLicense && hasGoodVision && isTired) {
   console.log("Someone else should drive...");
 }
 
-//It returns the value of the first operand if it evaluates to false. Otherwise, it returns the value of the second operand.
-console.log(1 && 0);
-console.log(1 && 6);
+//AND operator returns the value of the first operand if it evaluates to false. Otherwise, it returns the value of the second operand.
+
+//falsy values: undefined, null, NaN, 0, "",false
+
+console.log(1 && 8);
+console.log(0 && 6);
 console.log(NaN && 1);
+console.log(NaN && undefined);
 
 //Operator && can be used in code chains.
 console.log(1 && "str" && null);
 console.log(1 && null && "str");
+
+//OR operator returns the value of the first operand if it evaluates to true. Otherwise, returns the value of the second operand.
+console.log(1 || 0);
+console.log(1 || 6);
+console.log(0 || 6); // because the 0  is a falsy value
+
+//Operator || can be used in code chains.
+console.log(1 || "str" || null);
+
+//NOT operator
+console.log(!true);
+console.log(!0);
+
+//Double NOT is used to convert values to boolean type:
+console.log(!!"non-empty string");
+console.log(!null);
+console.log(!!null);
+
+//Priority of Operators
+let b = 3;
+let c = 5;
+let d = ++b + c++;
+console.log(d);
+
+//Boolean Conversions
+
+let aa = "5";
+let bb = "";
+
+//If the string is empty returns false; otherwise — true.
+console.log(Boolean(aa));
+console.log(Boolean(bb));
+
+let aaa = 5;
+let bbb = 0;
+
+//If a number is +0, -0, or NaN, then returns false; otherwise — true.
+console.log(!!aaa);
+console.log(!!bbb);
+
+let undef = undefined;
+console.log(Boolean(undef));
+
+let n = null;
+console.log(Boolean(n));
+
+let s = Symbol(a);
+console.log(Boolean(s));
+
+let bigint = 0n;
+let bigint2 = 2358543784542n;
+console.log(Boolean(bigint));
+console.log(Boolean(bigint2));
+
+let obj = { id: "b", date: 245 };
+console.log(Boolean(obj));
+
+//Convert to number
+let a1 = undefined;
+let b1 = NaN;
+let c1 = "7";
+let d1 = null;
+let e1 = true;
+let f1 = false;
+console.log(Number(a1));
+console.log(Number(b1));
+console.log(Number(c1));
+console.log(Number(d1));
+console.log(Number(e1));
+console.log(Number(f1));
