@@ -1,6 +1,38 @@
+let a = 5;
+
+console.log(a++);
+console.log(++a);
+
+console.log(0 == 0);
+console.log(0 === 0);
+
+console.log(0 == "0");
+console.log(0 === "0");
+console.log(0 !== "0");
+
+//When comparing in JS, some data types are not converted to numeric type. So, the value undefined is compared with other values:
+console.log(undefined === 0);
+console.log(undefined > 0);
+console.log(undefined < 0);
+console.log(undefined == 0);
+
+//When applying the equality operator "==" to null or undefined, there is no numerical conversion because null can only be equal to null or undefined, and nothing else.
+console.log(null == null);
+console.log(null == undefined);
+console.log(undefined == true);
+
+console.log(null == "a");
+console.log(null == 5);
+console.log(null == true);
+console.log(null == false);
+
+//NaN is not equal to anything, even to itself.
+console.log(NaN == NaN);
+console.log(NaN === NaN);
+
 // Basic Operators
 // Math operators
-const now = 2037;
+const now = new Date().getFullYear();
 const ageJonas = now - 1991;
 const ageSarah = now - 2018;
 console.log(ageJonas, ageSarah);
@@ -78,8 +110,17 @@ console.log(!hasDriversLicense);
 const isTired = false; // C
 console.log(hasDriversLicense && hasGoodVision && isTired);
 
-if (hasDriversLicense && hasGoodVision && !isTired) {
+if (hasDriversLicense && hasGoodVision && isTired) {
   console.log("Sarah is able to drive!");
 } else {
   console.log("Someone else should drive...");
 }
+
+//It returns the value of the first operand if it evaluates to false. Otherwise, it returns the value of the second operand.
+console.log(1 && 0);
+console.log(1 && 6);
+console.log(NaN && 1);
+
+//Operator && can be used in code chains.
+console.log(1 && "str" && null);
+console.log(1 && null && "str");

@@ -25,9 +25,9 @@ Apply this to the team's average scores
 const avg = (num1, num2, num3) => {
   return (num1 + num2 + num3) / 3;
 };
-
 const dolphinsScore = avg(85, 54, 41);
 const koalasScore = avg(23, 34, 27);
+console.log(dolphinsScore, koalasScore);
 
 function checkWinner(avgDolhins, avgKoalas) {
   if (avgDolhins >= avgKoalas * 2) {
