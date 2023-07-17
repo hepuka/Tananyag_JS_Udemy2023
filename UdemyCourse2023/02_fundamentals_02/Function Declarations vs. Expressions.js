@@ -17,3 +17,20 @@ const calcAge2 = function (birthYeah) {
 const age2 = calcAge2(1991);
 
 console.log(age1, age2);
+
+//hoisting only for function declaration works
+//Hoisting doesn't work for function expression
+// console.log("Result ", calcSum(2, 3));
+let calcSum = function (a, b) {
+  return a + b;
+};
+
+function showName(firstName, secondName) {
+  console.log("First Name - ", firstName);
+  if (secondName == undefined) {
+    console.log("Second name is not specified");
+  } else {
+    console.log("Second Name - ", secondName);
+  }
+}
+showName("John");
