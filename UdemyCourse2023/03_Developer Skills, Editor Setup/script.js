@@ -12,23 +12,19 @@ Prettier - Coed formattert*/
 const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
 
 const calcTempAmplitude = function (temps) {
-  let max = temps[0]; //feltételezzük, hogy a 0. elem a legnagyobb, ehhez viszonyítunk
-  let min = temps[0]; //feltételezzük, hogy a 0.elem a legkisebb, ehhez viszonyítunk
+  let max = 0;
+  let min = 0;
 
   for (let i = 0; i < temps.length; i++) {
-    const currentTemp = temps[i]; //az aktuális i-t mindig kitesszük egy változóba, így könnyebb
+    if (typeof temps[i] !== 'number') continue; //kizárjuk a nem number típusúakat
 
-    if (typeof currentTemp !== 'number') continue; //kizárjuk a nem number típusúakat
-
-    if (currentTemp > max) max = currentTemp;
-    if (currentTemp < min) min = currentTemp;
+    if (temps[i] > max) max = temps[i];
+    if (temps[i] < min) min = temps[i];
   }
 
   return `Min: ${min}, Max: ${max}, Diff: ${max - min}`;
 };
-
-const amplitude = calcTempAmplitude(temperatures);
-console.log(amplitude);
+console.log(calcTempAmplitude(temperatures));
 
 // PROBLEM 2:
 // Function should now receive 2 arrays of temps, Just merge two arrays
@@ -54,36 +50,24 @@ const calcTempAmplitudeNew = function (t1, t2) {
   console.log(max, min);
   return max - min;
 };
+console.log(calcTempAmplitudeNew(t1, t2));
 
-const amplitudeNew = calcTempAmplitudeNew(t1, t2);
-console.log(amplitudeNew);
+////////////////////////////Debugging with the Console and Breakpoints/////////////////////////////
 
-///////////////////////////////////////
-// Debugging with the Console and Breakpoints
-console.log('--------- Debugging with the Console and Breakpoints ---------');
-
-const measureKelvin = () => {
+const measureKelvin = value => {
   const measurement = {
     type: 'temp',
     unit: 'celsius',
     // value: Number(prompt('Degrees celsius:')), Number nélkül BUG keletkezik....prompt stringként kezeli a megadott értéket
-    value: 10,
+    value: value,
   };
 
-  console.table(measurement);
-
-  // console.log(measurement.value);
-  // console.warn(measurement.value);
-  // console.error(measurement.value);
-
-  return measurement.value + 273;
+  return measurement.value + 273.15 + ' Kelvin ';
 };
+console.log(measureKelvin(10));
 
-console.log(measureKelvin());
+//////////////////////////////////////Using a debugger//////////////////////////////////////
 
-console.log('--------- Using a debugger ---------');
-
-// Using a debugger
 const calcTempAmplitudeBug = function (t1, t2) {
   //chrome, source fül, megnyitni a js fájlt, töréspontot elhelyezni, elemezni sorról-sorra
   const temps = t1.concat(t2);
@@ -103,9 +87,7 @@ const calcTempAmplitudeBug = function (t1, t2) {
   console.log(max, min);
   return max - min;
 };
-const amplitudeBug = calcTempAmplitudeBug([3, 5, 1], [9, 4, 5]);
-
-console.log(amplitudeBug);
+console.log(calcTempAmplitudeBug([3, 5, 1], [9, 4, 5]));
 
 ///////////////////////////////////////
 // Coding Challenge #1
@@ -143,7 +125,7 @@ const printForecast = arr => {
     out += `${arr[i]}C in ${i + 1} days ... `;
   }
 
-  console.log(`...${out}`);
+  return `...${out}`;
 };
 
-printForecast(forecasted);
+console.log(printForecast(forecasted));
