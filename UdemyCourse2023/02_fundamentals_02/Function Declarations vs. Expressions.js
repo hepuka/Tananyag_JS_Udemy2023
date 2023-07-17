@@ -34,3 +34,15 @@ function showName(firstName, secondName) {
   }
 }
 showName("John");
+
+function showName2(firstName = "John", secondName = "default parameterName") {
+  console.log("First Name - ", firstName);
+  console.log("Second Name - ", secondName);
+}
+showName2("William", "Smith");
+showName2("William");
+
+//Self-calling Functions
+(function (name) {
+  console.log("Hello ", name);
+})("Student");

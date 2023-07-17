@@ -1,3 +1,4 @@
 Operators.js
 The for loop.js
 The while loop.js
+function-scope.js
