@@ -1,0 +1,16 @@
+concat()
+reduce(acc, curr)
+push()
+Number.isSafeInteger(n)
+find() a feltétlnek megfelelő első elemmel tér vissza
+
+
+https://www.cuemath.com/sum-of-integers-formula/
+Sum of Integers Formula:
+S = n(a + l)/2
+
+where,
+S = sum of the consecutive integers
+n = number of integers
+a = first term
+l = last term

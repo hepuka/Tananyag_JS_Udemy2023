@@ -1,0 +1,51 @@
+replace()
+includes()
+test() - return /English/i.test(sentence);
+String.fromCharCode(c)
+charCodeAt()
+reduce(acc,curr)
+substring(0, 5)
+endsWith()
+toFixed()
+join()
+map()
+
+split()	                converts the string to an array of strings
+substring(start,end)	returns a part of a string
+slice(start, end)	    returns a part of a string
+
+
+padStart(targetLength, padString)
+    "abc".padStart(10); // "       abc"
+    "abc".padStart(10, "foo"); // "foofoofabc"
+    "abc".padStart(6, "123465"); // "123abc"
+    "abc".padStart(8, "0"); // "00000abc"
+    "abc".padStart(1); // "abc"
+
+
+Regex
+replace(/\s/g, "") - kiszedi a szóközöket a stringből
+replace(/\d/g, "") - kiszedi a számokat a stringből
+
+
+
+
+
+All of methods:
+String length
+String slice()
+String substring()
+String substr()
+String replace()
+String replaceAll()
+String toUpperCase()
+String toLowerCase()
+String concat()
+String trim()
+String trimStart()
+String trimEnd()
+String padStart()
+String padEnd()
+String charAt()
+String charCodeAt()
+String split()

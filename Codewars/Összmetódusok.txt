@@ -1,0 +1,43 @@
+Array
+https://www.w3schools.com/jsref/jsref_obj_array.asp
+filter();
+find();
+indexOf();
+join();
+lastIndexOf();
+map();
+push();
+reduce();
+reverse();
+slice();
+sort();
+
+Number
+parseInt();
+toFixed();
+https://www.w3schools.com/jsref/jsref_obj_number.asp
+
+String
+https://www.w3schools.com/jsref/jsref_obj_string.asp
+charAt();
+indexOf();
+match();
+repeat();
+replace(); /T/g - global replacement ,   /\d/g
+split();
+toLowerCase();
+toUpperCase();
+
+Math
+https://www.w3schools.com/jsref/jsref_obj_math.asp
+abs();
+ceil();
+min();
+max();
+pow();
+sqrt();
+
+split - map - join
+split - map - reverse
+split - reverse - join
+sort - slice - reduce
