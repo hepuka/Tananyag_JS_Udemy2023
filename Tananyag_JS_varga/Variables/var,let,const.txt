@@ -1,0 +1,31 @@
+
+var
+
+- globális vagy fv szintű változó
+- ha kívül a program törzsében hozzuk létre akkor az bárhonnan, a teljes programban elérhető, globális szint
+- ha globálisan hoztuk létre akkor azt egy fv belsejében is használhatjuk
+- azonban ha egy fv-ben hozzuk létre, akkor az csak a fv-ben látszik, kívülről nem látszik
+- nem teszi lehetővé a blokkszintű változó létrehozását, ha egy blokkban hozzuk létre egy változót az kívülről is látszik.
+    Tehát nem lehetséges, hogy egy változó csak a blokk törzsében legyen látható
+- var-al létrehozott változót bárszor újradeklarálhatunk
+
+ES6
+let
+
+-blokkszintű változó, egy adott blokkban létrehozott változó csak abban a blokkban látható
+- let-el létrehozott változót csak egyszer deklarálhatunk globális helyen, ugyanazt újra nem lehet
+- ha egy x változót létrehoztunk globálisan, azt újra használhatjuk blokkban is, mert a kettő nem uyganaz
+
+
+const
+- értéke nem változtatható semmilyen körülmények között
+- const változót NAGYBETU-vel írjuk
+- változó létrehozásakor kötelező neki értéket adni
+- const-ként létrehozott objektumban megváltoztathatom a tulajdonságok értékét
+- const-ként létrehozott objektumhoz hozzá tudok adni újabb tulajdonság-érték párost
+
+
+
+ HAMISNAK MINŐSÜLŐ ÉRTÉKEK
+
+ undefined, null, 0, '', NaN

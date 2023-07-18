@@ -1,0 +1,37 @@
+Number Methods:
+
+toString()	    Returns a number as a string
+toExponetial()	Returns a number written in exponential notation
+toFixed()    	Returns a number written with a number of decimals
+toPrecision()	Returns a number written with a specified length
+ValueOf()	    Returns a number as a number
+
+
+Number.isInteger(10)	                        Returns true if the argument is an integer
+Number.isSafeInteger(12345678901234567890)	    Returns true if the argument is a safe integer
+Number.isNaN("Dave")                            false
+Number.parseFloat("10.33")	                    Converts a string to a number
+Number.parseInt("-10")	                        Converts a string to a whole number
+If the number cannot be converted, NaN (Not a Number) is returned.
+
+Number.parseInt() and Number.parseFloat() are the same as the parseInt() and parseFloat().
+
+Number(mystring)+3; ez esetben a Number számmá konvertálja a mystring értékét ehhez már hozzátudja adni a 3-at, és egy számmal tér vissza
+Number('Zolika'); NaN ad vissza
+
+The Number() method returns the number of milliseconds since 1.1.1970.
+let x = new Date("2022-11-05");
+console.log(x); //result: 1667606400000
+
+Number.MAX_VALUE is a constant representing the largest possible number in JavaScript.
+Number.MIN_VALUE is a constant representing the lowest possible number in JavaScript.
+let x = Number.MAX_VALUE;
+let x = Number.MIN_VALUE;
+
+
+
+
+
+
+
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM weblap</title>
+
+    <link rel="stylesheet" href="dom.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+</head>
+
+<body>
+    <h1>Ez a weblap címsora</h1>
+
+    <div id="div1">
+    <p id="ph1">paragrafusból címsor lett</p>
+    <p id="minta">Ez a mintaszöveg_1</p>
+    <p id="minta2">Ez a mintaszöveg_2</p>
+    </div>
+
+    <button onclick="Háttérváltoztatás('minta','red','white','center','blue')">Módosítás pirosra</button>
+    <button onclick="Háttérváltoztatás('minta','white','black','left','white')">Vissza az alapra</button>
+    <button onclick="módosít()">Módosít!</button>
+    <button id="hmjq">Háttér módosítása jQueryvel!</button>
+    <button id="hmcsso">Háttér módosítása jQuery CSS osztállyal</button>
+    <br>
+
+    <h2>Itt egy lista az ételekről, amiket venned kell</h2>
+    <ul id="listám"><li>Répa</li><li>Kelbimbó</li><li>Padlizsán</li><li>Tofu</li></ul>
+    <button onclick="listamódosítása()">A lista módosítása</button>
+    <br><br>
+    <hr>
+
+    <h2>Szövegmező</h2>
+    Név:
+    <input id="szm1" type="text" name="szmező1" placeholder="Add meg a nevet" size="50" maxlength ="100">
+    <br><br>
+    Cím:
+    <input id="szm3" type="text" name="szmező3" placeholder="Add meg a címed" size="50" maxlength ="100">
+    <br><br>
+    <button onclick="szövegmezőadata()">Számla nyomtatása</button>
+    <br><br>
+    <button id="szmjq">Számla nyomtatása jQueryvel</button>
+    <br><br>
+    Vásárlási idő:
+    <input id="vidő" type="text" name="vásárlásiidő" size="50" maxlength ="100">
+    <br><br>
+    Vásárló neve:
+    <input id="visszanev" type="text" name="vidő" size="50" maxlength ="100">
+    <br><br>
+    Vásárló címe:
+    <input id="visszacim" type="text" name="vidő" size="50" maxlength ="100">
+    <br><br>
+    <hr>
+    
+    <h2>Többsoros szövegmező</h2>
+    <textarea id="szövegbe" name="textareaa" placeholder="Add meg a szöveget!" rows="5" cols="50" wrap="soft"></textarea>
+    <br>
+    <button type="button" onclick="szövegküldés()">Elküld</button>
+    <br><br>
+    <textarea id="visszaszöveg" name="textareaa" style="display:none" rows="5" cols="50" wrap="soft"></textarea>
+   
+    <h2>Jelölőnégyzetek</h2>
+    <p id="italok">Választható italok: </p>
+    <input type="checkbox" id="sör" name="sör" value="Sör">Sör<br>
+    <input type="checkbox" id="bor" name="bor" value="Bor">Bor<br>
+    <input type="checkbox" id="pálinka" name="pálinka" value="Pálinka">Pálinka<br>
+    <input type="checkbox" id="egyéb" name="egyéb" value="Egyéb">Egyéb<br>
+    <br>
+    <button type="button" onclick="italválasztás()">Választott italok</button>
+    <br><br>
+    <textarea id="visszaital" name="textareaa" rows="15" cols="50"></textarea>
+
+    <h2>jQuery</h2>
+
+    <button id="jbutton">Szövegmódosítás jQueryvel</button>
+    <br><br>
+    <button id="ph1re">paragrafusból címsort</button>
+
+
+    <script src="dom.js"></script>
+  </body>
+</html>

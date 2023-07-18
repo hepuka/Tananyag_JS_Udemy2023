@@ -1,0 +1,20 @@
+
+String metódusok:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Useful_string_methods
+
+.length;
+.charAt();
+.indexOf('at'); a megadott karakter első előfordulásának az indexét adja vissza
+.lastIndexOf('at'); a megadott karakter utolsó előfordulásának az indexét adja vissza
+.slice(5); az 5.indextől kezdve visszaadja a teljes stringet
+.slice(5,8); az 5-8 indexű karaktereket adja vissza
+.join(); string-et csinál a tömbből
+.toUppercase();
+.toLowerCase();
+.include("mat"); true vagy false-al tér vissza, attól függően, hogy a string tartalmazza-e a "" között megadott karaktereket
+.split("e"); a ""-ben megadott karakternél vagy karaktereknél szétvágja a stringet és azt egy tömbben adja vissza
+.split(""); ez esetben a visszaadott tömben karakterenként adja vissza a stringet
+.split(","); a vesszőknél tagolva rakja bele a stringet a tömbbe
+
+

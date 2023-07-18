@@ -1,0 +1,24 @@
+
+.doboz{
+
+    width: 200px;
+    padding: 60px;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.zold{
+
+    background-color: green;
+}
+
+.kek{
+
+    background-color: blue;
+}
+
+.narancs{
+
+    background-color: orange;
+}

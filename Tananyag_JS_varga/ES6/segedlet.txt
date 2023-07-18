@@ -1,0 +1,11 @@
+ES6 újdonságok
+
+var,let,const
+template literal
+function default parameter
+arrow functions
+destructuring
+spread operator
+rest operator
+class
+class constructor

@@ -1,0 +1,22 @@
+https://www.youtube.com/watch?v=gLt1KJPmjXA&list=PL0Zuz27SZ-6Oi6xNtL_fwCrwpuqylMsgT&index=6
+
+Math methods:
+
+Math.PI;
+Math.trunc(Math.PI); a valós szám integer állapotával tér vissza pl: 3,14 => 3
+Math.round.(Math.PI); lefele kerekít 3,5-től felfele kerekít
+Math.ceil.(Math.PI); felfele kerekít mindig
+Math.floor.(Math.PI); lefele kerekít mindig
+Math.pow(2,4); a 2 4.hatványát adja vissza
+Math.min(2, 0.5, 9); a legkisebb számot adja vissza
+Math.max(2, 0.5, 9); a legnagyobb számot adja vissza
+Math.random(); véletlen számot generál 0-1 között
+Math.floor(Math.random()*10)+1; véletlen számot generál 1-10 között. A floor-t kell használni a ceil helyett, mert a ceil-el 0-át is generálhat
+
+"Dave".charAt(Math.floor(Math.random()*4)); a Dave string véletlenszerű karakterével tér vissza. A +1 nem kell mert az már üres karakter lenne
+
+const string="EzegyString"
+string.charAt(Math.floor(Math.random()*string.length)); egy változó hosszúságú stringből ad vissza véletlenszerűen egy karaktert
+
+
+

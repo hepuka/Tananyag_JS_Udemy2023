@@ -1,0 +1,15 @@
+push
+pop
+shift
+unshift
+splice
+slice
+concat
+forEach
+find
+filter
+map
+sort
+reverse
+join
+reduce

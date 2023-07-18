@@ -1,0 +1,119 @@
+
+
+
+Javascript parancsértelmező:
+- a kód futtatásához valamilyen futtatási környezetre van szükség, pl. böngésző
+- a böngésző tartalmaz egy javascript motort, ami fogadja a kódot és lefuttatja
+- amikor a motor megkapja a kódot, akkor elsőnek megpróbálja értelmezni azt. A parser sorról-sorra beolvassa a kódot és megvizsgálja, hogy az megfelelő-e az előírásoknak
+- ha a parser hibát talál akkor jelzi azt, pl. konzolban és megszakítja a kód futtatását
+- ha a kód hibátlan akkor a parser előállítja a gépi kódot
+- ezt a gépi kódot tudja majd a számítógép processzora futtatni
+
+
+adattípusok: 
+- Number, String Boolean, Undefined, Null
+- undefined= a változót deklarálva, de nincs értéke
+- null = a változó nem létezik
+- betűvel, $ és az _ jellel kezdődhetnek változók
+
+- A JS dinamikusab típusos nyelv, azaz a változó létrehozásakor nem kell megadni annak típusát.
+A JS az érték alapján felismeri a változó típusát. Hibája, hogy ezzel megnehezíti a hibakeresést.
+
+- let-el deklarált változókat nem lehet újradeklarálni, ha már egy változónak stringet adtunk,
+akkor annak a változónak később nem adhatunk number típust. var-al lehetséges az újradeklarálás
+
+- var globális vagy függvényszintú kulcsszó.Nem teszi lehetővé a blokkszintű változók létrehozását
+
+- let,const blokkszintű kulcsszó, csak a blokkban látható, kívülről nem. A var látható kívülről is
+
+- ha var-al vagy let-el már létrehoztam egy változót, akkor azt a másik kulcsszóval már nem hozhatom újra létre
+
+- const-al létrehozott tömb elemeit, vagy egy objektum elemeit tudom módosítani, magának atömbnek vagy az objektumnak a nevét nem
+- const-al létrehozott változónak azonnal értéket kell adni
+
+Hoisting: 
+- var típusúaknál lehet változónak értéket adni majd a változót később deklarálni, de let-nél nem lehetséges.
+- js a háttérben minden változólétrehozást a kód elejére helyez. A JS fordító kiemeli a 
+változó deklarációkat értékadás nélkül a kód elejére. Így nem kapunk hibát ha egy változóra, annak 
+deklarációja előtt hivatkozunk.
+
+
+Típuskényszerítés: 
+- A JS az egyik változót a másik változó típusára alakítja ha erre szükség van.
+pl. console.log(keresztNev + " " + kor); itt a kiíratásnál a kort string-é alakítja
+
+
+Operátorok:
+- matematikai: + - * / %
+- logikai: > < >= <= = == ===
+- typeof() operátor
+
+** operátor ugyanaz mint a Math.po(x,y). Egy értéket emel a megadott hatványra. 
+5 ** 2; vagy Math.pow(5,2)
+
+
+Boolean:
+egy feltétel vizsgálatakot hamis értékeket ad: undefined, null, 0, "", NaN
+
+
+Vezérlési szerkezetek:
+- if/else, egy logikai érték alapján dönti el, hogy melyik ágban megírt műveletek hajtódjanak végre
+- Ternáris operátor az if/else rövidített változata: let display = (age > 21) ? "Too old":"Young enough";
+- switch/case szerkezet
+
+
+Ciklusok:
+- olyan programszerkezetek melyek egy műveletet hajtanak végre többször egymás után
+- for, while, do while
+
+
+Tömbök:
+let szamok=[5,1,6,3,9,7,] , ez a gyakoribb létrehozás
+let szamok = new Array(5,1,6,3,9,7);
+szamok.sort()
+szamok.length
+szamok.push(100) , tömb végéhez adja hozzá az értéket
+szamok.unshift(10) , tömb elejére adja hozzá az értéket
+szamok.pop(); a tömb utolsó elemét kitörli
+szamok.shift(); a tömb első elemét törli ki
+szamok.indexOf(6); a tömben lévő 6-os szám indexét adja vissza, ha nincs a tömben a megadott elem akkor -1-et ad vissza
+
+
+Objektumok:
+- kulcs - érték párokat tárolunk
+- létrehozhatjuk objektum literállal (let objektumnev={kulcs-érték párok}), de létrehozható a new Object-el is (let objektumnev = new Object(), majd fel kell tölteni objektumnev.kulcs = érték)
+- az elemek sorrendje nem számít, a tömbben igen
+- ha több tagból áll a kulcs-érték pár akkor így kell megadni: 'csaladi allapot':'nős.     Hivatkozni rá: obejktumneve['csaladi allapot']
+
+
+Oldal nyomtatásának beállítása a HTML kódban:
+<button onclick="window.print()" >NYOMTATÁS<//button>
+
+HTML tartalom megváltoztatása:
+function changeit() {
+    var answer = alert("Enter some new text");
+    var spot = document.getElementById("here").innerHTML = answer;
+}
+
+<button type="button" onclick="changeit()">Click to change</button>
+<p id="here">This is the original text</p>
+
+
+THIS kulcsszó:
+In JavaScript, the this keyword refers to an object.
+
+Which object depends on how this is being invoked (used or called).
+
+The this keyword refers to different objects depending on how it is used:
+
+In an object method, this refers to the object.
+Alone, this refers to the global object.
+In a function, this refers to the global object.
+In a function, in strict mode, this is undefined.
+In an event, this refers to the element that received the event.
+Methods like call(), apply(), and bind() can refer this to any object.
+
+
+When a JavaScript variable is declared with the keyword "new", the variable is created as an object: x = new String(); 
+
+

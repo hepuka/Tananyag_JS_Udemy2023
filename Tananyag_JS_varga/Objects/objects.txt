@@ -1,0 +1,44 @@
+
+ egyszerű típusok a js-ben:
+ - number
+ - string
+ - boolean
+ - null
+ - undefined
+
+ Minden más objektum:
+ - array
+ - function
+ - object
+
+
+objektumnak van:
+- tulajdonság
+- metódus
+
+az osztály megfelelője a prototipus, azaz constructor, ezekből lehet a pédányokat létrehozni
+
+öröklés: 
+
+- amikor egy objektum egy másik objektumon alapszik és megörökli annak tulajdonságait és metódusait
+- prototípusokkal hajtható végre
+- mindenegyes objektumnak van egy prototype tulajdonsága ami lehetővé teszi az öröklés
+- ha azt szeretnénk hogy egy objektum örököljön egy másik objektumtól egy metódust vagy tulajdonságot,
+akkor azokat hozzá kell adni azokat annak az objektum prototype tulajdonásághoz, amelytől örököltetni szeretnénk.
+- mindenegyes objektum amiket készítünk az egy példánya az Object konstruktornak.
+
+Prototípus lánc:
+- lehetővé teszi az öröklést
+- amikor megpróbálunk hozzáférni egy bizonyos tulajdonsághoz vagy metódushoz, akkor a javascript 
+megpróbálja megtalálni azt magába az objektumban, ha nem sikerül, akkor megnézi, hogy az objektum
+szülőjének prototípusában megtalálható-e a keresett tul. vagy metódus. Addig megy a láncban előre
+amíg meg nem találja a keresett tul. vagy metódust, vagy el nem jutunk a null objektumig, aminek nincs 
+is prototype tulajdonsága és undefined értéket kapunk.
+
+összefoglaló: 
+- minden js objektumnak van egy prototype nevű tulajdonsága, ami lehetővé teszi az öröklést
+- A prototype tulajdonság tartalmazza azokat a tulajdonságokat és metódusokat, amiket örököltetni szeretnénk
+- a konstruktornak a prototype tulajdonsága nem egyenéő magának a konstruktornak a prototipusával
+- ha meghívunk egy metódust, akkor a js elkezdi keresni ezt a metódust először az objektumon belül. 
+Ha nem találja, akkor az objektum szülőjének prototípusában keresi. Így halad a keresés végig
+a prototipus láncon egészen addig amíg meg nem találja vagy éppen nemm találja azt.

@@ -1,0 +1,134 @@
+
+String length
+String slice()
+String substring()
+String substr()
+String replace()
+String replaceAll()
+String toUpperCase()
+String toLowerCase()
+String concat()
+String trim()
+String trimStart()
+String trimEnd()
+String padStart()
+String padEnd()
+String charAt()
+String charCodeAt()
+String split()
+
+let text = "Apple, Banana, Kiwi";
+let part = text.slice(0, 13); //0-13 karakterig kiírja a stringet
+part = text.slice(7); //ha nincs végérték akkor a kezdeti értéktől kezdve írja ki a stringet
+part = text.slice(-12); //negatív érték esetén a string végétől számol vissza
+part = text.slice(-12, -6); //a string végétől számolja vissza a két értéket
+
+
+
+part = text.substring(0, 8); //az substr esetén az első paraméter adja meg, hogy honnan kezdődjön és a 2. adja meg, hogy mennyi karakterig
+part = text.substring(-2); //a megadott karaktertől kezdve írja ki a string végéig
+
+
+
+let text2 = "Please visit Microsoft!";
+let newText2 = text2.replace("Microsoft", "W3Schools"); //egy értéket cserél ki egy másik értékre
+//az érték összes előfordulásának a cseréje
+let text3 = "Please visit Microsoft and Microsoft!";
+let newText3 = text3.replace(/Microsoft/g, "W3Schools");
+//vagy replaceAll()-al
+let newText4 = text3.replaceAll("Microsoft", "W3Schoolseee"); //ECMA2021 újdonsága
+
+
+
+// trim() törli a szóközöket a string elejéről és s végéről
+//trimStart() csak a string elejéről törli, ECMA2019 újdonsága
+//trimEnd() csak a string végéről törli, ECMA2019 újdonsága
+let text5 = "      Hello World!      ";
+let newtext5 = text5.trimStart();
+newtext5 = text5.trimEnd();
+
+
+
+//padStart() és  padEnd() ECMA2017 újdonság, a metódusban megadott karaktereket fűzi a string elé vagy után
+//4 db x-et rak a text változó értéke elé
+let padded = text.padStart(4, "x");
+//4 db x-et rak a text változó értéke mögé
+let padded2 = text.padEnd(4, "x");
+
+
+
+//visszaadja a text értékének a legelső karakterét stringbe
+let char = text.charAt(0);
+
+//visszaadja a text értékének a legelső karakterét UTF-16 kódban, integer 0-65535 között
+let char2 = text.charCodeAt(0);
+
+
+
+//tömbbé konvertálja a stringet
+let text6 = "HELLO WORLD Microsoft and Microsoft";
+let stringToArray = text6.split(" "); //szóközökkel választva rakja bele a tömbe a stringeket
+
+console.log(stringToArray[0]); //csak a tömb első elemét adja vissza, "HELLO"
+
+
+https://www.w3schools.com/js/js_string_search.asp
+Search Methods:
+String indexOf()
+String lastIndexOf()
+String search()
+String match()
+String matchAll()
+String includes() 
+String startsWith()
+String endsWith()
+
+
+let indexOfText = text6.indexOf("WORLD"); //visszaadja a string első előfordulásának alső karakterének az indexét
+indexOfText = text6.lastIndexOf("WORLD"); //visszaadja a string utolsó előfordulásának első karakterének az indexét
+//mindkettő -1-el tér vissza ha nincs benne a keresett string
+-----
+
+
+The search() method searches a string for a string and returns the position of the match:
+Nincs neki 2. paramétere, az indexof hatékonyabb a 2.parméter miatt
+let str = "Please locate where 'locate' occurs!";
+str.search("locate");
+let str = "Please locate where 'locate' occurs!";
+str.search(/locate/);
+-----
+
+
+The includes() method returns true if a string contains a specified value.
+let text = "Hello world, welcome to the universe.";
+text.includes("world");
+
+Check if alet text = "Hello world, welcome to the universe.";
+text.includes("world", 12);
+-----
+
+
+The startsWith() method returns true if a string begins with a specified value.
+let text = "Hello world, welcome to the universe.";
+text.startsWith("Hello");
+
+A start position for the search can be specified:
+let text = "Hello world, welcome to the universe.";
+text.startsWith("world", 5)
+-----
+
+
+The endsWith() method returns true if a string ends with a specified value.ES6 feature (JavaScript 2015).
+let text = "John Doe";
+text.endsWith("Doe");
+
+Check if the 11 first characters of a string ends with "world":
+let text = "Hello world, welcome to the universe.";
+text.endsWith("world", 11);
+
+
+
+
+
+
+

@@ -1,0 +1,221 @@
+
+// 1.type inference - az ártákből a taypescript kitalálja a típust, nem kell külön meghatározni
+
+let ertek = "teszt"
+let ertek2 = Math.random();
+
+// 2.saját függvények definiálása
+// -ha a kimentből egyértelműen meghatárpzható a típus akkor azt nem kell megadni
+
+function peldafuggveny(bemeneti: string): number {
+
+return 15;
+
+//return bemeneti.length; ez esetben nem kell megadni a kimenet típusát
+
+}
+
+peldafuggveny("szia");
+
+
+// 3.union type - típusok uniója -saját típus létrehozása
+
+//csak string vagy number lehet a változó típusa 
+let valtozo: string | number ="szia";
+let valtozo = 23;
+
+
+//ez esetben a törzsben szükség van az if-re mert a length csak string típusokra értelmezhető
+function peldafuggveny(bemeneti: string | number): number {
+
+//Narrowing - leszűkítés
+
+if(typeof bemenet = "string"){
+
+        return bemeneti.length;
+          
+}
+
+return bemeneti *20;
+
+}
+
+
+// 4.Literál type
+
+//az ertek változó értéke csak ezen 3 érték közül lehet
+let ertek:  1 | 42 | 3.2 = 42;
+
+//type alias - type megfeleltetés - egyedi cimke létrehozása, amit később referenciaként használhatunk
+type Szamok = 1 | 42 | 3.2;
+
+let ertek: Szamok=42;
+
+//a referenciát használhatjuk a függvény bemeneti vagy kimeneti típusként is
+function peldafuggveny(bemeneti: Szamok): Szamok{
+
+    return 42,
+
+}
+
+példa:  létrehozunke gy Status típust ami a felsorolt értékeket veheti fel. Majd a progress változó a Status értékeit veheti fel futási időben
+
+type Status = "Elkezdve" | "Folyamatban" | "Befejezve";
+
+let progress: Status;
+
+progress="Elkezdve";
+progress= "Befejezve";
+
+// 5. Tömbök
+
+//csak az üres tömbök esetében kell így megadni, mert nem határozható meg egyértelműen a tömb típusa
+let szamok: Array<number> = [];
+let szamok: number[] = [];
+
+
+//így is megadható, mert itt meghatározható a típus
+let szamok = [12,14,25]
+
+//csak szám adható meg a push-nak, semmi más nem
+szamok.push(100);
+
+//tuple - értéktöbbes, olyan tömb ami kevés elemet (2 vagy 3) tartalmaz csak és elemei típusban eltérnek
+
+//a tömb 0.eleme csak string és az 1.eleme csak number lehet
+let Szemely: [string,number];
+
+//így is megadható
+let Szemely: [ name:string, age:number];
+
+
+//a szemely változó Személy típusú tömböt vehet fel
+let szemely1: Szemely = ["Kovács József", 30];
+let szemely2: Szemely = ["Kovács Géza", 13];
+ 
+ szemely2[1]; //13-at ad vissza
+ 
+
+ //valójában a tuple-t egy tömb destruktúrálás során érdemes használni
+const [nev,eletkor] = szemely2;
+
+
+// 6.Objektumok
+
+type Album = {
+    userid: number;
+    id:number;
+    title:string;
+}
+
+  //structural typing
+ 
+let album: Album = {
+
+    userid: 1,
+    id:1,
+    title:"Halihó"
+};
+
+//type alias helyett interface-t is használhatunk  , ez később bővíthető is, a type alias nem
+interface Album2 = {
+    userid: number;
+    id:number;
+    title:string;
+}
+
+interface Album2 {
+
+    numberOfUnitsSold: number;
+}
+
+
+//az interface-t felhasználhatjuk a type alias-ban is egy érték típusaként
+
+interface Photo{
+
+    id:number;
+    title: string;
+    url: string;
+    thumbnailUrl.string;
+};
+
+type Album = {
+    userid: number;
+    id:number;
+    title:string;
+    photos: Array<Photo>
+
+    //ha így adjuk meg akkor a photos opcionális, nem kötelező megadni
+    photos?: Array<Photo>
+}
+
+// 7. gyakorlat
+
+//AJAX kérés az útvonalra és az albumok lista megszerzése
+
+async function getAlbums(){
+
+const fetchedAlbums = await fetch("http://jsonplaceholder.typicode.com/albums")
+
+.then(res =>{
+
+   // return <Promise<Album[]>> res.json();
+
+    //így is fel lehet írni
+    return res.json() as Promise<Album[]>;
+
+});
+
+//csak az első 5 albumot kezeljük
+const albums= fetchedAlbums.slice(0,5);
+
+const promisesofAllPhotos = albums.map(album => fetch("http://jsonplaceholder.typicode.com/photos?albumId=" + album.id) 
+
+.then(res => res.json() as Promise<Photo[]>));
+
+const allPhotos = await Promise.all(promisesofAllPhotos);
+
+return albums.map((album, index) => ({...album, photos: allPhotos[index]}));
+
+}
+
+window.onload = async function () {
+
+    const albums = await getAlbums();
+    render(albums);
+};
+
+function render(albumok: Array<Album>){
+
+    const container = document.getElementById("root");
+
+    if(!container){
+
+        return;
+    }
+
+    container.innerHTML = `
+    
+    <h1>Albumok:</h1>
+    ${albumok.map(album => `
+    <div>
+        <h3>#${album.id}</h3>
+        <p>
+        ${album.title}
+        </p>
+        <br />
+        ${album.photos?.map(photo => `
+        <img
+            src="${photo.thumbnailUrl}"
+            style="display: inline-block;margin-right: 6px;width:30px; height: 30px"
+            />        
+        `).join("")}
+        </div>    
+    `).join("")}
+    `;
+
+}
+
+
+
