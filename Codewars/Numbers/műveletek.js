@@ -18,6 +18,7 @@ function basicOp(operation, value1, value2) {
   //   }
   // }
 }
+
 console.log(basicOp("+", 4, 7));
 
 function sumMul(n, m) {
@@ -33,6 +34,7 @@ function sumMul(n, m) {
 
   return sum;
 }
+
 console.log(sumMul(2, 9));
 
 // https://www.codewars.com/kata/55d24f55d7dd296eb9000030
@@ -57,6 +59,7 @@ function getSum(a, b) {
 
   return sum;
 }
+
 /* const GetSum = (a, b) => {
     let min = Math.min(a, b),
       max = Math.max(a, b);
@@ -87,6 +90,7 @@ function bmi(weight, height) {
   //     return "Obese";
   // }
 }
+
 console.log(bmi(90, 180));
 
 function past(h, m, s) {
@@ -95,6 +99,7 @@ function past(h, m, s) {
 
   return (result = (hoursinmin + min + s) * 1000);
 }
+
 console.log(past(0, 1, 1));
 
 function SeriesSum(n) {
@@ -105,6 +110,7 @@ function SeriesSum(n) {
   }
   return sum.toFixed(2);
 }
+
 console.log(SeriesSum(3));
 
 function multiTable(number) {
@@ -116,6 +122,7 @@ function multiTable(number) {
 
   return result.trim("\n"); //eltávolítja az utolsó sortörést
 }
+
 console.log(multiTable(5));
 
 function excludingVatPrice(price) {
@@ -150,18 +157,18 @@ function calculateTip(amount, rating) {
   }
 
   /*   var tips = {
-      terrible: 0,
-      poor: 0.05,
-      good: 0.1,
-      great: 0.15,
-      excellent: 0.2,
-    };
-  
-    rating = rating.toLowerCase();
-  
-    return rating in tips
-      ? Math.ceil(amount * tips[rating])
-      : "Rating not recognised"; */
+        terrible: 0,
+        poor: 0.05,
+        good: 0.1,
+        great: 0.15,
+        excellent: 0.2,
+      };
+    
+      rating = rating.toLowerCase();
+    
+      return rating in tips
+        ? Math.ceil(amount * tips[rating])
+        : "Rating not recognised"; */
 }
 
 console.log(calculateTip(26.95, "good"));
@@ -184,11 +191,13 @@ function differenceInAges(ages) {
 
   return [min, max, max - min];
 }
+
 console.log(differenceInAges([82, 15, 6, 38, 35]));
 
 function enough(cap, on, wait) {
   return on + wait > cap ? on + wait - cap : 0;
 }
+
 console.log(enough(100, 60, 50));
 
 var humanYearsCatYearsDogYears = function (humanYears) {
@@ -216,17 +225,17 @@ var humanYearsCatYearsDogYears = function (humanYears) {
   return [humanYears, catyears, dogyears];
 
   /*   for (let i = 1; i <= humanYears; i++) {
-    if (i === 1) {
-      catYears += 15;
-      dogYears += 15;
-    } else if (i === 2) {
-      catYears += 9;
-      dogYears += 9;
-    } else {
-      catYears += 4;
-      dogYears += 5;
-    }
-  } */
+      if (i === 1) {
+        catYears += 15;
+        dogYears += 15;
+      } else if (i === 2) {
+        catYears += 9;
+        dogYears += 9;
+      } else {
+        catYears += 4;
+        dogYears += 5;
+      }
+    } */
 };
 
 // [10,56,64]);
@@ -241,12 +250,14 @@ function findDifference(a, b) {
 
   return arr1 > arr2 ? arr1 - arr2 : arr2 - arr1;
 }
+
 // return Math.abs(a[0]*a[1]*a[2]-b[0]*b[1]*b[2]);
 console.log(findDifference([3, 2, 5], [1, 4, 4]));
 
 function getRealFloor(n) {
   return n > 13 ? n - 2 : n <= 0 ? n : n - 1;
 }
+
 console.log(getRealFloor(1));
 
 var hotpo = function (n) {
@@ -282,18 +293,21 @@ if(number is odd(páratlan)) number = 3*number + 1
 function maps(x) {
   return x.map((item) => item * 2);
 }
+
 console.log(maps([1, 2, 3]));
 
 //www.codewars.com/kata/583710ccaa6717322c000105/train/javascript
 function simpleMultiplication(number) {
   return number % 2 === 0 ? number * 8 : number * 9;
 }
+
 console.log(simpleMultiplication(5));
 
 //https://www.codewars.com/kata/57eaeb9578748ff92a000009/train/javascript
 function sumMix(x) {
   return x.map(Number).reduce((acc, curr) => acc + curr);
 }
+
 console.log(sumMix(["5", "0", 9, 3, 2, 1, "9", 6, 7]));
 
 //https://www.codewars.com/kata/563f037412e5ada593000114/train/javascript
@@ -310,6 +324,7 @@ function calculateYears(principal, interest, tax, desired) {
 
   return days;
 }
+
 console.log(calculateYears(1000, 0.01625, 0.18, 1200));
 
 //https://www.codewars.com/kata/57f780909f7e8e3183000078/train/javascript
@@ -356,6 +371,7 @@ console.log(binaryArrayToNumber([1, 1, 1, 1]));
 function squareSum(numbers) {
   return numbers.reduce((acc, curr) => acc + Math.pow(curr, 2), 0);
 }
+
 console.log(squareSum([1, 2, 2]));
 
 function squareDigits(num) {
@@ -452,7 +468,7 @@ console.log(
   number([
     [3, 0],
     [9, 1],
-  ])
+  ]),
 );
 
 function calculateTip(amount, rating) {
@@ -468,23 +484,33 @@ function calculateTip(amount, rating) {
     ? 0
     : "Rating not recognised";
 }
+
 console.log(calculateTip(16.15, "good"));
 
 function excludingVatPrice(price) {
   return price === null ? -1 : +(price / 1.15).toFixed(2);
 }
+
 console.log(excludingVatPrice(230));
 
 function enough(cap, on, wait) {
   let num = cap - (on + wait);
   return num >= 0 ? 0 : Math.abs(num);
 }
+
 console.log(enough(100, 60, 50));
 
 function arrayMadness(a, b) {
-  return (
-    a.map((item) => item ** 2).reduce((acc, curr) => acc + curr, 0) >
-    b.map((item) => item ** 3).reduce((acc, curr) => acc + curr, 0)
-  );
+    return (
+        a.map((item) => item ** 2).reduce((acc, curr) => acc + curr, 0) >
+        b.map((item) => item ** 3).reduce((acc, curr) => acc + curr, 0)
+    );
 }
+
 console.log(arrayMadness([4, 5, 6], [1, 2, 3]));
+
+function positiveSum(arr) {
+    return arr.reduce((acc, curr) => (curr > 0 ? acc + curr : acc + 0), 0);
+}
+
+console.log(positiveSum([1, -2, 3, 4, 5]));
