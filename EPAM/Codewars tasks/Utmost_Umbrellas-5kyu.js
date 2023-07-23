@@ -128,3 +128,40 @@ function toCamelCase(str) {
 
 console.log(toCamelCase("the-stealth-warrior"));
 console.log(toCamelCase("The_Stealth_Warrior"));
+
+function isMerge(s, part1, part2) {
+  return false;
+}
+
+console.log(isMerge("Making progress", "Mak pross", "inggre"));
+
+function humanReadable(seconds) {
+  let totalmin = Math.floor(seconds / 60);
+
+  let sec = seconds % 60;
+  let hours = Math.floor(totalmin / 60);
+  let min = totalmin % 60;
+  return `${String(hours).padStart(2, "0")}:${String(min).padStart(
+    2,
+    "0",
+  )}:${String(sec).padStart(2, "0")}`;
+}
+
+console.log(humanReadable(86399));
+
+function josephus(items, k) {
+  let res = [];
+  let leng = items.length;
+
+  for (let i = 1; i < items.length; i++) {
+    if (i % k === 0) {
+      res.push(items[i - 1]);
+      items.splice(i - 1, 1);
+      console.log(items);
+    }
+  }
+
+  return res;
+}
+
+console.log(josephus([1, 2, 3, 4, 5, 6, 7], 3));
