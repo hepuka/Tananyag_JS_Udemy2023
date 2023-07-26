@@ -188,13 +188,14 @@ function peopleWithAgeDrink(old) {
 
 console.log(peopleWithAgeDrink(18));
 
-let str = "aa bbb ccc ! = , ";
-let obj = {};
+function charFreq(message) {
+  let obj = {};
 
-console.log(
-  str
+  message
     .split("")
-    .map((item) => (!obj[item] ? (obj[item] = 1) : (obj[item] += 1))),
-);
+    .map((item) => (!obj[item] ? (obj[item] = 1) : (obj[item] += 1)));
 
-console.log(obj);
+  return obj;
+}
+
+console.log(charFreq("I like cats"));
