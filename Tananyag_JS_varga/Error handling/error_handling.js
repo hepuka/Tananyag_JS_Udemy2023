@@ -7,7 +7,7 @@ console.log(variable);
 
 const makeError = () => {
   try {
-    const name = "Zolika";
+    let name;
     name = "katika";
     console.table(name);
   } catch (error) {

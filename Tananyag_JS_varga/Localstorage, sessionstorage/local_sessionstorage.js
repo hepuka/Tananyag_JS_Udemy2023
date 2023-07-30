@@ -11,15 +11,15 @@ const myObject = {
 /////////////////////////sessionstorage/////////////////////
 sessionStorage.setItem(
   "session_Object_Data",
-  JSON.stringify(myObject) //a tárolandó adatot (objektum és tömb esetén is) JSON sztringé kell alakítani, így tárolódik a storage-ban.
+  JSON.stringify(myObject), //a tárolandó adatot (objektum és tömb esetén is) JSON sztringé kell alakítani, így tárolódik a storage-ban.
 );
 const mySessionObjectData = JSON.parse(
   //a tárolóból lekért adatot vissza kellállítani JSON objektummá
-  sessionStorage.getItem("session_Object_Data")
+  sessionStorage.getItem("session_Object_Data"),
 );
 console.log(mySessionObjectData);
 
-/////////////////////////localestorage/////////////////////
+/////////////////////////localStorage/////////////////////
 
 localStorage.setItem("local_Object_Data", JSON.stringify(myObject));
 const myLocalObjectData = JSON.parse(localStorage.getItem("local_Object_Data"));
