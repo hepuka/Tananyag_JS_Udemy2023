@@ -28,3 +28,23 @@ try {
 }
 
 console.log("Welcome to the real world!");
+
+//STORAGE
+const data = [
+  {
+    name: "Zolika",
+    age: "46",
+    address: "Debrecen",
+  },
+  {
+    name: "Kata",
+    age: "41",
+    address: "Debrecen",
+  },
+];
+
+localStorage.setItem("Zolika", JSON.stringify(data));
+
+const getData = JSON.parse(localStorage.getItem("Zolika"));
+
+document.cookie = "name=Zoltán";
