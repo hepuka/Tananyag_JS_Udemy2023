@@ -47,4 +47,9 @@ localStorage.setItem("Zolika", JSON.stringify(data));
 
 const getData = JSON.parse(localStorage.getItem("Zolika"));
 
-document.cookie = "name=Zoltán";
+document.cookie = "name=Zoltán; expires=" + new Date(2024, 0, 1).toUTCString();
+
+document.cookie =
+  "lastName=Kun-Fagyal; expires=" + new Date(2024, 0, 1).toUTCString();
+
+console.log(document.cookie);
