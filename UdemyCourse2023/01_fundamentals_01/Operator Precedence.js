@@ -1,6 +1,6 @@
 // Operator Precedence
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
-const now = 2037;
+const now = new Date().getFullYear();
 const ageJonas = now - 1991;
 const ageSarah = now - 2018;
 console.log(now - 1991 > now - 2018);

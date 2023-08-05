@@ -153,7 +153,6 @@ let d = ++b + c++;
 console.log(d);
 
 //Boolean Conversions
-
 let aa = "5";
 let bb = "";
 
