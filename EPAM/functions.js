@@ -214,3 +214,9 @@ const fibMemo = (n, memo) => {
 };
 
 console.log(fibMemo(150));
+
+const d = (a, b) => {
+  return a + b;
+};
+
+console.log(d(2, 3));
