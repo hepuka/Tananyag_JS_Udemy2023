@@ -1,0 +1,17 @@
+.blue {
+    color: blue;
+}
+
+.important {
+    color: red;
+}
+
+.toggle {
+    color: green;
+    font-weight: bold;
+}
+
+.btn {
+    display: block;
+    margin-bottom: 20px;
+}
