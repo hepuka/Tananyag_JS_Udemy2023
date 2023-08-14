@@ -16,3 +16,23 @@ console.log("23" / "2"); // a / operátor is számmá alakítja a stringet
 let n = "1" + 1; // '11'
 n = n - 1; // n-et mint stringet a - operátor számmá alakítja
 console.log(n);
+
+var z1 = true == "true";
+var z2 = false == "true";
+var z3 = true === "true";
+var z4 = false === "true";
+
+console.log(z1);
+console.log(z2);
+console.log(z3);
+console.log(z4);
+
+console.log("1" + 2 - (1 * "2") / "2");
+
+console.log(10 - "5");
+console.log(10 * "5");
+console.log(10 / "5");
+console.log(10 % "5");
+
+console.log(typeof !1);
+console.log(typeof !!1);

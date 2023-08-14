@@ -1,0 +1,11 @@
+body {
+    transition-property: background-color, width, left;
+    transition-duration: 3s, 2s;
+    /*shorthand */
+    transition: background-color 3s, width 2s, left 3s;
+
+    /*valid property values transition-timing-function*/
+    transition-timing-function: steps(4, start);
+    transition-timing-function: ease;
+
+}
