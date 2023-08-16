@@ -94,9 +94,9 @@ function toCamelCase(str) {
 // console.log(toCamelCase("The_Stealth_Warrior"));
 
 function isMerge(s, part1, part2) {
-  const part11 = part1.split("").sort();
-  const part22 = part2.split("").sort();
-  const ss = s.split("").sort();
+  const part11 = part1.split("");
+  const part22 = part2.split("");
+  const ss = s.split("");
 
   let res = [];
 
@@ -108,9 +108,7 @@ function isMerge(s, part1, part2) {
       : null,
   );
 
-  console.log(res, ss);
-
-  return s.length !== part1.length + part2.length
+  return s.length !== part1.length + part2.length && s !== part1 + part2
     ? false
     : res.join("") === ss.join("");
 }
@@ -192,4 +190,7 @@ function primeFactors(n) {
 }
 
 console.log(primeFactors(7775460));
+
 //"(2**2)(3**3)(5)(7)(11**2)(17)"
+
+function loop_size(node) {}

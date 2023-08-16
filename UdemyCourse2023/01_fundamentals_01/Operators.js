@@ -116,7 +116,7 @@ if (hasDriversLicense && hasGoodVision && isTired) {
   console.log("Someone else should drive...");
 }
 
-//AND operator returns the value of the first operand if it evaluates to false. Otherwise, it returns the value of the second operand.
+//AND operator returns the first operand if it is false. Otherwise, it returns the second operand.
 
 //falsy values: undefined, null, NaN, 0, "",false
 
@@ -124,12 +124,13 @@ console.log(1 && 8);
 console.log(0 && 6);
 console.log(NaN && 1);
 console.log(NaN && undefined);
+console.log(undefined && true);
 
 //Operator && can be used in code chains.
 console.log(1 && "str" && null);
 console.log(1 && null && "str");
 
-//OR operator returns the value of the first operand if it evaluates to true. Otherwise, returns the value of the second operand.
+//OR operator returns the first operand if it is true. Otherwise, returns the second operand.
 console.log(1 || 0);
 console.log(1 || 6);
 console.log(0 || 6); // because the 0  is a falsy value
@@ -139,6 +140,8 @@ console.log(1 || "str" || null);
 
 //NOT operator
 console.log(!true);
+console.log(!undefined);
+console.log(!NaN);
 console.log(!0);
 
 //Double NOT is used to convert values to boolean type:

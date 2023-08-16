@@ -1,6 +1,9 @@
 // Statements and Expressions
 3 + 4;
 1991;
+console.log(true && false);
+console.log(true && true);
+console.log(false && false);
 console.log(true && false && !false);
 
 if (23 > 10) {
