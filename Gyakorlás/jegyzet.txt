@@ -1,0 +1,2 @@
+különböző class-ok létrehozása a gyakorlásahoz, majd importálni azokat
+
