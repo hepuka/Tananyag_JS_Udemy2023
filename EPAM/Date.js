@@ -1,12 +1,13 @@
 let simplyDate = new Date();
+let simplyDate1 = new Date().valueOf();
 let simplyDate2 = new Date(0);
 let simplyDate3 = Date();
-
 let formedActDate = new Date().toLocaleDateString();
 let formedActTime = new Date().toLocaleTimeString();
 let formedActDateAndTime = new Date().toLocaleString();
 
 console.log(simplyDate);
+console.log(simplyDate1);
 console.log(simplyDate2);
 console.log(simplyDate3);
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1692571160258" clover="3.2.0">
+  <project timestamp="1692571160258" name="All files">
+    <metrics statements="13" coveredstatements="13" conditionals="10" coveredconditionals="9" methods="5" coveredmethods="5" elements="28" coveredelements="27" complexity="0" loc="13" ncloc="13" packages="1" files="2" classes="2"/>
+    <file name="farenheit.js" path="C:\Users\kunzo\Documents\Tananyag\Tananyag_JS_Udemy2023\EPAM\test\farenheit.js">
+      <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <line num="2" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="5" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="6" count="4" type="stmt"/>
+      <line num="9" count="2" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+    </file>
+    <file name="unitTest.js" path="C:\Users\kunzo\Documents\Tananyag\Tananyag_JS_Udemy2023\EPAM\test\unitTest.js">
+      <metrics statements="7" coveredstatements="7" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="3"/>
+      <line num="2" count="8" type="cond" truecount="1" falsecount="1"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="10" count="9" type="cond" truecount="4" falsecount="0"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="13" count="8" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>

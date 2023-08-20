@@ -91,3 +91,20 @@ cat1.speak();
 
 cat1.setPrivateData(10);
 console.log(cat1.getPrivateData());
+
+const Animalss = function (sound) {
+  //////////////private part//////////////
+  let _sound = sound;
+
+  function speak() {
+    setTimeout(() => console.log(_sound), 0);
+  }
+
+  //////////////public part///////////////
+  return {
+    speak,
+  };
+};
+
+let oneAnimal = new Animalss("Vauuu");
+console.log(oneAnimal.speak());

@@ -43,13 +43,27 @@ const data = [
   },
 ];
 
-localStorage.setItem("Zolika", JSON.stringify(data));
+// localStorage.setItem("Zolika", JSON.stringify(data));
+// const getData = JSON.parse(localStorage.getItem("Zolika"));
+// document.cookie = "name=Zoltán; expires=" + new Date(2024, 0, 1).toUTCString();
+//
+// document.cookie =
+//   "lastName=Kun-Fagyal; expires=" + new Date(2024, 0, 1).toUTCString();
+//
+// console.log(document.cookie);
 
-const getData = JSON.parse(localStorage.getItem("Zolika"));
+let errorObj = {
+  name: "My error",
+  message: "This is an error object",
+};
 
-document.cookie = "name=Zoltán; expires=" + new Date(2024, 0, 1).toUTCString();
+(function errorfunc() {
+  try {
+    // throw "An error occured!";
+    throw errorObj;
 
-document.cookie =
-  "lastName=Kun-Fagyal; expires=" + new Date(2024, 0, 1).toUTCString();
-
-console.log(document.cookie);
+    console.log("There is no error");
+  } catch (error) {
+    console.error(error.name);
+  }
+})();
