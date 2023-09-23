@@ -14,7 +14,7 @@ function checkExam(array1, array2) {
   let sum = 0;
 
   array2.map((item, index) =>
-    item === array1[index] ? (sum += 4) : item === "" ? (sum += 0) : (sum -= 1),
+    item === array1[index] ? (sum += 4) : item === "" ? (sum += 0) : (sum -= 1)
   );
 
   if (sum < 0) return 0;
@@ -25,13 +25,11 @@ function checkExam(array1, array2) {
 console.log(checkExam(["b", "c", "b", "a"], ["", "a", "a", "c"]));
 
 function cookie(x) {
-  function cookie(x) {
-    return typeof x === "string"
-      ? "Who ate the last cookie? It was Zach!"
-      : typeof x === "number"
-      ? "Who ate the last cookie? It was Monica!"
-      : "Who ate the last cookie? It was the dog!";
-  }
+  return typeof x === "string"
+    ? "Who ate the last cookie? It was Zach!"
+    : typeof x === "number"
+    ? "Who ate the last cookie? It was Monica!"
+    : "Who ate the last cookie? It was the dog!";
 }
 
 console.log(cookie("Ryan"));
@@ -71,7 +69,7 @@ function stairsIn20(s) {
     20 *
     s.reduce(
       (acc, curr) => acc + curr.reduce((acc2, curr2) => acc2 + curr2, 0),
-      0,
+      0
     )
   );
 }
@@ -80,29 +78,18 @@ function points(games) {
   let sum = 0;
 
   games.map((item) =>
-    +item[0] > +item[2]
+    item[0] > item[2]
       ? (sum += 3)
-      : +item[0] === +item[2]
+      : item[0] === item[2]
       ? (sum += 1)
-      : (sum += 0),
+      : (sum += 0)
   );
 
   return sum;
 }
 
 console.log(
-  points([
-    "1:0",
-    "2:0",
-    "3:0",
-    "4:0",
-    "2:1",
-    "3:1",
-    "4:1",
-    "3:2",
-    "4:2",
-    "4:3",
-  ]),
+  points(["1:0", "2:0", "3:0", "4:0", "2:1", "3:1", "4:1", "3:2", "4:2", "4:3"])
 );
 
 function calculateTip(amount, rating) {
@@ -114,30 +101,33 @@ function calculateTip(amount, rating) {
     excellent: 0.2,
   };
 
-  console.log(TIPS["good"]);
-  console.log(rating.toLowerCase() in TIPS);
-  // return rating in TIPS ? Math.ceil(TIPS[rating] * amount) : "Rating not recognised";
+  return rating.toLowerCase() in TIPS
+    ? Math.ceil(TIPS[rating.toLowerCase()] * amount)
+    : "Rating not recognised";
 
-  switch (rating.toLowerCase()) {
-    case "excellent":
-      return Math.ceil((amount * 20) / 100);
-      break;
-    case "great":
-      return Math.ceil((amount * 15) / 100);
-      break;
-    case "good":
-      return Math.ceil((amount * 10) / 100);
-      break;
-    case "poor":
-      return Math.ceil((amount * 5) / 100);
-      break;
-    case "terrible":
-      return 0;
-      break;
+  // console.log(TIPS["good"]);
+  // console.log(rating.toLowerCase() in TIPS);
 
-    default:
-      return "Rating not recognised";
-  }
+  // switch (rating.toLowerCase()) {
+  //   case "excellent":
+  //     return Math.ceil((amount * 20) / 100);
+  //     break;
+  //   case "great":
+  //     return Math.ceil((amount * 15) / 100);
+  //     break;
+  //   case "good":
+  //     return Math.ceil((amount * 10) / 100);
+  //     break;
+  //   case "poor":
+  //     return Math.ceil((amount * 5) / 100);
+  //     break;
+  //   case "terrible":
+  //     return 0;
+  //     break;
+
+  //   default:
+  //     return "Rating not recognised";
+  // }
 }
 
 console.log(calculateTip(26.95, "GOOd"));
@@ -169,7 +159,11 @@ console.log(tripleTrouble("Sea", "urn", "pms"));
 const rps = (p1, p2) => {
   if (p1 === p2) return "Draw!";
 
-  let rule = { rock: "scissors", paper: "rock", scissors: "paper" };
+  let rule = {
+    rock: "scissors",
+    paper: "rock",
+    scissors: "paper",
+  };
 
   return rule[p1] === p2 ? "Player 1 won!" : "Player 2 won!";
 };
@@ -191,9 +185,7 @@ console.log(peopleWithAgeDrink(18));
 function charFreq(message) {
   let obj = {};
 
-  message
-    .split("")
-    .map((item) => (!obj[item] ? (obj[item] = 1) : (obj[item] += 1)));
+  [...message].map((item) => (!obj[item] ? (obj[item] = 1) : (obj[item] += 1)));
 
   return obj;
 }

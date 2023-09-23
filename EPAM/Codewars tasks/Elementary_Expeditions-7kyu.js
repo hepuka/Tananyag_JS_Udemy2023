@@ -7,12 +7,7 @@ function differenceInAges(ages) {
 console.log(differenceInAges([82, 15, 6, 38, 35]));
 
 function descendingOrder(n) {
-  return Number(
-    String(n)
-      .split("")
-      .sort((a, b) => b - a)
-      .join(""),
-  );
+  return [...String(n)].sort((a, b) => b - a).join("");
 }
 
 console.log(descendingOrder(1021));
@@ -41,7 +36,7 @@ console.log(
     "Pilgrim",
     "Toulouse",
     "Blue Swedish",
-  ]),
+  ])
 );
 
 function firstNonConsecutive(arr) {
@@ -65,12 +60,14 @@ function getSum(a, b) {
 
 console.log(getSum(5, -1));
 
-var Ball = function (ballType) {
-  this.ballType = ballType || "regular";
-};
+class Ball {
+  constructor(ballType) {
+    this.ballType = ballType || "regular";
+  }
+}
 
-ball1 = new Ball();
-ball2 = new Ball("super");
+let ball1 = new Ball();
+let ball2 = new Ball("super");
 
 String.prototype.isUpperCase = function () {
   // return this == this.toUpperCase();
@@ -93,8 +90,8 @@ class Cube {
   }
 }
 
-var Person = function () {
-  var person = {
+let Person = function () {
+  let person = {
     _name: "Leroy",
     _friends: [],
     fillFriends(f) {
@@ -112,12 +109,9 @@ function htmlspecialchars(formData) {
     "&": "&amp;",
   };
 
-  // return formData
-  //   .split("")
-  //   .map((item) => chars[item] || item)
-  //   .join("");
+  return [...formData].map((item) => chars[item] || item).join("");
 
-  return formData.replace(/[<>"&]/g, (item) => chars[item]);
+  // return formData.replace(/[<>"&]/g, (item) => chars[item]);
 }
 
 console.log(htmlspecialchars("<h2>Hello World</h2>"));
@@ -160,7 +154,7 @@ function accum(s) {
 console.log(accum("abcD"));
 
 function isIsogram(str) {
-  return str.length === new Set(str.toLowerCase()).size;
+  return str.toLowerCase().length === new Set(str.toLowerCase()).size;
 }
 
 console.log(isIsogram("moOse"));
@@ -179,7 +173,7 @@ function DNAStrand(dna) {
     C: "G",
     G: "C",
   };
-  return dna.replace(/[ATCG]/g, (item) => letters[item]);
+  return dna.replace("ATCG", (item) => letters[item]);
   // return dna.replace(/./g, (item) => letters[item]);
 }
 
@@ -188,7 +182,7 @@ console.log(DNAStrand("GTAT"));
 var findDigit = function (num, nth) {
   if (nth <= 0) return -1;
 
-  let nums = "" + Math.abs(num);
+  let nums = String(Math.abs(num));
 
   return nums.slice(nums.length - nth, nums.length - nth + 1) * 1;
 };

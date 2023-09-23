@@ -1,7 +1,7 @@
 function Sleigh() {}
 
-Sleigh.prototype.authenticate = function (name, password) {
-  return name === "Santa Claus" && password === "Ho Ho Ho!" ? true : false;
+Sleigh.prototype.authenticate = (name, password) => {
+  return name === "Santa Claus" && password === "Ho Ho Ho!";
 };
 
 function boolToWord(bool) {
@@ -11,10 +11,10 @@ function boolToWord(bool) {
 console.log(boolToWord(true));
 
 function binToDec(bin) {
-  return parseInt(bin, 2);
+  return Number.parseInt(bin, 2);
 }
 
-console.log(binToDec("1001001"));
+console.log(binToDec("10101"));
 
 function positiveSum(arr) {
   return arr.reduce((acc, curr) => (curr > 0 ? acc + curr : acc + 0), 0);

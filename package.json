@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "store": "^2.0.12"
-  },
-  "devDependencies": {
-    "jest": "^29.6.2"
-  }
-}

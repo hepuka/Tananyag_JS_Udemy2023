@@ -2,9 +2,9 @@ function queueTime(customers, n) {
   let cassa = new Array(n).fill(0);
 
   for (let t of customers) {
-    let lowestWaitTime = cassa.indexOf(Math.min(...cassa));
+    let lowestWaitTimeIndex = cassa.indexOf(Math.min(...cassa));
 
-    cassa[lowestWaitTime] += t;
+    cassa[lowestWaitTimeIndex] += t;
   }
   return Math.max(...cassa);
 }
@@ -34,8 +34,8 @@ console.log(
       19 * 19,
       144 * 144,
       19 * 19,
-    ],
-  ),
+    ]
+  )
 );
 
 function tribonacci(signature, n) {
@@ -51,7 +51,7 @@ function tribonacci(signature, n) {
     reslength++;
   }
 
-  return res.slice(0, n);
+  return res;
 }
 
 console.log(tribonacci([1, 1, 1], 10));
@@ -65,7 +65,7 @@ function stockList(listOfArt, listOfCat) {
   Object.preventExtensions(obj);
   listOfArt.map(
     (item) =>
-      (obj[item.split(" ")[0].charAt(0)] += parseInt(item.split(" ")[1])),
+      (obj[item.split(" ")[0].charAt(0)] += parseInt(item.split(" ")[1]))
   );
 
   let res = [];
@@ -75,23 +75,23 @@ function stockList(listOfArt, listOfCat) {
 
   return res.join(" - ");
 
-  if (!listOfArt.length || !listOfCat.length) return "";
-  return listOfCat
-    .map((w) => {
-      const s = listOfArt.reduce(
-        (a, b) => a + (b.charAt(0) === w ? +b.split(" ")[1] : 0),
-        0,
-      );
-      return `(${w} : ${s})`;
-    })
-    .join(" - ");
+  // if (!listOfArt.length || !listOfCat.length) return "";
+  // return listOfCat
+  //   .map((w) => {
+  //     const s = listOfArt.reduce(
+  //       (a, b) => a + (b.charAt(0) === w ? +b.split(" ")[1] : 0),
+  //       0
+  //     );
+  //     return `(${w} : ${s})`;
+  //   })
+  //   .join(" - ");
 }
 
 console.log(
   stockList(
     ["BBAR 150", "CDXE 515", "BKWR 250", "BTSQ 890", "DRTY 600"],
-    ["A", "B", "C", "D"],
-  ),
+    ["A", "B", "C", "D"]
+  )
 );
 
 function dirReduc(arr) {
