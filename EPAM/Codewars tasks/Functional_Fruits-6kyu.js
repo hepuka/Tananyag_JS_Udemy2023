@@ -3,9 +3,7 @@ function count(string) {
 
   if (count.length === 0) return {};
 
-  string
-    .split("")
-    .map((item) => (!obj[item] ? (obj[item] = 1) : (obj[item] += 1)));
+  [...string].map((item) => (!obj[item] ? (obj[item] = 1) : (obj[item] += 1)));
 
   return obj;
 }
@@ -38,7 +36,7 @@ function wave(str) {
         ? str.slice(0, index).toLowerCase() +
           item.toUpperCase() +
           str.slice(index + 1).toLowerCase()
-        : "",
+        : ""
     )
     .filter((item) => item !== "");
 }
