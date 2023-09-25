@@ -157,3 +157,53 @@ const zeroFuel = (distanceToPump, mpg, fuelLeft) => {
 };
 console.log(zeroFuel(50, 25, 2));
 console.log(zeroFuel(100, 50, 1));
+
+let candidate1 = { minSalary: 120000 },
+  job1 = { maxSalary: 130000 },
+  job2 = { maxSalary: 80000 };
+
+function match(candidate, job) {
+  if (!candidate.minSalary || !job.maxSalary) throw error;
+
+  return candidate.minSalary - candidate.minSalary / 10 <= job.maxSalary;
+}
+
+console.log(match(candidate1, job2));
+
+function invert(array) {
+  return array.map((item) => (item < 0 ? Math.abs(item) : item - item * 2));
+}
+
+console.log(invert([1, -2, 3, -4, 5]));
+
+function century(year) {
+  return Math.floor((year - 1) / 100) + 1;
+}
+
+console.log(century(100));
+
+function reverseWords(str) {
+  return str
+    .split(" ")
+    .map((item) => [...item].reverse().join(""))
+    .join(" ");
+}
+
+console.log(reverseWords("This is an example!"));
+
+function twoSum(numbers, target) {
+  let array = [];
+
+  for (let i = 0; i < numbers.length; i++) {
+    for (let j = 1; j < numbers.length; j++) {
+      if (numbers[i] + numbers[j] === target) {
+        array.push(i, j);
+      }
+    }
+
+    return array;
+  }
+  return null;
+}
+
+console.log(twoSum([1, 2, 3], 4));
