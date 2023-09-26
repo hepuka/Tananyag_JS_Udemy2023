@@ -1,6 +1,6 @@
 // Truthy and Falsy Values
 // HAMISNAK, false-nak MINŐSÜLŐ ÉRTÉKEK
-// undefined, null, 0, '', NaN
+// undefined, null, 0, '', NaN,
 
 console.log(Boolean(undefined));
 console.log(Boolean(null));
@@ -11,7 +11,7 @@ console.log(Boolean(NaN));
 console.log(Boolean("Jonas"));
 console.log(Boolean({}));
 
-let money=1;
+let money = 1;
 
 if (money) {
   console.log("Don't spend it all!");

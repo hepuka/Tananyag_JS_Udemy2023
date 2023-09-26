@@ -69,7 +69,7 @@ let num4 = 18;
 let age = 45;
 console.log(num1 === num4); //a típust is ellenőrzi
 console.log(num1 === num2);
-console.log(num1 == num3); //true, mert a == számmá konvertálja a stringet, típuskonverziót hajt végre
+console.log(num1 == num3); //true, mert a == számmá konvertálja a stringet, típuskényszerítést hajt végre
 console.log(num1 === num3); //false, mert a === nem csinál típuskényszerítést
 
 if (age === 18) console.log("You just became an adult :D (strict)");

@@ -207,3 +207,25 @@ function twoSum(numbers, target) {
 }
 
 console.log(twoSum([1, 2, 3], 4));
+
+function fileextension(str) {
+  let asd = str.split(".");
+  return asd.length > 1 ? asd[asd.length - 1] : false;
+}
+
+console.log(fileextension("sadasda..tjj.txt"));
+
+function isEven(i) {
+  return !Boolean(i % 2);
+}
+
+console.log(isEven(9));
+
+//type coercion
+// + számot stringgé
+// - stringet számmá
+console.log("I'm " + 23 + " years old");
+console.log("23" - "10" - 3);
+console.log("10" - 3);
+
+console.log(Boolean(0));

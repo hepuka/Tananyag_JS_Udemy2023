@@ -30,3 +30,26 @@ console.log(entries);
 //itt külön tömbökbe kapjuk vissza az obejktumokat, ezért destruktúrálni tudjuk azt, kiszedni a kulcsot és a tömben lévő objektumot:
 for (const [key, { open, close }] of entries)
   console.log(`On ${key} we open at ${open} and close at ${close}`);
+
+const data = {
+  firstName: 'Jonas',
+  lastName: 'Schmedtmann',
+  birthYeah: 1977,
+  job: 'teacher',
+  friends: ['Michael', 'Peter', 'Steven'],
+  hasDriversLicense: true,
+};
+const keys = Object.keys(data);
+const values2 = Object.values(data);
+const entries2 = Object.entries(data);
+
+for (const key in person) {
+  if (person.hasOwnProperty(key)) {
+    console.log(person[key]);
+  }
+}
+
+for (const [key, value] of Object.entries(person)) {
+  console.log(key);
+  console.log(value);
+}
