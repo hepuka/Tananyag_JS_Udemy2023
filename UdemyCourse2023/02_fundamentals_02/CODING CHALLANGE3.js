@@ -26,19 +26,21 @@ const John = {
   fullname: "John Smith",
   mass: 92,
   height: 1.95,
-  calcBMI: function () {
-    return (this.BMI = (this.mass / this.height ** 2).toFixed(2));
-  },
+  // calcBMI: function () {
+  //   return (this.BMI = (this.mass / this.height ** 2).toFixed(2));
+  // },
 };
 
-Mark.calcBMI();
-John.calcBMI();
+console.log(Mark.calcBMI());
+
+//Mark objektumra megírt calcBMI metódust hívom meg John objketumra. Ez esetben, John objektumra nem kell újra megírni
+John.BMI = Mark.calcBMI.call(John);
 
 console.log(Mark.BMI, John.BMI);
 
 if (Mark.BMI > John.BMI) {
   console.log(
-    `${Mark.fullname}'s BMI (${Mark.BMI}) is higher than ${John.fullname}'s BMI`
+    `${Mark.fullname}'s BMI (${Mark.BMI}) is higher than ${John.fullname}'s BMI (${John.BMI})`
   );
 } else if (John.BMI > Mark.BMI) {
   console.log(

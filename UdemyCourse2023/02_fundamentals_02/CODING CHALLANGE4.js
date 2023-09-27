@@ -30,6 +30,7 @@ This is a DIFFICULT challenge (we haven't done this before)! Here is how to solv
 const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 const tips = [];
 const totals = [];
+let tip;
 
 const calcTip = (bill) => {
   return bill >= 50 && bill <= 300

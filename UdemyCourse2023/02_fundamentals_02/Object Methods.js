@@ -8,7 +8,7 @@ const jonas = {
 
   //arrow function-el nem működik
   calcAge: function () {
-    //this kulcsszó az objektumra mutat
+    //this kulcsszó az objektumra mutat, egy hivatkozás az objekumra
     console.log(this);
 
     this.age = new Date().getFullYear() - this.birthYeah;
