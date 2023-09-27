@@ -6,7 +6,11 @@ const jonas = {
   friends: ["Michael", "Peter", "Steven"],
   hasDriversLicense: true,
 
+  //arrow function-el nem működik
   calcAge: function () {
+    //this kulcsszó az objektumra mutat
+    console.log(this);
+
     this.age = new Date().getFullYear() - this.birthYeah;
     return this.age;
   },

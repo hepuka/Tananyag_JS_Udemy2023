@@ -6,25 +6,22 @@ const jonas = {
   friends: ["Michael", "Peter", "Steven"],
 };
 
-console.log(jonas.lastName);
+console.log(jonas?.lastName);
 console.log(jonas["lastName"]);
 
 const nameKey = "Name";
 console.log(jonas["first" + nameKey]);
 console.log(jonas["last" + nameKey]);
 
-/* 
-const interestedIn = prompt(
-  "What do you want to know about Jonas? Choose between firstName, lastName, age, job, and friends"
-);
-
+const interestedIn = "job";
+// obejktum egy property-t a []-el lehet adni, ha az változó.
 if (jonas[interestedIn]) {
   console.log(jonas[interestedIn]);
 } else {
   console.log(
     "Wrong request! Choose between firstName, lastName, age, job, and friends"
   );
-} */
+}
 
 //további property-k hozzáadása az objektumhoz
 jonas.location = "Portugal";
