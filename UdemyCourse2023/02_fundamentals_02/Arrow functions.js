@@ -5,7 +5,7 @@ const age3 = calcAge3(1977);
 console.log(age3);
 
 const yearsUntilRetirement = (birthYeah, firstName) => {
-  const age = 2023 - birthYeah;
+  const age = new Date().getFullYear() - birthYeah;
   const retirement = 65 - age;
 
   return `${firstName} retires in ${retirement} years`;

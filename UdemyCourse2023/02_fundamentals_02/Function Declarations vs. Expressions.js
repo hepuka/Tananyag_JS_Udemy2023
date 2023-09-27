@@ -15,7 +15,6 @@ const calcAge2 = function (birthYeah) {
   return 2022 - birthYeah;
 };
 const age2 = calcAge2(1991);
-
 console.log(age1, age2);
 
 //hoisting only for function declaration works

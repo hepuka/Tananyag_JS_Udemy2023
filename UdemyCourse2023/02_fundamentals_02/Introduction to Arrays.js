@@ -1,5 +1,8 @@
 // Introduction to Arrays
-//const y = new Array(1991, 1984, 2008, 2020); //ne használd így
+const y2 = new Array(1991, 1984, 2008, 2020); //ne használd így
+
+console.log(Array(10));
+console.log([10]);
 
 const y = [1991, 1984, 2008, 2020];
 const friends = ["Michael", "Steven", "Peter"];
@@ -43,3 +46,9 @@ const ages = [
   calcAge(years[years.length - 1]),
 ];
 console.log(ages);
+
+/////////////////////////////////////
+const numbers = [2, 4, 6, 8];
+const duplicate = (number) => number * 2;
+const doubledArrayElements = numbers.map((item) => duplicate(item));
+console.log(doubledArrayElements);
