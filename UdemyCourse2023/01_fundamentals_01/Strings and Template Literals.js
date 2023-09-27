@@ -1,3 +1,4 @@
+const firstName = "Jonas";
 const job = "teacher";
 let birthYear = 1991;
 const year = 2037;

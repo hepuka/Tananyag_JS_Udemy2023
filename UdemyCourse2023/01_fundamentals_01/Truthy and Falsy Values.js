@@ -12,7 +12,6 @@ console.log(Boolean("Jonas"));
 console.log(Boolean({}));
 
 let money = 1;
-
 if (money) {
   console.log("Don't spend it all!");
 } else {
