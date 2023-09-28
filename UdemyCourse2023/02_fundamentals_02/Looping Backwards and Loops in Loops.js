@@ -11,7 +11,7 @@ const jonasArray = [
 
 for (let i = jonasArray.length - 1; i >= 0; i--) {
   //visszafele kiírja a tömb elemeit
-  console.log(i, jonasArray[i]);
+  console.log(jonasArray[i]);
 }
 
 console.log("------------- Loops in Loops -----------");
