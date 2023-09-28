@@ -1,8 +1,7 @@
-// Basic Array Operations (Methods)
-
 // Add elements
 const friends = ["Michael", "Steven", "Peter"];
 console.log(friends);
+
 friends.push("Hepu");
 console.log(friends);
 console.log(friends.length);
@@ -10,7 +9,6 @@ console.log(friends.length);
 friends.unshift("John"); //tömb elejére rakja be az új elemet
 console.log(friends);
 
-// Remove elements
 friends.pop(); // utolsó elemet törli
 console.log(friends);
 

@@ -2,13 +2,12 @@
 
 const modal = document.querySelector('.modal'); //az előugró ablak
 const closeWithOverlay = document.querySelector('.overlay'); //hely ahová az előugró ablak előjön
+
 const btnCloseModal = document.querySelector('.close-modal'); //előugró ablak x gombja
-let windowplace = document.querySelector('#window');
 
 //queryselectorAll kell mert 3 gomb van a főoldalon ugyanazzal az osztálynévvel
 //queryselector csak az első gombot látja
 const btnsOpenModal = document.querySelectorAll('.show-modal');
-
 console.log(btnsOpenModal);
 
 //előhozza az előugró ablkat

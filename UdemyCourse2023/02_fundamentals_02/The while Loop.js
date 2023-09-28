@@ -12,7 +12,6 @@ while (rep <= 5) {
 }
 
 let dice = Math.floor(Math.random() * 6) + 1;
-
 while (dice !== 6) {
   console.log(`You rolled a ${dice}`);
   dice = Math.floor(Math.random() * 6) + 1;

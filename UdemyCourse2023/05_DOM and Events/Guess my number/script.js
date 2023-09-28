@@ -23,7 +23,7 @@ document.querySelector('.check').addEventListener('click', () => {
 
   // When there is no input
   if (!inputNumber) {
-    displayMessage('No number!'); //üzenetet ír ki
+    displayMessage('No number!');
 
     // When player wins
   } else if (inputNumber === computerNumber) {
@@ -51,7 +51,7 @@ document.querySelector('.check').addEventListener('click', () => {
 });
 
 document.querySelector('.again').addEventListener('click', () => {
-  score = 20;
+  score = 10;
   computerNumber = Math.floor(Math.random() * 20) + 1;
 
   displayMessage('Start guessing...');

@@ -12,8 +12,8 @@ Prettier - Coed formattert*/
 const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
 
 const calcTempAmplitude = function (temps) {
-  let max = 0;
-  let min = 0;
+  let max = temps[0];
+  let min = temps[0];
 
   for (let i = 0; i < temps.length; i++) {
     if (typeof temps[i] !== 'number') continue; //kizárjuk a nem number típusúakat
@@ -29,8 +29,8 @@ console.log(calcTempAmplitude(temperatures));
 // PROBLEM 2:
 // Function should now receive 2 arrays of temps, Just merge two arrays
 
-const t1 = [3, 5, 1];
-const t2 = [9, 0, 5];
+const t1 = [3, 5, 1, 'error'];
+const t2 = [9, 2, 5];
 
 const calcTempAmplitudeNew = function (t1, t2) {
   //const temps = t1.concat(t2); //ES5 verzió, konkatenálás
