@@ -12,7 +12,7 @@ init();
 console.log(elsoJatekosNeve); */
 
 //DOBÁS gomb eseménykezelője
-document.querySelector(".btn-roll").addEventListener("click", function () {
+document.querySelector(".btn-roll").addEventListener("click", () => {
   if (jatekFolyamatban) {
     //véletlenszám generálása
     let kocka = Math.floor(Math.random() * 6) + 1;

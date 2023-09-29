@@ -13,3 +13,7 @@ const yearsUntilRetirement = (birthYeah, firstName) => {
 
 console.log(yearsUntilRetirement(1977, "Zoltán"));
 console.log(yearsUntilRetirement(1980, "Bob"));
+
+const obj = Object.create({ a: 3, b: 6 });
+
+console.log(obj);

@@ -1,5 +1,3 @@
-
-
 console.log('-------------Objects vs. primitives-------');
 let age = 30;
 let oldAge = age; //30-ad vissza mert a felülírás cask ezután történik
@@ -67,14 +65,33 @@ const jessica2 = {
 
 //jessica2 objektumot átmásoltuk a heap-ben a jessicaCopy objektumba Object.assign-al shallow copy-ként
 //így már a 2 objektum független egymástól
+//SHALLOW COPY
 const jessicaCopy = Object.assign({}, jessica2);
 jessicaCopy.lastName = 'Davis';
+jessicaCopy.family.push('valami');
 console.log('Before marriage:', jessica2);
 console.log('After marriage: ', jessicaCopy);
 
-//itt már deep copy történik, mindkét objektum megkapja a family tömböt
 jessicaCopy.family.push('Mary');
 jessicaCopy.family.push('John');
 
 console.log('Before marriage:', jessica2);
 console.log('After marriage: ', jessicaCopy);
+
+//#region EZ IS SHALLOW COPY
+const copiedArray = { ...jessicaCopy };
+console.log(copiedArray);
+
+copiedArray.bdate = 1977;
+copiedArray.family.push('akarmi');
+console.log(copiedArray);
+console.log(jessicaCopy);
+//#endregion
+
+//#region EZ AZ IGAZI DEEP CLONE
+const deepCopy = JSON.parse(JSON.stringify(copiedArray));
+deepCopy.bdate = 1980;
+deepCopy.family.push('asdfg');
+console.log(deepCopy);
+console.log(copiedArray);
+//#endregion

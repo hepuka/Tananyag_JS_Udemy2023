@@ -1,6 +1,4 @@
-///////////////////////////////////////
 // Regular Functions vs. Arrow Functions
-console.log('-------------Regular Functions vs. Arrow Functions-------------');
 
 var firstName2 = 'Mathild';
 
