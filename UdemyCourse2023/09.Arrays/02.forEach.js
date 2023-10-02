@@ -1,25 +1,23 @@
-console.log('--------Looping Arrays: forEach--------------');
-
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 //forEach method
-//1 paraméter az aktuális változó, a 2. az index
+//1. paraméter az aktuális változó, a 2. az index
 //continue és a break nem használható
 //a ciklus folyamatába megy végig a tömbön
-movements.forEach(function (movement, index) {
-  if (movement > 0) {
-    console.log(`Movement ${index + 1}: You deposited ${movement}`);
+movements.forEach((item, index) => {
+  if (item > 0) {
+    console.log(`Index: ${index} - Item: ${item}`);
   } else {
-    console.log(`Movement ${index + 1}: You withdrew ${Math.abs(movement)}`);
+    console.log(`Index: ${index} - Item: ${Math.abs(item)}`);
   }
 });
 
 //for of-al ugyanaz
-for (const [i, movement] of movements.entries()) {
-  if (movement > 0) {
-    console.log(`Movement ${i + 1}: You deposited ${movement}`);
+for (const [index, item] of movements.entries()) {
+  if (item > 0) {
+    console.log(`Index: ${index} - Item: ${item}`);
   } else {
-    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+    console.log(`Index: ${index} - Item: ${Math.abs(item)}`);
   }
 }
 
@@ -32,8 +30,8 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-//1 param az jelenlegi érték, 2. jelenlegi kulcs, 3. a teljes Map amit bejárunk
-currencies.forEach(function (value, key, map) {
+//1. param az jelenlegi érték, 2. jelenlegi kulcs, 3. a teljes Map amit bejárunk
+currencies.forEach((value, key, map) => {
   console.log(`${key}: ${value}`);
 });
 
@@ -41,9 +39,7 @@ currencies.forEach(function (value, key, map) {
 const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
 console.log(currenciesUnique);
 
-//1. param a jelenlegi érték, 2.param _ kell használni  mint elhanyagolható paraméter mert a key ugyanaz mint a value a Set adatstruktúránál
+//1. param a jelenlegi érték, 2.param _ kell használni mint elhanyagolható paraméter mert a key ugyanaz mint a value a Set adatstruktúránál
 currenciesUnique.forEach(function (value, _, map) {
   console.log(`${value}: ${value}`);
 });
-
-console.log();
