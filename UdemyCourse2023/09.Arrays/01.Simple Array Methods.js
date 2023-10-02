@@ -15,16 +15,18 @@ console.log('-------SPLICE--------');
 
 arr.splice(-1); //utolsó elemet törli
 console.log(arr);
-arr.splice(1, 2); //1.elemet kiírja majd 2-t töröl és az utána lévőt írja ki
+arr.splice(1, 2); //A 0.elemet kiírja, majd az 1 indextől kezdve 2-t töröl és az utána lévőeket írja ki
 console.log(arr);
 
 console.log('-------REVERSE--------');
-arr = ['a', 'b', 'c', 'd', 'e'];
 const arr2 = ['j', 'i', 'h', 'g', 'f'];
-console.log(arr2.reverse()); //az eredeti tömböt is módosítja
+console.log(arr2.reverse());
+
+//az eredeti tömböt is módosítja
 console.log(arr2);
 
 console.log('-------CONCAT--------');
+arr = ['a', 'b', 'c', 'd', 'e'];
 const letters = arr.concat(arr2);
 console.log(letters);
 console.log([...arr, ...arr2]);
