@@ -1,5 +1,6 @@
 console.log('-----------Working With Strings - Part 2-----------');
 
+const airline = 'A320';
 console.log(airline.toLowerCase());
 console.log(airline.toUpperCase());
 
@@ -56,10 +57,8 @@ if (plane2.startsWith('Airbus') && plane2.endsWith('neo')) {
 
 // Practice exercise
 const checkBaggage = function (items) {
-  //kisbetűvé teszem a kapott string-et
   const baggage = items.toLowerCase();
 
-  //ellenőrzöm, hogy a tiltott szavak benne vannak-e a string-be
   if (baggage.includes('knife') || baggage.includes('gun')) {
     console.log('You are NOT allowed on board');
   } else {

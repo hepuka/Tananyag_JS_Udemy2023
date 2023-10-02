@@ -13,12 +13,14 @@ const upperFirstWord = function (str) {
   return [first.toUpperCase(), ...others].join(' ');
 };
 
+console.log(upperFirstWord('this is a string'));
+
 // transformer egy Higher-order function aminek paraméterként egy függvényt adunk át, ami egy low level function
 //a higher function feladata, hogy végrehajtsa a feladatot, de az nem érdekli, hogy hogyan. A hogyanért a low level function felel.
 const transformer = function (str, fn) {
   console.log(`Original string: ${str}`);
-  console.log(`Transformed string: ${fn(str)}`);
 
+  console.log(`Transformed string: ${fn(str)}`);
   console.log(`Transformed by: ${fn.name}`);
 };
 

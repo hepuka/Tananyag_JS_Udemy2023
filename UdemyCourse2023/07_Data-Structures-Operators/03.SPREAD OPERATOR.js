@@ -20,7 +20,7 @@ console.log(newRightArray);
 console.log(...newRightArray);
 
 //newMenu tömbe berakja az eredeti meinMenu tömböt és hozzáadja még az elemeket
-//ilyenkor az eredti tömb nem változik, ezért mindenegyes iterációkor használni kell a spread operátort és megadni az új tömböt
+//ilyenkor az eredeti tömb nem változik, ezért mindenegyes iterációkor használni kell a spread operátort és megadni az új tömböt
 const newMenu = [...restaurant.mainMenu, 'Gnocci'];
 console.log(newMenu);
 

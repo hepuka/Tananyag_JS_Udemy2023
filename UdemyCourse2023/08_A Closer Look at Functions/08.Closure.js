@@ -1,32 +1,30 @@
-console.log('-----------Closures------------');
-
 const secureBooking = function () {
   //a cél az, hogy ezt a változót ne lehessen megváltoztatni kívülről, priváttá kell tenni
   //ezért egy olyan függvény kell ami egy függvénnyel tér vissza, és a védett változókat a szülő függvénybe(amit meghívunk pl. itt a szülőfüggvény a secureBooking) kell tenni
-  let passengerCount = 0;
+  let count = 0;
 
   return function () {
-    passengerCount++;
-    console.log(`${passengerCount} passengers`);
+    count++;
+    console.log(`counter: ${count} `);
   };
 };
 
-//elsőnek meghívom a szülőfüggvényt amit elmentek egy változóba (booker), ez a szülőfüggvény egy függvénnyel tér vissza amit a vltozóba mentünk
+//elsőnek meghívom a szülőfüggvényt amit elmentek egy változóba (booker). Ez a szülőfüggvény egy függvénnyel tér vissza amely a korábban létrehozott változóba kerül elmentésre.
+
 //majd ezzel a változóval (booker) hívjuk meg a visszaadott (belső) függvényt.
 const booker = secureBooking();
 booker();
 booker();
 booker();
 
-//console.dir(booker);
+// console.dir(booker);
 
 // More Closure Examples
 // Example 1
 
 let f;
-
 const g = function () {
-  const a = 23;
+  const a = 25;
   //globálisan deklarált f változóhoz egy függvényt rendelünk
   f = function () {
     console.log(a * 2);
@@ -35,7 +33,7 @@ const g = function () {
 
 //a h függvényben is függvényváltozó az f
 const h = function () {
-  const b = 777;
+  const b = 500;
   f = function () {
     console.log(b * 2);
   };
@@ -43,12 +41,12 @@ const h = function () {
 
 g();
 f();
-//console.dir(f);
+// console.dir(f);
 
 // Re-assigning f function
 h();
 f();
-//console.dir(f);
+// console.dir(f);
 
 // Example 2
 const boardPassengers = function (n, wait) {
