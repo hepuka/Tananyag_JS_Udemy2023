@@ -1,4 +1,3 @@
-console.log('------Coding Challenge #2---------');
 /* 
 This is more of a thinking challenge than a coding challenge 
 
@@ -10,9 +9,7 @@ And now explain to YOURSELF (or someone around you) WHY this worked! Take all th
   const header = document.querySelector('h1');
   header.style.color = 'red';
 
-  document.querySelector('body').addEventListener('click', function () {
+  document.querySelector('body').addEventListener('click', () => {
     header.style.color = 'blue';
   });
 })();
-
-console.log('------Coding Challenge #2 VÉGE---------');

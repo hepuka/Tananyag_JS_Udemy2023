@@ -53,7 +53,7 @@ const boardPassengers = function (n, wait) {
   //a fügvény hívásakor ez a változó létrejön az értékkel együtt
   const perGroup = n / 3;
 
-  //ez a függvény a megadott értéknek megfelelő idő után hajtódikvégre
+  //ez a függvény a megadott értéknek megfelelő idő után hajtódik végre
   setTimeout(function () {
     console.log(`We are now boarding all ${n} passengers`);
     console.log(`There are 3 groups, each with ${perGroup} passengers`);
