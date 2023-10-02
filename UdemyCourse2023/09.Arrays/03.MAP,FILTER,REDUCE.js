@@ -3,28 +3,28 @@
 //elméleti rész pdf-ben
 
 const eurToUsd = 1.1;
-
+const movements = [200, 455.23, -306.5, 25000, -642.21, -133.9, 79.97, 1300];
 //normál függvénnyel
 // const movementsUSD = movements.map(function (mov) {
 //   return mov * eurToUsd;
 // });
 
 //nyílfüggvénnyel
-const movementsUSD = movements.map(mov => mov * eurToUsd);
+const movementsUSD = movements.map(item => item * eurToUsd);
 
 console.log(movements);
 console.log(movementsUSD);
 
 //for-of-al map helyett
 const movementsUSDfor = [];
-for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+for (const item of movements) movementsUSDfor.push(item * eurToUsd);
 console.log(movementsUSDfor);
 
 //indexet és az elemet is kiírja map method-al
 const movementsDescriptions = movements.map(
-  (mov, i) =>
-    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
-      mov
+  (item, i) =>
+    `Movement ${i + 1}: You ${item > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+      item
     )}`
 );
 console.log(movementsDescriptions);

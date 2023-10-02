@@ -46,7 +46,6 @@ const account2 = {
 
 const accounts = [account1, account2];
 
-//elements
 // #region
 const labelWelcome = document.querySelector(".welcome");
 const labelDate = document.querySelector(".date");
