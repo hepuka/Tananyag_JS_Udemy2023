@@ -1,5 +1,3 @@
-console.log('------Internationalizing Numbers (Intl)------');
-
 const num2 = 3884764.23;
 
 const options = {

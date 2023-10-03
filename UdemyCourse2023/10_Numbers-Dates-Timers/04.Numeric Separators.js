@@ -1,5 +1,3 @@
-console.log('-----------Numeric Separators-------------');
-
 // 287,460,000,000
 // _  vonallal szétválazthatom a nagy számokat, hogy jobban lássam, mivel a js figyelmen kívül hagyja ezeket a karaktereket
 const diameter = 287_460_000_000;

@@ -1,5 +1,3 @@
-console.log('----------Creating Dates---------');
-
 // Create a date
 const now = new Date();
 console.log(now);

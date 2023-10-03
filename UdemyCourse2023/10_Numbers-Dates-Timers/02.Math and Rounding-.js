@@ -1,5 +1,3 @@
-console.log('---------Math and Rounding-------');
-
 console.log(Math.sqrt(25));
 
 // ** exponentiation operator

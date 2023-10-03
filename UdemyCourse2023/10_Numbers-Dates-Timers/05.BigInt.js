@@ -1,4 +1,3 @@
-console.log('-------Working with BigInt-------');
 //ES2020-tól
 
 console.log(2 ** 53 - 1);

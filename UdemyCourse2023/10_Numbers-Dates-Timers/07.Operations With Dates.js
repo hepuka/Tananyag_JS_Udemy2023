@@ -1,5 +1,3 @@
-console.log('-----------Operations With Dates---------');
-
 future = new Date(2037, 10, 19, 15, 23);
 //számmá konvertálom a date-et, milliseconds formában tárolja
 console.log(+future);
