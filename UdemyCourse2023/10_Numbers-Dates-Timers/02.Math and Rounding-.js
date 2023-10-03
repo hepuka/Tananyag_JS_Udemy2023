@@ -22,8 +22,12 @@ console.log(Math.floor(Math.random() * 6) + 1);
 
 const randomInt = (min, max) =>
   Math.floor(Math.random() * (max - min) + 1) + min;
-// 0...1 -> 0...(max - min) -> min...max
 console.log(randomInt(1, 6));
+
+//szín generálása random számok alapján
+const randNum = () => Math.floor(Math.random() * (255 - 0 + 1) + 0);
+const randomColor = () => `(${randNum()},${randNum()},${randNum()})`;
+console.log(randomColor());
 
 // Rounding integers
 //a legközelebbi egész számhoz kerekít

@@ -1,12 +1,10 @@
-console.log('------Event Propagation in Practice-------');
-
 //véletlenszám generálása
-/* const randomInt = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
+const randomInt = () => Math.floor(Math.random() * (255 - 0 + 1) + 0);
 
 //véletlen szín generálása a randomszám szerint
-const randomColor = () =>
-  `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+const randomColor = () => `rgb(${randomInt()},${randomInt()},${randomInt()})`;
+
+console.log(randomColor());
 
 document.querySelector('.nav__link').addEventListener('click', function (e) {
   this.style.backgroundColor = randomColor();
@@ -26,4 +24,3 @@ document.querySelector('.nav').addEventListener('click', function (e) {
   this.style.backgroundColor = randomColor();
   console.log('NAV', e.target, e.currentTarget);
 });
- */
