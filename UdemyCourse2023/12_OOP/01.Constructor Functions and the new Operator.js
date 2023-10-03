@@ -1,10 +1,7 @@
-console.log('--------Constructor Functions and the new Operator------');
-
 //ES15
 
 const Person = function (firstName, birthYear) {
   // Instance properties
-
   //this a Person class-ra mutat
   this.firstName = firstName;
   this.birthYear = birthYear;
