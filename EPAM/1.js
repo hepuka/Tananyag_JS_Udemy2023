@@ -33,3 +33,5 @@ const pen3 = new Pen2("Markerss", "Bluess", "$333");
 const pen4 = new Pen2("Markersss", "Bluesss", "$3333");
 pen3.showPrice();
 pen4.showPrice();
+
+console.log(!(6 % 2) ? "even" : "odd");

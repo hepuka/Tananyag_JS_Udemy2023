@@ -32,6 +32,9 @@ console.log(y);
 const z = Array.from({ length: 7 }, (_, i) => i + 1);
 console.log(z);
 
+const xyz = Array.from({ length: 5 }, () => Math.floor(Math.random() * 10) + 1);
+console.log(xyz);
+
 /* 
 - queryselectorAll egy NodeList-el tér vissza ami egy tömb(nem valós tömb) és tartalmazza az összes kiválasztott elemet  
 - mivel ez a NodeList nem egy valós tömb, ebből egy valósat kell konvertálni, hogy tudjuk rá alkalmazni a metódusokat. Array.from() metódussal tudjuk ezt megtenni

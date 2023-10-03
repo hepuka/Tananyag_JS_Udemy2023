@@ -2,7 +2,7 @@ console.log('----------Array Methods Practice----------');
 
 // 1.
 const bankDepositSum = accounts
-  //több tömbö trak egy nagy tömbbe, mivel több movement tömb van
+  //több tömböt rak egy nagy tömbbe, mivel több movement tömb van
   .flatMap(acc => acc.movements)
   .filter(mov => mov > 0)
   .reduce((sum, cur) => sum + cur, 0);

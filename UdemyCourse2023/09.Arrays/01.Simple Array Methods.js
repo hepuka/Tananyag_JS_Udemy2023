@@ -11,8 +11,6 @@ console.log(arr.slice(1, -2));
 console.log(arr.slice());
 console.log([...arr]);
 
-console.log('-------SPLICE--------');
-
 arr.splice(-1); //utolsó elemet törli
 console.log(arr);
 arr.splice(1, 2); //A 0.elemet kiírja, majd az 1 indextől kezdve 2-t töröl és az utána lévőeket írja ki
