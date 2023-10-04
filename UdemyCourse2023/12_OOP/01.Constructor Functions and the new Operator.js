@@ -2,9 +2,10 @@
 // 2. function is called, this = {}
 // 3. {} linked to prototype
 // 4. function automatically return {}
+
 const Person = function (firstName, birthYear) {
   // Instance properties
-  //this a létrehozandó aobjektumra mutat. Tehát itt a this kulcsszó az adott objektum firstname és birthyear kulcsát hozza létre, a paraméterként megadott firstname és birthyear alapján
+  //this a létrehozandó aobjektumra mutat. Tehát itt a this kulcsszó az adott objektum firstname és birthYear kulcsát hozza létre, a paraméterként megadott firstname és birthyear alapján
   this.firstName = firstName;
   this.birthYear = birthYear;
 };
@@ -23,13 +24,13 @@ console.log(matilda);
 console.log(jack);
 console.log(car1);
 
-//true-val tér vissza mert Jonas a Person osztály példánya
+//true-val tér vissza mert Jonas a Person konstruktor példánya
 console.log(jonas instanceof Person);
 
-//false, mert nem a Car osztály példánya
+//false, mert nem a Car konstruktor példánya
 console.log(jonas instanceof Car);
 
-//kizárólag csak a Person class metódusa,nem a példányoké
+//kizárólag csak a Person konstruktor függvény metódusa,nem a példányoké
 Person.hey = function () {
   console.log('Hey there 👋');
 };

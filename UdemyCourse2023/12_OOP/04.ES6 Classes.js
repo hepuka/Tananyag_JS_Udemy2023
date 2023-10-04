@@ -5,7 +5,7 @@ class PersonCl {
     this.birthYear = birthYear;
   }
 
-  // Instance methods.Methods will be added to .prototype property
+  //Minden metódus a létrehozott objektum prorotype-ja lesz
   calcAge() {
     console.log(new Date().getFullYear() - this.birthYear);
   }
@@ -31,10 +31,9 @@ class PersonCl {
     else alert(`${name} is not a full name!`);
   }
 
-  // Static metódus csak osztály részére, a példányok nem asználhatják
+  // Static metódus csak osztály részére, a példányok nem használhatják
   static hey() {
     console.log('Hey there 👋');
-    //console.log(this);
   }
 }
 

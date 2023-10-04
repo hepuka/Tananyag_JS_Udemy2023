@@ -1,5 +1,3 @@
-console.log('-------Object.create--------');
-
 const PersonProto = {
   calcAge() {
     console.log(2022 - this.birthYear);
