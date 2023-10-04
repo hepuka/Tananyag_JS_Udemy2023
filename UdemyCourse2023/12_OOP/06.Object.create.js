@@ -9,11 +9,12 @@ const PersonProto = {
   },
 };
 
+//a PersonProto objektum alapján egy üres objektum jön létre kezdetben
 const steven = Object.create(PersonProto);
-console.log(steven);
 steven.name = 'Steven';
 steven.birthYear = 2002;
 steven.calcAge();
+console.log(steven);
 console.log(steven.__proto__ === PersonProto);
 
 const sarah = Object.create(PersonProto);

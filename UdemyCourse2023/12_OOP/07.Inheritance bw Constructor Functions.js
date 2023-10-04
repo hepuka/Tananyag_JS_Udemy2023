@@ -1,9 +1,10 @@
-console.log(
-  '-----------Inheritance Between "Classes": Constructor Functions----------'
-);
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
 
 Person.prototype.calcAge = function () {
-  console.log(2022 - this.birthYear);
+  console.log(new Date().getFullYear() - this.birthYear);
 };
 
 const Student = function (firstName, birthYear, course) {
@@ -13,8 +14,11 @@ const Student = function (firstName, birthYear, course) {
 };
 
 // Linking prototypes
-//prototype-ok átadása,
+//prototype-ok átadása,örököltetjük a Person prototype-ot
 Student.prototype = Object.create(Person.prototype);
+
+console.log(Student.prototype);
+console.log(Person.prototype);
 
 Student.prototype.introduce = function () {
   console.log(`My name is ${this.firstName} and I study ${this.course}`);
@@ -23,6 +27,7 @@ Student.prototype.introduce = function () {
 const mike = new Student('Mike', 2020, 'Computer Science');
 mike.introduce();
 mike.calcAge();
+console.log(mike);
 
 console.log(mike.__proto__);
 console.log(mike.__proto__.__proto__);
