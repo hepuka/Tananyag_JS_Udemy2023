@@ -12,16 +12,6 @@ class Account {
   #movements = [];
   #pin;
 
-  // csak a requestLoan public metódus része
-  #approveLoan(val) {
-    return val > 1 ? true : false;
-  }
-
-  //az osztályra vonatkozik, az osztálynév és nem a példány metódusaként hívható meg
-  static helper() {
-    console.log('This is only a static Helper method!');
-  }
-
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
@@ -54,6 +44,16 @@ class Account {
 
       return this; //nem szükséges, de kell ha chaining-et használunk, 73.sor
     }
+  }
+
+  // csak a requestLoan public metódus része
+  #approveLoan(val) {
+    return val > 1 ? true : false;
+  }
+
+  //az osztályra vonatkozik, az osztálynév és nem a példány metódusaként hívható meg
+  static helper() {
+    console.log('This is only a static Helper method!');
   }
 }
 
