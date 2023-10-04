@@ -1,5 +1,3 @@
-console.log('------------ES6 Classes-----------');
-
 // Class declaration
 class PersonCl {
   constructor(fullName, birthYear) {
@@ -33,7 +31,7 @@ class PersonCl {
     else alert(`${name} is not a full name!`);
   }
 
-  // Static method only to the class
+  // Static metódus csak osztály részére, a példányok nem asználhatják
   static hey() {
     console.log('Hey there 👋');
     //console.log(this);
@@ -42,8 +40,8 @@ class PersonCl {
 
 const jessica = new PersonCl('Jessica Davis', 1977);
 const petike = new PersonCl('Majoros Peter', 2005);
-
 console.log(petike);
+
 petike.calcAge();
 
 console.log(jessica);

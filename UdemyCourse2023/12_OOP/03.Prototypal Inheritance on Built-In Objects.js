@@ -1,5 +1,3 @@
-console.log('-------Prototypal Inheritance on Built-In Objects------');
-
 const Person = function (firstName, birthYear) {
   this.firstName = firstName;
   this.birthYear = birthYear;
@@ -13,8 +11,11 @@ const jonas = new Person('Jonas', 1977);
 
 console.log(jonas.__proto__);
 
-// Object.prototype (top of prototype chain)
+// Object.prototype elérése, prototype chain legmagasabb pontja
+//tehát így érjük el a Person.prototype objektum Object.prototype-ját
 console.log(jonas.__proto__.__proto__);
+
+//ez már null-t ad vissza
 console.log(jonas.__proto__.__proto__.__proto__);
 
 console.dir(Person.prototype.constructor);
@@ -24,10 +25,10 @@ const arr = [3, 6, 6, 5, 6, 9, 9];
 
 console.log(arr.__proto__);
 console.log(arr.__proto__ === Array.prototype);
-
 console.log(arr.__proto__.__proto__);
 
-//tömb prototype-jához adom hozzá a tömbből alakított Set-et, a set az azonos elemeket nem tartalmazza az arr tömbből
+//tömb prototype-jához adom hozzá a tömbből alakított Set-et
+//a set az azonos elemeket nem tartalmazza az arr tömbből
 Array.prototype.unique = function () {
   return [...new Set(this)];
 };
