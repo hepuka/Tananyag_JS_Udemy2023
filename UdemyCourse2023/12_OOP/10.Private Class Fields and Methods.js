@@ -1,7 +1,3 @@
-console.log('---------Another Class Exxample-------');
-console.log('------Encapsulation: Protected Properties and Methods-----');
-console.log('------Encapsulation: Private Class Fields and Methods------');
-
 // 1) Public fields
 // 2) Private fields
 // 3) Public methods
@@ -16,12 +12,15 @@ class Account {
   #movements = [];
   #pin;
 
+  // csak a requestLoan public metódus része
+  #approveLoan(val) {
+    return val > 1 ? true : false;
+  }
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
     this.#pin = pin;
-    //this.#movements = [];
-    //this.locale = navigator.language;
   }
 
   // public interface
@@ -33,13 +32,13 @@ class Account {
   // public interface
   deposit(val) {
     this.#movements.push(val);
-    return this; //nem szükséges, de akkor kell ha chaining-et akarunk 387.sor
+    return this; //nem szükséges, de kell ha chaining-et akarunk
   }
 
   // public interface
   withdraw(val) {
     this.deposit(-val);
-    return this; //nem szükséges, de akkor kell ha chaining-et akarunk 387.sor
+    return this; //nem szükséges, de akkor kell ha chaining-et akarunk
   }
 
   // public interface
@@ -48,28 +47,30 @@ class Account {
       this.deposit(val);
       console.log('Loan approved!');
 
-      return this; //nem szükséges, de akkor kell ha chaining-et akarunk 387.sor
+      return this; //nem szükséges, de kell ha chaining-et használunk, 73.sor
     }
   }
 
+  // // private metódus, csak a requestLoan public metódus része
+  // #approveLoan(val) {
+  //   return val > 1 ? true : false;
+  // }
+
   //az osztályra vonatkozik, az osztálynév és nem a példány metódusaként hívható meg
   static helper() {
-    console.log('Helper');
-  }
-
-  // Private methods, kívülről nem hívható meg, ez csak a requestLoan public metódus része
-  #approveLoan(val) {
-    return true;
+    console.log('This is only a static Helper method!');
   }
 }
 
 const acc1 = new Account('Jonas', 'EUR', 1111);
+console.log(acc1);
+const acc2 = new Account('Matild', 'USD', 2222);
+console.log(acc2);
 
 acc1.deposit(250);
 acc1.withdraw(140);
-acc1.requestLoan(1000);
+acc1.requestLoan(5011);
 
-console.log(acc1);
 console.log(acc1.getMovement());
 
 Account.helper();
@@ -77,5 +78,4 @@ Account.helper();
 console.log('-------Chaining Methods------');
 
 acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
-
 console.log(acc1.getMovement());
