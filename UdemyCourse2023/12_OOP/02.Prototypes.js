@@ -1,29 +1,26 @@
-console.log('----------Prototypes----------');
-
 const Person = function (firstName, birthYear) {
-  // Instance properties
-
-  //this a Person class-ra mutat
   this.firstName = firstName;
   this.birthYear = birthYear;
 };
 
-//prototype property a Person class-hoz
-//Itt készítünk egy prototype metódust a Person osztálynak, hogy az osztály példányai megörökölhessék. Minden példányra meghívható ami a Person osztályból készült, nem kell mindegyiknél megírni
+//prototype a Person class-hoz
+//Itt készítünk egy prototype metódust a Person osztálynak, hogy az osztály példányai megörökölhessék. Minden példányra meghívható ami a Person osztályból készült, nem kell mindegyiknél megírni.
 Person.prototype.calcAge = function () {
-  console.log(2022 - this.birthYear);
+  console.log(new Date().getFullYear() - this.birthYear);
 };
 
 Person.prototype.species = 'Homo Sapiens';
 
 //osztyály prototype tulajdonságai
+console.log(Person);
 console.log(Person.prototype);
 
 //osztály példányai
-const jonas = new Person('Hepuka', 1977);
-const matilda = new Person('Kata', 1981);
+const jonas = new Person('Jonas', 1977);
+const matilda = new Person('Matilda', 1981);
 
-console.log(jonas, matilda); //a tulajdonságok között ott van a calcAge és a species prototype
+//a tulajdonságok között ott van a calcAge és a species prototype
+console.log(jonas, matilda);
 
 jonas.calcAge();
 matilda.calcAge();
@@ -31,9 +28,9 @@ console.log(jonas.species, matilda.species);
 
 //prototype-ot tudjuk lekérdezni
 console.log(jonas.__proto__);
-console.log(jonas.__proto__ === Person.prototype);
 
 //prototype ellőnőrzés
+console.log(jonas.__proto__ === Person.prototype);
 console.log(Person.prototype.isPrototypeOf(jonas));
 console.log(Person.prototype.isPrototypeOf(matilda));
 console.log(Person.prototype.isPrototypeOf(Person));
