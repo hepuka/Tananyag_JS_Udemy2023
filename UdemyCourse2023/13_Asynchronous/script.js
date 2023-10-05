@@ -122,14 +122,12 @@ const renderError = function (msg) {
 
 //függvény ami tartalmazza a fetch-elést, a hibakezelést
 const getJSON = async function (url) {
-  const response = await fetch(url);
-  if (!response.ok)
-    throw new Error(`Something went wrong: (${response.status})`);
-  return (data = response.json());
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Something went wrong: (${response.status})`);
+  const data = await res.json();
+  console.log(data[0]);
 };
-
-const coun = getJSON('https://restcountries.com/v2/name/hungary');
-coun.then(res => console.log(res[0]));
+getJSON('https://restcountries.com/v2/name/hungary');
 
 //The Event Loop in Practice
 // console.log('Test start');
