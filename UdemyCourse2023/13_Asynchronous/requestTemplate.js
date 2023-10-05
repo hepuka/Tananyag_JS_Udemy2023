@@ -31,3 +31,18 @@ const getCountryAndNeighbour = function (country) {
     });
   });
 };
+
+//fetch metódus
+const getCountryData = function (country) {
+  fetch(`https://restcountries.com/v2/name/${country}`)
+    .then(res => {
+      if (!res.ok) throw new Error(res.status);
+      return res.json();
+    })
+    .then(data => {
+      renderCountry(data[0]);
+    })
+    .catch(err => {
+      console.error(err);
+    });
+};
