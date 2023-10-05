@@ -1,37 +1,40 @@
-console.log('-----Our First AJAX Call: XMLHttpRequest-------');
-console.log('-----Welcome to Callback Hell--------');
+//https://restcountries.com/v2/all
+
+const btn = document.querySelector('.btn-country');
+const countriesContainer = document.querySelector('.countries');
 
 const getCountryAndNeighbour = function (country) {
   const request = new XMLHttpRequest();
   request.open('GET', `https://restcountries.com/v2/name/${country}`);
   request.send();
+  console.log(request);
 
   request.addEventListener('load', function () {
+    //mivel az adat a tömb első objektuma, így destruktúrálom az elején rögtön
     const [data] = JSON.parse(this.responseText);
-
-    // Render country 1
+    console.log(data);
     renderCountry(data);
 
-    // Get neighbour country (2)
-    const [neighbour] = data.borders;
+    // Get neighbour countries
+    const [neighbour, ...others] = data.borders;
+    console.log(neighbour);
+    console.log(others);
 
-    if (!neighbour) return;
-
-    // AJAX call country 2
+    //2. AJAX hívás, hogy lekérjük a szomszéd ország adatait
     const request2 = new XMLHttpRequest();
-    request2.open('GET', `https://restcountries.com/v2/alpha/${neighbour}`);
+    request2.open('GET', `https://restcountries.com/v2/alpha/${others[0]}`);
     request2.send();
 
     request2.addEventListener('load', function () {
-      const data2 = JSON.parse(this.responseText);
-      console.log(data2);
-
-      renderCountry(data2, 'neighbour');
+      const neighbourData = JSON.parse(this.responseText);
+      console.log(neighbourData);
+      renderCountry(neighbourData);
     });
   });
 };
 
-getCountryAndNeighbour('portugal');
+getCountryAndNeighbour('hungary');
+getCountryAndNeighbour('usa');
 
 setTimeout(() => {
   console.log('1 second passed');
@@ -45,10 +48,6 @@ setTimeout(() => {
     }, 1000);
   }, 1000);
 }, 1000);
-
-console.log('--------Consuming Promises---------');
-console.log('--------Chaining Promises (then - catch - finally)-----------');
-console.log('--------Handling Rejected Promises--');
 
 const renderCountry = function (data, className = '') {
   const html = `

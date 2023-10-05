@@ -22,3 +22,17 @@ sarah.init('Sarah', 1980);
 sarah.calcAge();
 
 console.log(sarah);
+
+///////////////////////////////////////////
+const person = Object.create(null);
+person.age = 21;
+
+console.log(person);
+if (Object.hasOwn(person, 'age')) {
+  console.log(person.age); // true - works regardless of how the object was created
+}
+
+if (person.hasOwnProperty('age')) {
+  // throws error - person.hasOwnProperty is not a function
+  console.log('hasOwnProperty: ', person.age);
+}
