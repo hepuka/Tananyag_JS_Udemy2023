@@ -12,6 +12,7 @@ const getCountryAndNeighbour = function (country) {
   request.addEventListener('load', function () {
     //mivel az adat a tömb első objektuma, így destruktúrálom az elején rögtön
     const [countryData] = JSON.parse(this.responseText);
+    console.log(countryData);
     renderCountry(countryData);
 
     // Get neighbour countries
@@ -27,7 +28,7 @@ const getCountryAndNeighbour = function (country) {
     request2.addEventListener('load', function () {
       const neighbourData = JSON.parse(this.responseText);
       console.log(neighbourData);
-      renderCountry(neighbourData);
+      renderCountry(neighbourData, 'neighbour');
     });
   });
 };
