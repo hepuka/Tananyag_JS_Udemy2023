@@ -8,14 +8,14 @@ const getCountryAndNeighbour = function (country) {
 
   request.addEventListener('load', function () {
     //mivel az adat a tömb első objektuma, így destruktúrálom az elején rögtön
-    const [data] = JSON.parse(this.responseText);
-    console.log(data);
+    const [countryData] = JSON.parse(this.responseText);
+    console.log(countryData);
 
     //innentől kezdve lehet renderelni az adatot UI-ra
-    renderCountry(data);
+    renderCountry(countryData);
 
     // Get neighbour countries
-    const [neighbour, ...others] = data.borders;
+    const [neighbour, ...others] = countryData.borders;
     console.log(neighbour);
     console.log(others);
 

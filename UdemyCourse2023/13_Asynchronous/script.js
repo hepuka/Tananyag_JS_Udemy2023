@@ -11,12 +11,11 @@ const getCountryAndNeighbour = function (country) {
 
   request.addEventListener('load', function () {
     //mivel az adat a tömb első objektuma, így destruktúrálom az elején rögtön
-    const [data] = JSON.parse(this.responseText);
-    console.log(data);
-    renderCountry(data);
+    const [countryData] = JSON.parse(this.responseText);
+    renderCountry(countryData);
 
     // Get neighbour countries
-    const [neighbour, ...others] = data.borders;
+    const [neighbour, ...others] = countryData.borders;
     console.log(neighbour);
     console.log(others);
 
@@ -34,20 +33,6 @@ const getCountryAndNeighbour = function (country) {
 };
 
 getCountryAndNeighbour('hungary');
-getCountryAndNeighbour('usa');
-
-setTimeout(() => {
-  console.log('1 second passed');
-  setTimeout(() => {
-    console.log('2 seconds passed');
-    setTimeout(() => {
-      console.log('3 second passed');
-      setTimeout(() => {
-        console.log('4 second passed');
-      }, 1000);
-    }, 1000);
-  }, 1000);
-}, 1000);
 
 const renderCountry = function (data, className = '') {
   const html = `
@@ -68,6 +53,18 @@ const renderCountry = function (data, className = '') {
   countriesContainer.style.opacity = 1;
 };
 
+setTimeout(() => {
+  console.log('1 second passed');
+  setTimeout(() => {
+    console.log('2 seconds passed');
+    setTimeout(() => {
+      console.log('3 second passed');
+      setTimeout(() => {
+        console.log('4 second passed');
+      }, 1000);
+    }, 1000);
+  }, 1000);
+}, 1000);
 const renderError = function (msg) {
   countriesContainer.insertAdjacentText('beforeend', msg);
   // countriesContainer.style.opacity = 1; finally ágban van kezelve
