@@ -122,24 +122,15 @@ const renderError = function (msg) {
   countriesContainer.insertAdjacentText('beforeend', msg);
 };
 
-let array = [];
-
 //függvény ami tartalmazza a fetch-elést, a hibakezelést
-function getJSON() {
-  fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas')
-    .then(res => res.json())
-    .then(data => {
-      array.push(...data.slice(0, 5));
-      // console.log(array);
+const getJSON = function (url) {
+  return fetch(url).then(res => {
+    if (!res.ok) throw new Error('Something went wrong!');
 
-      // const item = `
-      // <h1>${array[0].codigo}</h1>
-      // <h2>${array[0].nome}</h2>
-      // `;
-      // countriesContainer.insertAdjacentHTML('beforeend', item);
-    });
-}
-getJSON();
+    return res.json();
+  });
+};
+// getJSON();
 
 ///////////////////////////////////////
 //The Event Loop in Practice
@@ -155,21 +146,21 @@ console.log('Test end');
 
 /////////////////////////////////////////
 //Building a Simple Promise
-const lotteryPromise = new Promise((resolve, reject) => {
-  console.log('Lotter draw is started');
+// const lotteryPromise = new Promise((resolve, reject) => {
+//   console.log('Lotter draw is started');
 
-  setTimeout(() => {
-    if (Math.random() >= 0.5) {
-      resolve('You WIN');
-    } else {
-      reject(new Error('You lost your money'));
-    }
-  }, 3000);
-});
+//   setTimeout(() => {
+//     if (Math.random() >= 0.5) {
+//       resolve('You WIN');
+//     } else {
+//       reject(new Error('You lost your money'));
+//     }
+//   }, 3000);
+// });
 
 //lotteryPromise egy promise object
 //res => console.log(res) a resolve('You WIN'); függvényben lévőt adja vissza , ha a promise fullfilled
-lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+// lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //Promisifying setTimeout
@@ -241,6 +232,7 @@ const getPosition = function () {
 //     .then(data => renderCountry(data[0]))
 //     .catch(err => console.error(`${err.message}`));
 // };
+
 // btn.addEventListener('click', whereAmI2);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -248,42 +240,43 @@ const getPosition = function () {
 
 // fetch(`https://restcountries.com/v2/name/${country}`).then(res => console.log(res))
 
-// const whereAmI3 = async function () {
-//   try {
-//     // Geolocation
-//     // előzőekben így hívtuk meg:
+const whereAmI3 = async function () {
+  try {
+    // Geolocation
+    // előzőekben így hívtuk meg:
 
-//     //   getPosition()
-//     //     .then(pos => {
-//     //       const { latitude: lat, longitude: lng } = pos.coords;
-//     //     })
+    //   getPosition()
+    //     .then(pos => {
+    //       const { latitude: lat, longitude: lng } = pos.coords;
+    //     })
 
-//     const pos = await getPosition();
-//     const { latitude: lat, longitude: lng } = pos.coords;
+    const pos = await getPosition();
+    const { latitude: lat, longitude: lng } = pos.coords;
 
-//     const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
-//     if (!resGeo.ok) throw new Error('Problem getting location data');
-//     const dataGeo = await resGeo.json();
-//     // console.log(dataGeo);
+    const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    if (!resGeo.ok) throw new Error('Problem getting location data');
+    const dataGeo = await resGeo.json();
+    // console.log(dataGeo);
 
-//     // Country data
-//     const res = await fetch(
-//       `https://restcountries.com/v2/name/${dataGeo.country}`
-//     );
-//     // console.log(res);
-//     if (!res.ok) throw new Error('Problem getting country');
-//     const data = await res.json();
+    // Country data
+    const res = await fetch(
+      `https://restcountries.com/v2/name/${dataGeo.country}`
+    );
+    // console.log(res);
+    if (!res.ok) throw new Error('Problem getting country');
+    const data = await res.json();
 
-//     // console.log(data);
-//     renderCountry(data[0]);
-//   } catch (err) {
-//     console.error(`${err}`);
-//     renderError(`${err.message}`);
-//   }
-// };
+    // console.log(data);
+    renderCountry(data[0]);
+  } catch (err) {
+    console.error(`${err}`);
+    renderError(`${err.message}`);
+  }
+};
 
 // whereAmI3();
 
+//////////////////////////////////////////////////////////////////////////////////////////////
 //Returning Values from Async Functions
 
 const whereAmI4 = async function () {
@@ -314,62 +307,70 @@ const whereAmI4 = async function () {
 };
 
 //a visszaadott érték kiolvasása az async függvényből
-whereAmI4()
-  .then(res => console.log(res))
-  .catch(err => console.error(`2: ${err.message} 💥`));
 
+//1.verzió
+// whereAmI4()
+//   .then(returnedValue => console.log(returnedValue))
+//   .catch(err => console.error(`2: ${err.message} 💥`));
+
+//2.verzió
 // (async function () {
 //   try {
-//     const city = await whereAmI4();
-//     console.log(`2: ${city}`);
+//     const returnedValue = await whereAmI4();
+//     console.log(returnedValue);
 //   } catch (err) {
-//     console.error(`2: ${err.message}`);
+//     console.error(err.message);
 //   }
-//   console.log('3: Finished getting location');
 // })();
 
-///console.log('------Running Promises in Parallel------');
+/////////////////////////////////////////////////////////////////////////////////////////////////
+///Running Promises in Parallel
 
-// const get3Countries = async function (c1, c2, c3) {
-//   try {
-//     // const [data1] = await getJSON(
-//     //   `https://restcountries.eu/rest/v2/name/${c1}`
-//     // );
-//     // const [data2] = await getJSON(
-//     //   `https://restcountries.eu/rest/v2/name/${c2}`
-//     // );
-//     // const [data3] = await getJSON(
-//     //   `https://restcountries.eu/rest/v2/name/${c3}`
-//     // );
-//     // console.log([data1.capital, data2.capital, data3.capital]);
+const get3Countries = async function (c1, c2, c3) {
+  try {
+    //1.verzió, egymás után fetch-el
+    const [data1] = await getJSON(`https://restcountries.com/v2/name/${c1}`);
+    const [data2] = await getJSON(`https://restcountries.com/v2/name/${c2}`);
+    const [data3] = await getJSON(`https://restcountries.com/v2/name/${c3}`);
+    console.log([data1.capital, data2.capital, data3.capital]);
 
-//     const data = await Promise.all([
-//       getJSON(`https://restcountries.com/v2/name/${c1}`),
-//       getJSON(`https://restcountries.com/v2/name/${c2}`),
-//       getJSON(`https://restcountries.com/v2/name/${c3}`),
-//     ]);
-//     console.log(data.map(d => d[0].capital));
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
-// get3Countries('portugal', 'hungary', 'tanzania');
+    //2.verzió
+    //párhuzamosan fetch-eli a 3 adatot
+    const data = await Promise.all([
+      getJSON(`https://restcountries.com/v2/name/${c1}`),
+      getJSON(`https://restcountries.com/v2/name/${c2}`),
+      getJSON(`https://restcountries.com/v2/name/${c3}`),
+    ]);
 
-//console.log('------Other Promise Combinators: race, allSettled and any----');
+    console.log(data);
+    console.log(data.map(item => item[0].capital));
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+// get3Countries('portugal', 'hungary', 'romania');
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//Other Promise Combinators: race, allSettled, any;
 
 // Promise.race
-// (async function () {
-//   const res = await Promise.race([
-//     getJSON(`https://restcountries.com/v2/name/italy`),
-//     getJSON(`https://restcountries.com/v2/name/egypt`),
-//     getJSON(`https://restcountries.com/v2/name/mexico`),
-//   ]);
-//   console.log(res[0]);
-// })();
+//a leggyorsabban fetch-elt promise-al tér vissza
+(async function () {
+  const res = await Promise.race([
+    getJSON(`https://restcountries.com/v2/name/italy`),
+    getJSON(`https://restcountries.com/v2/name/egypt`),
+    getJSON(`https://restcountries.com/v2/name/mexico`),
+  ]);
+  console.log(res[0]);
+})();
 
+//rossz internetkapcsolat esetén ha túl sokáig tart a lekérdezés akkor a megadott idő után megszakítja a fetch-elést
+
+//csak rejectet ad vissza
 // const timeout = function (sec) {
 //   return new Promise(function (_, reject) {
-//     setTimeout(function () {
+//     setTimeout( () => {
 //       reject(new Error('Request took too long!'));
 //     }, sec * 1000);
 //   });
@@ -382,20 +383,20 @@ whereAmI4()
 //   .then(res => console.log(res[0]))
 //   .catch(err => console.error(err));
 
-// // Promise.allSettled
-// Promise.allSettled([
-//   Promise.resolve('Success'),
-//   Promise.reject('ERROR'),
-//   Promise.resolve('Another success'),
-// ]).then(res => console.log(res));
+//Promise.allSettled
+Promise.allSettled([
+  Promise.resolve('Success'),
+  Promise.reject('ERROR'),
+  Promise.resolve('Another success'),
+]).then(res => console.log(res));
 
-// Promise.all([
-//   Promise.resolve('Success'),
-//   Promise.reject('ERROR'),
-//   Promise.resolve('Another success'),
-// ])
-//   .then(res => console.log(res))
-//   .catch(err => console.error(err));
+Promise.all([
+  Promise.resolve('Success'),
+  Promise.reject('ERROR'),
+  Promise.resolve('Another success'),
+])
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
 
 // // Promise.any [ES2021]
 // Promise.any([

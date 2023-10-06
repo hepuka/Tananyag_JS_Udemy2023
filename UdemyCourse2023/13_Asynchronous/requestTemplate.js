@@ -147,6 +147,40 @@ const whereAmI3 = async function () {
 };
 
 //a visszaadott érték kiolvasása az async függvényből
+
+//1.
 whereAmI3()
-  .then(res => console.log(res))
+  .then(returnedValue => console.log(returnedValue))
   .catch(err => console.error(err.message));
+
+//2.
+(async function () {
+  try {
+    const returnedValue = await whereAmI4();
+    console.log(returnedValue);
+  } catch (err) {
+    console.error(err.message);
+  }
+})();
+
+//Running Promises in Parallel
+const get3Countries = async function (c1, c2, c3) {
+  try {
+    //1.verzió
+    const [data1] = await getJSON(`https://restcountries.com/v2/name/${c1}`);
+    const [data2] = await getJSON(`https://restcountries.com/v2/name/${c2}`);
+    const [data3] = await getJSON(`https://restcountries.com/v2/name/${c3}`);
+    console.log([data1.capital, data2.capital, data3.capital]);
+
+    //2.verzió
+    const data = await Promise.all([
+      getJSON(`https://restcountries.com/v2/name/${c1}`),
+      getJSON(`https://restcountries.com/v2/name/${c2}`),
+      getJSON(`https://restcountries.com/v2/name/${c3}`),
+    ]);
+    console.log(data.map(item => item[0].capital));
+  } catch (err) {
+    console.error(err);
+  }
+};
+get3Countries('portugal', 'hungary', 'romania');
