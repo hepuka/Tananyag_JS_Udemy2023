@@ -26,7 +26,7 @@ const whereAmI = function (lat, lng) {
     .catch(err => console.error(`${err.message}`));
 };
 
-btn.addEventListener('click', () => whereAmI(-33.933, 18.474));
+btn.addEventListener('click', () => whereAmI(47.54, 21.611));
 
 const renderCountry = function (data, className = '') {
   const html = `

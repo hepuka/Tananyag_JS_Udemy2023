@@ -55,22 +55,22 @@ const renderCountry = function (data, className = '') {
 };
 
 //callback hell
-setTimeout(() => {
-  console.log('1 second passed');
-  setTimeout(() => {
-    console.log('2 seconds passed');
-    setTimeout(() => {
-      console.log('3 second passed');
-      setTimeout(() => {
-        console.log('4 second passed');
-      }, 1000);
-    }, 1000);
-  }, 1000);
-}, 1000);
+// setTimeout(() => {
+//   console.log('1 second passed');
+//   setTimeout(() => {
+//     console.log('2 seconds passed');
+//     setTimeout(() => {
+//       console.log('3 second passed');
+//       setTimeout(() => {
+//         console.log('4 second passed');
+//       }, 1000);
+//     }, 1000);
+//   }, 1000);
+// }, 1000);
 
 //fetch,promises
 const fetchRequest = fetch('https://restcountries.com/v2/name/hungary');
-console.log(fetchRequest);
+// console.log(fetchRequest);
 
 const getCountryData = function (country) {
   fetch(`https://restcountries.com/v2/name/${country}`)
@@ -120,40 +120,58 @@ const renderError = function (msg) {
   countriesContainer.insertAdjacentText('beforeend', msg);
 };
 
+let array = [];
+
 //függvény ami tartalmazza a fetch-elést, a hibakezelést
-const getJSON = async function (url) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Something went wrong: (${response.status})`);
-  const data = await res.json();
-  console.log(data[0]);
-};
-getJSON('https://restcountries.com/v2/name/hungary');
+function getJSON() {
+  fetch('https://parallelum.com.br/fipe/api/v1/carros/marcas')
+    .then(res => res.json())
+    .then(data => {
+      array.push(...data.slice(0, 5));
+      // console.log(array);
 
+      // const item = `
+      // <h1>${array[0].codigo}</h1>
+      // <h2>${array[0].nome}</h2>
+      // `;
+      // countriesContainer.insertAdjacentHTML('beforeend', item);
+    });
+}
+getJSON();
+
+///////////////////////////////////////
 //The Event Loop in Practice
-// console.log('Test start');
-// setTimeout(() => console.log('0 sec timer'), 0);
-// Promise.resolve('Resolved promise 1').then(res => console.log(res));
-// Promise.resolve('Resolved promise 2').then(res => {
-//   for (let i = 0; i < 1000000000; i++) {}
-//   console.log(res);
-// });
-// console.log('Test end');
+//async miatt elsőnek a kát console sor fut le, majd a Promise-ok, mivel annak prioritása van a callback queue felett amelyben a settimeout függvény van. A 2.promisnak is prioritása van, attól függően, hogy egy nagy loop van benne deklarálva
+console.log('Test start');
+setTimeout(() => console.log('0 sec timer'), 0);
+Promise.resolve('Resolved promise 1').then(res => console.log(res));
+Promise.resolve('Resolved promise 2').then(res => {
+  for (let i = 0; i < 1000000000; i++) {}
+  console.log(res);
+});
+console.log('Test end');
 
+/////////////////////////////////////////
 //Building a Simple Promise
-// const lotteryPromise = new Promise(function (resolve, reject) {
-//   console.log('Lotter draw is happening');
-//   setTimeout(function () {
-//     if (Math.random() >= 0.5) {
-//       resolve('You WIN');
-//     } else {
-//       reject(new Error('You lost your money'));
-//     }
-//   }, 2000);
-// });
+const lotteryPromise = new Promise((resolve, reject) => {
+  console.log('Lotter draw is started');
 
-// lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+  setTimeout(() => {
+    if (Math.random() >= 0.5) {
+      resolve('You WIN');
+    } else {
+      reject(new Error('You lost your money'));
+    }
+  }, 3000);
+});
 
-// Promisifying setTimeout
+//lotteryPromise egy promise object
+//res => console.log(res) a resolve('You WIN'); függvényben lévőt adja vissza , ha a promise fullfilled
+lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//Promisifying setTimeout
+// ugyanaz mint az elején a 4 settimout callback hell
 // const wait = function (seconds) {
 //   return new Promise(function (resolve) {
 //     setTimeout(resolve, seconds * 1000);
@@ -175,36 +193,28 @@ getJSON('https://restcountries.com/v2/name/hungary');
 //   })
 //   .then(() => console.log('4 second passed'));
 
-// setTimeout(() => {
-//   console.log('1 second passed');
-//   setTimeout(() => {
-//     console.log('2 seconds passed');
-//     setTimeout(() => {
-//       console.log('3 second passed');
-//       setTimeout(() => {
-//         console.log('4 second passed');
-//       }, 1000);
-//     }, 1000);
-//   }, 1000);
-// }, 1000);
-
+/////////////////////////////////////////////////////////////////////////////////////////////////
+//a promise azonnal visszatér
 // Promise.resolve('abc').then(x => console.log(x));
 // Promise.reject(new Error('Problem!')).catch(x => console.error(x));
 
-console.log('------Promisifying the Geolocation API-------');
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//Promisifying the Geolocation API
+const getPosition = function () {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(
+      //resolve függvényben adjuk vissza a pozíciót mint fullfilled value
+      position => resolve(position),
+      err => reject(err)
+    );
 
-// const getPosition = function () {
-//   return new Promise(function (resolve, reject) {
-//     // navigator.geolocation.getCurrentPosition(
-//     //   position => resolve(position),
-//     //   err => reject(err)
-//     // );
-//     navigator.geolocation.getCurrentPosition(resolve, reject);
-//   });
-// };
-// getPosition().then(pos => console.log(pos));
+    //ez ugyanaz mint a 207-208.sor
+    // navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+getPosition().then(pos => console.log(pos));
 
-//kirendereli az előzőek alapján, hogy melyik országban vagyok
+//kirendereli ilyen módon is, hogy melyik országban vagyok
 // const whereAmI2 = function () {
 //   getPosition()
 //     .then(pos => {
@@ -230,11 +240,11 @@ console.log('------Promisifying the Geolocation API-------');
 //     .then(data => renderCountry(data[0]))
 //     .catch(err => console.error(`${err.message}`));
 // };
-
 // btn.addEventListener('click', whereAmI2);
 
-console.log('------Consuming Promises with Async/Await------');
-console.log('------Error Handling With try...catch----------');
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//Consuming Promises with Async/Await;
+//Error Handling With try...catch
 
 // fetch(`https://restcountries.com/v2/name/${country}`).then(res => console.log(res))
 
@@ -283,7 +293,7 @@ console.log('------Error Handling With try...catch----------');
 //   alert(err.message);
 // }
 
-console.log('-----Returning Values from Async Functions------');
+//console.log('--- --Returning Values from Async Functions------');
 
 // const whereAmI4 = async function () {
 //   try {
@@ -333,7 +343,7 @@ console.log('-----Returning Values from Async Functions------');
 //   console.log('3: Finished getting location');
 // })();
 
-console.log('-------Running Promises in Parallel------');
+///console.log('------Running Promises in Parallel------');
 
 // const get3Countries = async function (c1, c2, c3) {
 //   try {
@@ -360,7 +370,7 @@ console.log('-------Running Promises in Parallel------');
 // };
 // get3Countries('portugal', 'hungary', 'tanzania');
 
-console.log('----Other Promise Combinators: race, allSettled and any----');
+//console.log('------Other Promise Combinators: race, allSettled and any----');
 
 // Promise.race
 // (async function () {

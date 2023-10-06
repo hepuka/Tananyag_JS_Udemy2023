@@ -1,4 +1,3 @@
-console.log('-----Coding Challenge 2-----');
 /* 
 Build the image loading functionality that I just showed you on the screen.
 
@@ -19,14 +18,14 @@ PART 2
 TEST DATA: Images in the img folder. Test the error handler by passing a wrong image path. Set the network speed to 'Fast 3G' in the dev tools Network tab, otherwise images load too fast.
 
 */
+const imgContainer = document.querySelector('.images');
+let currentImg;
 
 const wait2 = function (seconds) {
   return new Promise(function (resolve) {
     setTimeout(resolve, seconds * 1000);
   });
 };
-
-const imgContainer = document.querySelector('.images');
 
 const createImage = function (imgPath) {
   return new Promise(function (resolve, reject) {
@@ -43,8 +42,6 @@ const createImage = function (imgPath) {
     });
   });
 };
-
-let currentImg;
 
 createImage('img/img-1.jpg')
   .then(img => {
