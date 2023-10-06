@@ -356,14 +356,14 @@ const get3Countries = async function (c1, c2, c3) {
 
 // Promise.race
 //a leggyorsabban fetch-elt promise-al tér vissza
-(async function () {
-  const res = await Promise.race([
-    getJSON(`https://restcountries.com/v2/name/italy`),
-    getJSON(`https://restcountries.com/v2/name/egypt`),
-    getJSON(`https://restcountries.com/v2/name/mexico`),
-  ]);
-  console.log(res[0]);
-})();
+// (async function () {
+//   const res = await Promise.race([
+//     getJSON(`https://restcountries.com/v2/name/italy`),
+//     getJSON(`https://restcountries.com/v2/name/egypt`),
+//     getJSON(`https://restcountries.com/v2/name/mexico`),
+//   ]);
+//   console.log(res[0]);
+// })();
 
 //rossz internetkapcsolat esetén ha túl sokáig tart a lekérdezés akkor a megadott idő után megszakítja a fetch-elést
 
@@ -384,19 +384,20 @@ const get3Countries = async function (c1, c2, c3) {
 //   .catch(err => console.error(err));
 
 //Promise.allSettled
-Promise.allSettled([
-  Promise.resolve('Success'),
-  Promise.reject('ERROR'),
-  Promise.resolve('Another success'),
-]).then(res => console.log(res));
+// Promise.allSettled([
+//   Promise.resolve('Success'),
+//   Promise.reject('ERROR'),
+//   Promise.resolve('Another success'),
+// ]).then(res => console.log(res));
 
-Promise.all([
-  Promise.resolve('Success'),
-  Promise.reject('ERROR'),
-  Promise.resolve('Another success'),
-])
-  .then(res => console.log(res))
-  .catch(err => console.error(err));
+//error-al tér vissza,mert ha az egyik promise error akkor a visszaadott promise is error lesz
+// Promise.all([
+//   Promise.resolve('Success'),
+//   Promise.reject('ERROR'),
+//   Promise.resolve('Another success'),
+// ])
+//   .then(res => console.log(res))
+//   .catch(err => console.error(err));
 
 // // Promise.any [ES2021]
 // Promise.any([
