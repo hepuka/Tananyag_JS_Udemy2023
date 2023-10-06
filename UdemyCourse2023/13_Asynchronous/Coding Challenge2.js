@@ -28,16 +28,16 @@ const wait2 = function (seconds) {
 };
 
 const createImage = function (imgPath) {
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve, reject) => {
     const img = document.createElement('img');
     img.src = imgPath;
 
-    img.addEventListener('load', function () {
+    img.addEventListener('load', () => {
       imgContainer.append(img);
       resolve(img);
     });
 
-    img.addEventListener('error', function () {
+    img.addEventListener('error', () => {
       reject(new Error('Image not found'));
     });
   });

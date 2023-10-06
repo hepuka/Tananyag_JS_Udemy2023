@@ -121,3 +121,32 @@ createImage('img/img-1.jpg')
     currentImg.style.display = 'none';
   })
   .catch(err => console.error(err));
+
+//Async-Await
+const whereAmI3 = async function () {
+  try {
+    const pos = await getPosition();
+    const { latitude: lat, longitude: lng } = pos.coords;
+
+    const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    if (!resGeo.ok) throw new Error('Problem getting location data');
+    const dataGeo = await resGeo.json();
+
+    const res = await fetch(
+      `https://restcountries.com/v2/name/${dataGeo.country}`
+    );
+    console.log(res);
+    if (!res.ok) throw new Error('Problem getting country');
+    const data = await res.json();
+    renderCountry(data[0]);
+
+    return data[0];
+  } catch (err) {
+    console.error(`${err}`);
+  }
+};
+
+//a visszaadott érték kiolvasása az async függvényből
+whereAmI3()
+  .then(res => console.log(res))
+  .catch(err => console.error(err.message));
