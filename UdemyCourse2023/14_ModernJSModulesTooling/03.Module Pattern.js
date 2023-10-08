@@ -8,20 +8,18 @@ const ShoppingCart2 = (function () {
   const totalPrice = 237;
   const totalQuantity = 23;
 
-  const addToCart = function (product, quantity) {
+  const addToCart = (product, quantity) => {
     cart.push({ product, quantity });
     console.log(
       `${quantity} ${product} added to cart (sipping cost is ${shippingCost})`
     );
   };
 
-  const orderStock = function (product, quantity) {
+  const orderStock = (product, quantity) => {
     console.log(`${quantity} ${product} ordered from supplier`);
   };
 
-  //----------PUBLIC, EXPORTED SECTION-----------//
-  //public API
-
+  //----------PUBLIC API, EXPORTED SECTION-----------//
   return {
     addToCart,
     orderStock,
@@ -31,12 +29,13 @@ const ShoppingCart2 = (function () {
   };
 })(); //azonnal meghívódó függvényként deklaráljuk mert nem fogjuk külön meghívni
 
+//visszaadja az összes elérhető változót és függvényt
+console.log(ShoppingCart2);
+
 ShoppingCart2.addToCart('apple', 4);
 ShoppingCart2.addToCart('pizza', 2);
 ShoppingCart2.orderStock('banana', 10);
 
-console.log(ShoppingCart2);
 console.log(ShoppingCart2.cart);
 console.log(ShoppingCart2.totalPrice);
-
 console.log(ShoppingCart2.shippingCost); //undefined, mivel ez nincs a public section-ben
