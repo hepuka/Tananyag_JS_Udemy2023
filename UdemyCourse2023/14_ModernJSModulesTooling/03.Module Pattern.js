@@ -1,5 +1,3 @@
-console.log('-------The Module Pattern------');
-
 const ShoppingCart2 = (function () {
   //---------PRIVATE SECTION----------//
   //a változók és a függvények kívülről nem látszódnak közvetlenül

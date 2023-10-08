@@ -1,5 +1,3 @@
-console.log('------Introduction to NPM------');
-
 import cloneDeep from 'lodash-es';
 
 const state = {
