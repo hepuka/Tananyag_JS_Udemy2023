@@ -1,5 +1,5 @@
 export const API_URL = 'https://forkify-api.herokuapp.com/api/v2/recipes/';
 export const TIMEOUT_SEC = 10;
 export const RES_PER_PAGE = 10;
-export const KEY = 'e2cebed9-b264-4ff4-8168-41d14cc6a7a7';
+export const KEY = '8b1cbbfa-2589-41dc-bc98-9189dd4d282d';
 export const MODAL_CLOSE_SEC = 2.5;
