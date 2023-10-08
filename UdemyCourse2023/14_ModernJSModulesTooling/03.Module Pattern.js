@@ -11,7 +11,7 @@ const ShoppingCart2 = (function () {
   const addToCart = (product, quantity) => {
     cart.push({ product, quantity });
     console.log(
-      `${quantity} ${product} added to cart (sipping cost is ${shippingCost})`
+      `${quantity} ${product} added to cart (shipping cost is ${shippingCost})`
     );
   };
 

@@ -1,10 +1,7 @@
-console.log('------CommonJS Modules------');
+//NodeJS rendszerben való exportálás és importálás szintaxisa
 
-//NPM rendszerben való exportálás és importálás szintaxisa
 
-/* 
-
-Export
+//Export
 export.addTocart = function (product, quantity) {
     cart.push({ product, quantity });
     console.log(
@@ -12,5 +9,5 @@ export.addTocart = function (product, quantity) {
     );
   };
   
-  Import
-  const { addTocart } = require('./shoppingCart.js'); */
+  //Import
+  const { addTocart } = require('./shoppingCart.js');
