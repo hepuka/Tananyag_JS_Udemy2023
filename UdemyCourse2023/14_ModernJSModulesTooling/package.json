@@ -1,21 +1,15 @@
 {
-  "name": "17-modern-js-modules-tooling",
+  "name": "14_modernjsmodulestooling",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
+  "main": "01.Exporting and Importing in ES6 Modules.js",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jonas",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "core-js": "^3.6.5",
-    "leaflet": "^1.6.0",
-    "lodash-es": "^4.17.15",
-    "regenerator-runtime": "^0.13.7"
-  },
-  "devDependencies": {
-    "parcel": "^1.12.4"
+    "lodash-es": "^4.17.21"
   }
 }
