@@ -1,4 +1,3 @@
-console.log('-----Coding Challenge 3-----');
 /* 
 PART 1
 Write an async function 'loadNPause' that recreates Coding Challenge #2, this time using async/await (only the part where the promise is consumed). Compare the two versions, think about the big differences, and see which one you like more.
@@ -15,7 +14,7 @@ TEST DATA: ['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']. To test, turn of
 
 */
 
-const wait3 = function (seconds) {
+const wait = function (seconds) {
   return new Promise(function (resolve) {
     setTimeout(resolve, seconds * 1000);
   });
@@ -23,7 +22,7 @@ const wait3 = function (seconds) {
 
 const imgContainer2 = document.querySelector('.images');
 
-const createImage2 = function (imgPath) {
+const createImage = function (imgPath) {
   return new Promise(function (resolve, reject) {
     const img = document.createElement('img');
     img.src = imgPath;
@@ -39,41 +38,43 @@ const createImage2 = function (imgPath) {
   });
 };
 
-let currentImg2;
-
+//coding challenger 2 megoldás
+// let currentImg2;
 // createImage('img/img-1.jpg')
 //   .then(img => {
-//     currentImg = img;
+//     currentImg2 = img;
 //     console.log('Image 1 loaded');
 //     return wait(2);
 //   })
 //   .then(() => {
-//     currentImg.style.display = 'none';
+//     currentImg2.style.display = 'none';
 //     return createImage('img/img-2.jpg');
 //   })
 //   .then(img => {
-//     currentImg = img;
+//     currentImg2 = img;
 //     console.log('Image 2 loaded');
 //     return wait(2);
 //   })
 //   .then(() => {
-//     currentImg.style.display = 'none';
+//     currentImg2.style.display = 'none';
 //   })
 //   .catch(err => console.error(err));
 
 // PART 1
+
+//ugyanaz mint a 41-60.sor
 const loadNPause = async function () {
   try {
     // Load image 1
-    let img = await createImage2('img/img-1.jpg');
+    let img = await createImage('img/img-1.jpg');
     console.log('Image 1 loaded');
-    await wait3(2);
+    await wait(2);
     img.style.display = 'none';
 
-    // Load image 1
-    img = await createImage2('img/img-2.jpg');
+    // Load image 2
+    img = await createImage('img/img-2.jpg');
     console.log('Image 2 loaded');
-    await wait3(2);
+    await wait(2);
     img.style.display = 'none';
   } catch (err) {
     console.error(err);
@@ -82,6 +83,7 @@ const loadNPause = async function () {
 // loadNPause();
 
 // PART 2
+//img tömb betöltése
 const loadAll = async function (imgArr) {
   try {
     const imgs = imgArr.map(async img => await createImage(img));
