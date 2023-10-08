@@ -3,5 +3,7 @@
 
 # production
 /build
+/dist
+/.parcel-cache
 
 

@@ -1,4 +1,4 @@
-import cloneDeep from 'lodash-es';
+import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
 
 const state = {
   cart: [
@@ -8,30 +8,13 @@ const state = {
   user: { loggedIn: true },
 };
 
-//objektum másolása JS-el
-const stateClone = Object.assign({}, state);
-state.user.loggedIn = false;
-console.log(stateClone);
+//objektum másolása JS-el, nem csinál deep copy-t
+// const stateClone = Object.assign({}, state);
+// state.user.loggedIn = false;
+// console.log(stateClone);
 
-//ojektum másolása NPM cloneDeep csomaggal
+//ojektum másolása NPM cloneDeep csomaggal, ez már deep copy-t csinál
 const stateDeepClone = cloneDeep(state);
-//stateDeepClone.user.loggedIn = false;
+stateDeepClone.user.loggedIn = false;
+console.log(state);
 console.log(stateDeepClone);
-
-if (module.hot) {
-  module.hot.accept();
-}
-
-class Person {
-  #greeting = 'Hey';
-  constructor(name) {
-    this.name = name;
-    console.log(`${this.#greeting}, ${this.name}`);
-  }
-}
-const jonas = new Person('Jonas');
-
-console.log('Jonas' ?? null);
-console.log(cart.find(el => el.quantity >= 2));
-
-Promise.resolve('TEST').then(x => console.log(x));

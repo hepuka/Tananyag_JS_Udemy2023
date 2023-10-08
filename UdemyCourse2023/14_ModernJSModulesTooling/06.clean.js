@@ -15,12 +15,11 @@ const spendingLimits = Object.freeze({
   jonas: 1500,
   matilda: 100,
 });
-// spendingLimits.jay = 200;
 
-// const limit = spendingLimits[user] ? spendingLimits[user] : 0;
+//ha limits.user létezik, akkor visszaadja azt,ha nem akkor 0-át. Ha ?? baloldala undefined vagy null akkor ad vissza 0-át
 const getLimit = (limits, user) => limits?.[user] ?? 0;
 
-// Pure function :D
+// Pure function
 const addExpense = function (
   state,
   limits,
@@ -35,13 +34,13 @@ const addExpense = function (
     : state;
 };
 
-const newBudget1 = addExpense(budget, spendingLimits, 10, 'Pizza 🍕');
+const newBudget1 = addExpense(budget, spendingLimits, 10, 'Pizza');
 
 const newBudget2 = addExpense(
   newBudget1,
   spendingLimits,
   100,
-  'Going to movies 🍿',
+  'Going to movies',
   'Matilda'
 );
 const newBudget3 = addExpense(newBudget2, spendingLimits, 200, 'Stuff', 'Jay');
