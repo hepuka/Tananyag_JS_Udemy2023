@@ -1,5 +1,5 @@
 function formatMoney(amount) {
-  return "$" + String(Number(amount).toFixed(2));
+  return `$${amount.toFixed(2)}`;
 }
 
 console.log(formatMoney(3.1));
@@ -25,7 +25,7 @@ console.log(
     "who",
     "knows",
     "perhaps",
-  ]),
+  ])
 );
 
 function abbrevName(name) {
