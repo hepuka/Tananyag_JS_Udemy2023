@@ -22,14 +22,16 @@ function checkExam(array1, array2) {
   return sum;
 }
 
-console.log(checkExam(["b", "c", "b", "a"], ["", "a", "a", "c"]));
+console.log(checkExam(["a", "a", "b", "c"], ["a", "a", "b", "c"]));
 
 function cookie(x) {
-  return typeof x === "string"
-    ? "Who ate the last cookie? It was Zach!"
-    : typeof x === "number"
-    ? "Who ate the last cookie? It was Monica!"
-    : "Who ate the last cookie? It was the dog!";
+  return `Who ate the last cookie? It was ${
+    typeof x === "string"
+      ? "Zach"
+      : typeof x === "number"
+      ? "Monica"
+      : "the dog"
+  }!`;
 }
 
 console.log(cookie("Ryan"));
@@ -43,12 +45,11 @@ function multiTable(number) {
     str += `${i} * ${number} = ${i * number}\n`;
   }
 
-  return str;
+  return str.trim("\n");
 }
 
 console.log(multiTable(5));
 
-//return price without vat
 function excludingVatPrice(price) {
   return price === null ? -1 : Number((price / 1.15).toFixed(2));
 }
@@ -57,6 +58,7 @@ console.log(excludingVatPrice(230));
 
 function warnTheSheep(queue) {
   const position = queue.reverse().indexOf("wolf");
+
   return position === 0
     ? "Pls go away and stop eating my sheep"
     : `Oi! Sheep number ${position}! You are about to be eaten by a wolf!`;
@@ -65,13 +67,7 @@ function warnTheSheep(queue) {
 console.log(warnTheSheep(["sheep", "sheep", "sheep", "wolf", "sheep"]));
 
 function stairsIn20(s) {
-  return (
-    20 *
-    s.reduce(
-      (acc, curr) => acc + curr.reduce((acc2, curr2) => acc2 + curr2, 0),
-      0
-    )
-  );
+  return s.flat().reduce((acc, curr) => acc + curr, 0) * 20;
 }
 
 function points(games) {
@@ -88,70 +84,57 @@ function points(games) {
   return sum;
 }
 
+function points2(games) {
+  return games.reduce(
+    (sum, curr) => (sum += curr[0] > curr[2] ? 3 : curr[0] === curr[2] ? 1 : 0),
+    0
+  );
+}
+
 console.log(
-  points(["1:0", "2:0", "3:0", "4:0", "2:1", "3:1", "4:1", "3:2", "4:2", "4:3"])
+  points2([
+    "1:0",
+    "2:0",
+    "3:0",
+    "4:0",
+    "2:1",
+    "3:1",
+    "4:1",
+    "3:2",
+    "4:2",
+    "4:3",
+  ])
 );
 
 function calculateTip(amount, rating) {
-  const TIPS = {
-    terrible: 0.0,
-    poor: 0.05,
-    good: 0.1,
-    great: 0.15,
-    excellent: 0.2,
+  const obj = {
+    terrible: 0,
+    poor: 5,
+    good: 10,
+    great: 15,
+    excellent: 20,
   };
 
-  return rating.toLowerCase() in TIPS
-    ? Math.ceil(TIPS[rating.toLowerCase()] * amount)
+  return rating.toLowerCase() in obj
+    ? Math.ceil((amount * obj[rating.toLowerCase()]) / 100)
     : "Rating not recognised";
-
-  // console.log(TIPS["good"]);
-  // console.log(rating.toLowerCase() in TIPS);
-
-  // switch (rating.toLowerCase()) {
-  //   case "excellent":
-  //     return Math.ceil((amount * 20) / 100);
-  //     break;
-  //   case "great":
-  //     return Math.ceil((amount * 15) / 100);
-  //     break;
-  //   case "good":
-  //     return Math.ceil((amount * 10) / 100);
-  //     break;
-  //   case "poor":
-  //     return Math.ceil((amount * 5) / 100);
-  //     break;
-  //   case "terrible":
-  //     return 0;
-  //     break;
-
-  //   default:
-  //     return "Rating not recognised";
-  // }
 }
 
-console.log(calculateTip(26.95, "GOOd"));
+console.log(calculateTip(20, "Excellent"));
 
 function findMultiples(integer, limit) {
-  let res = [];
-
-  for (let i = integer; i <= limit; i += integer) {
-    res.push(i);
-  }
-
-  return res;
+  return Array.from(
+    { length: limit / integer },
+    (_, index) => (index + 1) * integer
+  );
 }
 
 console.log(findMultiples(5, 25));
 
 function tripleTrouble(one, two, three) {
-  let res = [];
-
-  for (let i = 0; i < one.length; i++) {
-    res.push(one[i], two[i], three[i]);
-  }
-
-  return res.join("");
+  return [...one]
+    .map((item, index) => item + two[index] + three[index])
+    .join("");
 }
 
 console.log(tripleTrouble("Sea", "urn", "pms"));
@@ -166,26 +149,30 @@ const rps = (p1, p2) => {
   };
 
   return rule[p1] === p2 ? "Player 1 won!" : "Player 2 won!";
+
+  // return `Player ${
+  //   /rockscissors|scissorspaper|paperrock/.test(p1 + p2) ? 1 : 2
+  // } won!`;
 };
 
+console.log(rps("scissors", "paper"));
+console.log(rps("paper", "paper"));
 console.log(rps("scissors", "rock"));
 
 function peopleWithAgeDrink(old) {
-  return old >= 21
-    ? "drink whisky"
-    : old >= 18
-    ? "drink beer"
-    : old >= 14
-    ? "drink coke"
-    : "drink toddy";
+  return `drink ${
+    old >= 21 ? "whisky" : old >= 18 ? "beer" : old >= 14 ? "coke" : "toddy"
+  }`;
 }
 
-console.log(peopleWithAgeDrink(18));
+console.log(peopleWithAgeDrink(20));
 
 function charFreq(message) {
   let obj = {};
 
-  [...message].map((item) => (!obj[item] ? (obj[item] = 1) : (obj[item] += 1)));
+  message
+    .split("")
+    .map((item) => (!obj[item] ? (obj[item] = 1) : (obj[item] += 1)));
 
   return obj;
 }
