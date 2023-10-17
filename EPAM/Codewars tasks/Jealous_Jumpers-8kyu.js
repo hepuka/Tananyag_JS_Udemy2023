@@ -1,11 +1,14 @@
 function generateRange(min, max, step) {
-  let result = [];
+  // let result = [];
 
-  while (min <= max) {
-    result.push(min);
-    min += step;
-  }
-  return result;
+  // while (min <= max) {
+  //   result.push(min);
+  //   min += step;
+  // }
+  // return result;
+
+  for (var res = []; min <= max; min += step) res.push(min);
+  return res;
 }
 
 console.log(generateRange(1, 10, 3));
@@ -32,7 +35,19 @@ function removeChar(str) {
 console.log(removeChar("country"));
 
 function correct(string) {
-  return string.replace(/5/g, "S").replace(/0/g, "O").replace(/1/g, "I");
+  // return string.replace(/5/g, "S").replace(/0/g, "O").replace(/1/g, "I");
+
+  // return string.replaceAll("5", "S").replaceAll("0", "O").replaceAll("1", "I");
+
+  const signs = {
+    5: "S",
+    0: "O",
+    1: "I",
+  };
+
+  return [...string].map((item) => signs[item] || item).join("");
+
+  // return string.replace(/[501]/g, (item) => signs[item]);
 }
 
 console.log(correct("L0ND0N"));
@@ -50,7 +65,7 @@ function replace(s) {
 console.log(replace("Hi"));
 
 function digitize(n) {
-  return String(n).split("").map(Number).reverse();
+  return String(n).split("").reverse().map(Number);
 }
 
 console.log(digitize(35231));
@@ -84,13 +99,10 @@ console.log(maps([1, 2, 3]));
 
 // add the value "codewars" to the websites array 1,000 times
 var websites = [];
-
-for (let i = 1; i <= 1000; i++) {
-  websites.push("codewars");
-}
+websites = new Array(1000).fill("codewars");
 
 function greet(name) {
-  return name === "Johnny" ? "Hello, my love!" : "Hello, " + name + "!";
+  return `Hello, ${name == "Johnny" ? "my love" : name}!`;
 }
 
 console.log(greet("Johnny"));
@@ -131,7 +143,17 @@ function countSheeps(arrayOfSheep) {
 
 console.log(countSheeps(array1));
 
+//fill an array
+const arr = (N) => Array.from({ length: N }, (_, index) => index);
+
+console.log(arr(5));
+
 function solution(a, b) {
+  // const aLong = a.length;
+  // const bLong = b.length;
+
+  // return aLong < bLong ? `${a}${b}${a}` : `${b}${a}${b}`;
+
   return a.length > b.length ? b + a + b : a + b + a;
 }
 
@@ -160,4 +182,4 @@ function reverseWords(str) {
   return str.split(" ").reverse().join(" ");
 }
 
-console.log(reverseWords("hello world!"));
+console.log(reverseWords("yoda doesn't speak like this"));

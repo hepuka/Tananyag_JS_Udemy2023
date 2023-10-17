@@ -51,10 +51,10 @@ function defineSuit(card) {
     "♠": "spades",
   };
 
-  // const char = card.slice(-1);
-  // return obj[char];
+  const char = card.slice(-1);
+  return obj[char];
   // return obj[card.charAt(card.length - 1)];
-  return obj[card[card.length - 1]];
+  // return obj[card[card.length - 1]];
 }
 
 console.log(defineSuit("Q♠"));
@@ -154,10 +154,7 @@ function correctPolishLetters(string) {
   //   .map((item) => (char.includes(item) ? letter[char.indexOf(item)] : item))
   //   .join("");
 
-  return string
-    .split("")
-    .map((item) => obj[item] || item)
-    .join("");
+  return [...string].map((item) => obj[item] || item).join("");
 }
 
 console.log(correctPolishLetters("Jędrzej Błądziński"));
