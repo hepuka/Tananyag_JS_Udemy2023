@@ -1,8 +1,5 @@
 let number = function (busStops) {
-  return (
-    busStops.reduce((acc, curr) => acc + curr[0], 0) -
-    busStops.reduce((acc, curr) => acc + curr[1], 0)
-  );
+  return busStops.reduce((acc, curr) => acc + curr[0] - curr[1], 0);
 };
 
 console.log(
@@ -13,42 +10,27 @@ console.log(
     [12, 2],
     [6, 1],
     [7, 8],
-  ]),
+  ])
 );
 
 function chromosomeCheck(sperm) {
-  if (sperm === "XY") return "Congratulations! You're going to have a son.";
-  if (sperm === "XX")
-    return "Congratulations! You're going to have a daughter.";
+  return sperm === "XY"
+    ? "Congratulations! You're going to have a son."
+    : "Congratulations! You're going to have a daughter.";
 }
 
 console.log(chromosomeCheck("XY"));
 console.log(chromosomeCheck("XX"));
 
 function mergeArrays(arr1, arr2) {
-  return Array.from(new Set([...arr1, ...arr2])).sort((a, b) => a - b);
+  return [...new Set([...arr1, ...arr2])].sort((a, b) => a - b);
 }
 
 console.log(mergeArrays([1, 3, 5, 7, 9], [10, 8, 6, 4, 2]));
 
 var humanYearsCatYearsDogYears = function (humanYears) {
-  let catYears =
-    humanYears === 1
-      ? 15
-      : humanYears === 2
-      ? 24
-      : humanYears >= 3
-      ? 24 + (humanYears - 2) * 4
-      : 0;
-
-  let dogYears =
-    humanYears === 1
-      ? 15
-      : humanYears === 2
-      ? 24
-      : humanYears >= 3
-      ? 24 + (humanYears - 2) * 5
-      : 0;
+  let catYears = humanYears === 1 ? 15 : 24 + (humanYears - 2) * 4;
+  let dogYears = humanYears === 1 ? 15 : 24 + (humanYears - 2) * 5;
 
   return [humanYears, catYears, dogYears];
 };
@@ -63,7 +45,7 @@ console.log(capitalizeWord("word"));
 
 function findDifference(a, b) {
   return Math.abs(
-    a.reduce((acc, curr) => acc * curr) - b.reduce((acc, curr) => acc * curr),
+    a.reduce((acc, curr) => acc * curr) - b.reduce((acc, curr) => acc * curr)
   );
 }
 
