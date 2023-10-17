@@ -53,72 +53,86 @@ console.log(findDifference([3, 2, 5], [1, 4, 4]));
 
 function betterThanAverage(classPoints, yourPoints) {
   return (
-    yourPoints >
-    classPoints.reduce((acc, curr) => acc + curr) / classPoints.length
+    classPoints.reduce((acc, curr) => acc + curr) / classPoints.length <=
+    yourPoints
   );
 }
 
 console.log(betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 75));
 
 function sakuraFall(v) {
-  return v <= 0 ? 0 : 400 / v;
+  return v < 1 ? 0 : 400 / v;
 }
 
 console.log(sakuraFall(20));
 
-function isValid(a) {
+function isValid(formula) {
   return (
-    !(a.includes(1) && a.includes(2)) &&
-    !(a.includes(3) && a.includes(4)) &&
-    a.includes(5) === a.includes(6) &&
-    (a.includes(7) || a.includes(8))
+    !(formula.includes(1) && formula.includes(2)) &&
+    !(formula.includes(3) && formula.includes(4)) &&
+    formula.includes(5) === formula.includes(6) &&
+    (formula.includes(7) || formula.includes(8))
   );
 }
 
 console.log(isValid([1, 3, 7]));
 
 function whoIsPaying(name) {
-  return name.length <= 2 ? [name] : [name, name.slice(0, 2)];
+  return name.length > 2 ? [name, name.slice(0, 2)] : [name];
 }
 
 console.log(whoIsPaying("Melissa"));
 
 function getRealFloor(n) {
-  return n <= 0 ? n : n >= 1 && n <= 12 ? n - 1 : n - 2;
+  return n > 13 ? n - 2 : n > 0 ? n - 1 : n;
 }
 
-console.log(getRealFloor(14));
+console.log(getRealFloor(13));
 
 function isLockNessMonster(s) {
-  return (
-    s.includes("tree fiddy") || s.includes("3.50") || s.includes("three fifty")
-  );
+  return /(tree fiddy|three fifty|3.50)/i.test(s);
+  // return s.match(/(tree fiddy|three fifty|3.50)/i);
 }
+
+console.log(
+  isLockNessMonster(
+    "Your girlscout cookies are ready to ship. Your total comes to tree fiddy"
+  )
+);
 
 function correctTail(bod, tail) {
-  return tail === bod[bod.length - 1];
+  return tail === bod.slice(-1);
 }
 
+console.log(correctTail("Fox", "x"));
+
 var hotpo = function (n) {
-  if (n == 0 || n === 1) return 0;
+  if (n == 0) return 0;
 
-  let step = 0;
-
-  while (n !== 1) {
-    if (n % 2 === 0) {
-      n = n / 2;
-      step++;
-    } else {
-      n = 3 * n + 1;
-      step++;
-    }
+  let steps = 0;
+  while (n > 1) {
+    // n % 2 === 0 ? (n /= 2) : (n = 3 * n + 1);
+    n = n % 2 ? 3 * n + 1 : n / 2;
+    steps++;
   }
 
-  return step;
+  return steps;
 };
+
+console.log(hotpo(6));
 
 const cannonsReady = (gunners) => {
   return Object.values(gunners).every((item) => item === "aye")
     ? "Fire!"
     : "Shiver me timbers!";
+
+  // return Object.values(gunners).includes("nay")
+  //   ? "Shiver me timbers!"
+  //   : "Fire!";
 };
+
+let a = { Mike: "aye", Joe: "aye", Johnson: "aye", Peter: "aye" };
+let b = { Mike: "aye", Joe: "nay", Johnson: "aye", Peter: "aye" };
+
+console.log(cannonsReady(a));
+console.log(cannonsReady(b));
