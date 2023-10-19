@@ -5,23 +5,24 @@ function queueTime(customers, n) {
     let lowestWaitTimeIndex = cassa.indexOf(Math.min(...cassa));
 
     cassa[lowestWaitTimeIndex] += t;
+    console.log(cassa);
   }
+
   return Math.max(...cassa);
 }
 
-console.log(queueTime([2, 2, 3, 3, 4, 4], 2));
+console.log(queueTime([2, 2, 3, 3, 4, 4], 5));
 
 function comp(array1, array2) {
   if (!array1 || !array2 || array1.length !== array2.length) return false;
 
   return (
     array1
-      .map((x) => x * x)
+      .map((item) => item * item)
       .sort()
-      .toString() === array2.sort().toString()
+      .join() === array2.sort().join()
   );
 }
-
 console.log(
   comp(
     [121, 144, 19, 161, 19, 144, 19, 11],
@@ -40,7 +41,6 @@ console.log(
 
 function tribonacci(signature, n) {
   let res = [...signature];
-
   let reslength = res.length;
 
   while (reslength < n) {
@@ -51,40 +51,36 @@ function tribonacci(signature, n) {
     reslength++;
   }
 
-  return res;
+  return res.slice(0, n);
 }
 
-console.log(tribonacci([1, 1, 1], 10));
+console.log(tribonacci([1, 1, 1, 3, 5, 9, 17, 31], 3));
 
 function stockList(listOfArt, listOfCat) {
-  if (!listOfArt.length || !listOfCat.length) return "";
-  let obj = {};
-
-  listOfCat.map((item) => (obj[item] = 0));
-
-  Object.preventExtensions(obj);
-  listOfArt.map(
-    (item) =>
-      (obj[item.split(" ")[0].charAt(0)] += parseInt(item.split(" ")[1]))
-  );
-
-  let res = [];
-  for (const [key, value] of Object.entries(obj)) {
-    res.push(`(${key} : ${value})`);
-  }
-
-  return res.join(" - ");
-
   // if (!listOfArt.length || !listOfCat.length) return "";
-  // return listOfCat
-  //   .map((w) => {
-  //     const s = listOfArt.reduce(
-  //       (a, b) => a + (b.charAt(0) === w ? +b.split(" ")[1] : 0),
-  //       0
-  //     );
-  //     return `(${w} : ${s})`;
-  //   })
-  //   .join(" - ");
+  // let obj = {};
+  // let res = [];
+
+  // listOfCat.map((item) => (obj[item] = 0));
+
+  // listOfArt.map((item) => (obj[item[0]] += parseInt(item.split(" ")[1])));
+
+  // for (const [key, value] of Object.entries(obj)) {
+  //   res.push(`(${key} : ${value})`);
+  // }
+
+  // return res.join(" - ");
+
+  if (!listOfArt.length || !listOfCat.length) return "";
+  return listOfCat
+    .map((item) => {
+      const s = listOfArt.reduce(
+        (acc, curr) => acc + (curr[0] === item ? +curr.split(" ")[1] : 0),
+        0
+      );
+      return `(${item} : ${s})`;
+    })
+    .join(" - ");
 }
 
 console.log(
