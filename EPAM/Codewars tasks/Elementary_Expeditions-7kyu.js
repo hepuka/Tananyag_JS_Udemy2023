@@ -1,13 +1,14 @@
 function differenceInAges(ages) {
   const min = Math.min(...ages);
   const max = Math.max(...ages);
+
   return [min, max, max - min];
 }
 
 console.log(differenceInAges([82, 15, 6, 38, 35]));
 
 function descendingOrder(n) {
-  return [...String(n)].sort((a, b) => b - a).join("");
+  return +[...String(n)].sort((a, b) => b - a).join("");
 }
 
 console.log(descendingOrder(1021));
@@ -19,7 +20,7 @@ function arrayMadness(a, b) {
   );
 }
 
-console.log(arrayMadness([5, 3, 2, 4, 1], [15]));
+console.log(arrayMadness([1, 3, 5, 2, 4], [2, 2, 2, 2, 2, 2, 2, 1]));
 
 function gooseFilter(birds) {
   var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
@@ -44,7 +45,7 @@ function firstNonConsecutive(arr) {
   return Number.isInteger(num) ? num : null;
 }
 
-console.log(firstNonConsecutive([1, 2, 3, 4, 5]));
+console.log(firstNonConsecutive([1, 2, 3, 4, 6, 7, 8]));
 
 function getSum(a, b) {
   let sum = 0;
@@ -60,22 +61,24 @@ function getSum(a, b) {
 
 console.log(getSum(5, -1));
 
-class Ball {
-  constructor(ballType) {
-    this.ballType = ballType || "regular";
-  }
-}
+// class Ball {
+//   constructor(ballType = "regular") {
+//     this.ballType = ballType;
+//   }
+// }
+
+var Ball = function (ballType = "regular") {
+  this.ballType = ballType;
+};
 
 let ball1 = new Ball();
 let ball2 = new Ball("super");
 
 String.prototype.isUpperCase = function () {
-  // return this == this.toUpperCase();
-  return !/[a-z]/.test(this);
+  // return !/[a-z]/.test(this);
+  return this === this.toUpperCase();
 };
 
-// This Cube class needs help
-// Implement the constructor so that it can take an integer for the side or no args
 class Cube {
   constructor(side = 0) {
     this.side = Math.abs(side);
@@ -109,9 +112,9 @@ function htmlspecialchars(formData) {
     "&": "&amp;",
   };
 
-  return [...formData].map((item) => chars[item] || item).join("");
+  // return [...formData].map((item) => chars[item] || item).join("");
 
-  // return formData.replace(/[<>"&]/g, (item) => chars[item]);
+  return formData.replace(/[<>"&]/g, (item) => chars[item]);
 }
 
 console.log(htmlspecialchars("<h2>Hello World</h2>"));
@@ -123,40 +126,37 @@ function enough(cap, on, wait) {
 console.log(enough(54, 10, 77));
 
 function highAndLow(numbers) {
-  const nums = numbers.split(" ").map(Number);
+  numbers = numbers.split(" ");
 
-  return [Math.max(...nums), Math.min(...nums)].join(" ");
+  return `${Math.max(...numbers)} ${Math.min(...numbers)}`;
 }
 
 console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
 
 function getCount(str) {
-  return str.split("").filter((item) => "aeiouAEIOU".includes(item)).length;
-  // return str.replace(/[^aeiou]/gi, '').length;
+  return (str.match(/[aeiou]/g) ?? []).length;
 }
 
 console.log(getCount("abracadabra"));
 
 function solution(nums) {
-  return nums === null ? [] : nums.sort((a, b) => a - b);
+  // return nums === null ? [] : nums.sort((a, b) => a - b);
+  return nums ? nums.sort((a, b) => a - b) : [];
 }
 
 console.log(solution([]));
 
 function accum(s) {
-  return s
-    .toLowerCase()
-    .split("")
-    .map((item, index) => item.toUpperCase() + item.repeat(index))
+  return [...s]
+    .map((item, index) => item.toUpperCase() + item.toLowerCase().repeat(index))
     .join("-");
 }
 
 console.log(accum("abcD"));
 
 function isIsogram(str) {
-  return str.toLowerCase().length === new Set(str.toLowerCase()).size;
+  return str.length === new Set(str.toLowerCase()).size;
 }
-
 console.log(isIsogram("moOse"));
 
 // return masked string
@@ -173,8 +173,9 @@ function DNAStrand(dna) {
     C: "G",
     G: "C",
   };
-  return dna.replace("ATCG", (item) => letters[item]);
-  // return dna.replace(/./g, (item) => letters[item]);
+
+  return dna.replace(/[ATCG]/g, (item) => letters[item]);
+  //return dna.replace(/./g, (item) => letters[item]);
 }
 
 console.log(DNAStrand("GTAT"));
@@ -182,9 +183,10 @@ console.log(DNAStrand("GTAT"));
 var findDigit = function (num, nth) {
   if (nth <= 0) return -1;
 
-  let nums = String(Math.abs(num));
+  return +[...String(Math.abs(num)).padStart(nth, "0")].reverse()[nth - 1];
+  // let nums = String(Math.abs(num));
 
-  return nums.slice(nums.length - nth, nums.length - nth + 1) * 1;
+  // return nums.slice(nums.length - nth, nums.length - nth + 1) * 1;
 };
 
-console.log(findDigit(5673, 7));
+console.log(findDigit(-2825, 4));
