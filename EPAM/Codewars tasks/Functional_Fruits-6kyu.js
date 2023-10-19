@@ -22,10 +22,10 @@ console.log(order("is2 Thi1s T4est 3a"));
 function sortArray(array) {
   let odds = array.filter((item) => item % 2 !== 0).sort((a, b) => a - b);
 
-  return array.map((item) => (item % 2 !== 0 ? odds.shift() : item));
+  return array.map((item) => (item % 2 ? odds.shift() : item));
 }
 
-console.log(sortArray([5, 3, 2, 8, 1, 4]));
+console.log(sortArray([5, 8, 6, 3, 4]));
 
 function wave(str) {
   return str
@@ -41,7 +41,7 @@ function wave(str) {
     .filter((item) => item !== "");
 }
 
-console.log(wave("Two words"));
+console.log(wave("The string"));
 
 function alphabetPosition(text) {
   const letter = [
@@ -79,4 +79,14 @@ function alphabetPosition(text) {
     .join(" ");
 }
 
-console.log(alphabetPosition("The sunset sets at twelve o' clock."));
+function alphabetPosition2(text) {
+  console.log(String.fromCharCode(97));
+
+  return text
+    .toLowerCase()
+    .split("")
+    .map((item) => item.charCodeAt() - 96)
+    .filter((item) => item > 0 && item < 27)
+    .join(" ");
+}
+console.log(alphabetPosition2("The sunset sets at twelve o' clock."));
