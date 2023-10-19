@@ -76,3 +76,24 @@ function rot13(message) {
 }
 
 console.log(rot13("ABCD"));
+
+function sumDigPow(a, b) {
+  let result = [];
+
+  for (let i = a; i <= b; i++) {
+    let ilength = String(i).length;
+    let sum = 0;
+
+    for (let j = 1; j <= ilength; j++) {
+      let numItem = String(i)[j - 1];
+
+      sum += numItem ** j;
+    }
+
+    if (sum === i) result.push(i);
+  }
+
+  return result;
+}
+
+console.log(sumDigPow(1, 100));
