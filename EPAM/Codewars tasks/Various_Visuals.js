@@ -59,3 +59,62 @@ console.log(
     [1, 6, 3, 10, 10, 0, 10, 2, 5, 7, 4, 9, 5, 5, 6]
   )
 );
+
+function ArrayComprehension(options) {
+  if (!options?.generator || Array.from(options.generator).length === 0)
+    return [];
+
+  let result = [];
+
+  const array = Array.from(options.generator)
+    .join("")
+    .split(/[,.]/)
+    .filter((item) => parseInt(item))
+    .map(Number);
+
+  if (Object.values(options.generator).includes(".")) {
+    if (array.length > 3) return [];
+
+    if (array.length === 2) {
+      let start = array[0];
+      let end = array[array.length - 1];
+
+      if (end >= start) {
+        for (let i = start; i <= end; i++) {
+          result.push(i);
+        }
+      } else {
+        return [];
+      }
+    }
+
+    if (array.length === 3) {
+      result.push(array[0]);
+      let start = array[0];
+      let second = array[1];
+      let end = array[array.length - 1];
+      let posstep = second - start;
+      let negstep = start - second;
+
+      if (second === end) return [start, second];
+
+      if (posstep > 0 && end > second) {
+        for (let i = second; i <= end; i += posstep) {
+          result.push(i);
+        }
+      }
+
+      if (posstep < 0 && end < second) {
+        for (let i = second; i >= end; i -= negstep) {
+          result.push(i);
+        }
+      }
+    }
+
+    return result;
+  }
+
+  return array;
+}
+
+console.log(ArrayComprehension({}));
