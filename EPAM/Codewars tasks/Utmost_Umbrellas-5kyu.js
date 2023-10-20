@@ -1,39 +1,12 @@
-// function replaceZero(arr) {
-//   let array = [];
-//
-//   for (let i = 0; i < arr.length; i++) {
-//     if (arr[i] === 0) {
-//       array.push(i);
-//     }
-//   }
-//
-//   for (let i = 0; i < array.length; i++) {
-//     console.log(array[i]);
-//   }
-//
-//
-//
-//
-//   if (array.length === 1) {
-//     return array[0];
-//   }
-//   return array;
-// }
-//
-// // console.log(replaceZero([0, 1, 1, 1]));
-// console.log(replaceZero([1, 1, 1, 0, 1, 1, 0, 1, 1, 1]));
-
 function replaceZero(a) {
-  a = a.join``.split`0`.map((x) => x.length);
-
-  let b = a.map((x, i, a) => x + a[i + 1]).slice(0, -1);
-
+  a = a.join``.split`0`.map((item) => item.length);
+  let b = a.map((item, index) => item + a[index + 1]).slice(0, -1);
   return a
     .slice(0, b.lastIndexOf(Math.max(...b)) + 1)
     .reduce((a, b) => a + b + 1, -1);
 }
 
-// console.log(replaceZero([1, 1, 1, 0, 1, 1, 0, 1, 1, 1]));
+//console.log(replaceZero([0, 1, 0, 0, 0, 0]));
 
 function sequenceSum(begin, end, step) {
   let sum = 0;
@@ -45,7 +18,7 @@ function sequenceSum(begin, end, step) {
   return sum;
 }
 
-// console.log(sequenceSum(-1, -5, -3));
+//console.log(sequenceSum(-1, -5, -3));
 
 let findMissing = function (list) {
   let step = (list[list.length - 1] - list[0]) / list.length;
@@ -57,7 +30,24 @@ let findMissing = function (list) {
   }
 };
 
-// console.log(findMissing([1, 3, 4]));
+var findMissing2 = function (list) {
+  // let step = (list[list.length - 1] - list[0]) / list.length;
+  let step = [];
+
+  for (let i = 0; i < list.length - 1; i++) {
+    step.push(list[i + 1] - list[i]);
+  }
+
+  let min = Math.min(...step);
+
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] + min !== list[i + 1]) {
+      return list[i] + min;
+    }
+  }
+};
+
+console.log(findMissing2([1, 3, 4]));
 
 function cutTheRopes(a) {
   let res = [];
@@ -79,13 +69,13 @@ function cutTheRopes(a) {
   return res.filter((item) => item !== 0);
 }
 
-// console.log(cutTheRopes([3, 3, 2, 9, 7]));
+//console.log(cutTheRopes([3, 3, 2, 9, 7]));
 
 function toCamelCase(str) {
   return str
     .split(/-|_/g)
     .map((item, index) =>
-      index === 0 ? item : item.charAt(0).toUpperCase().concat(item.slice(1)),
+      index === 0 ? item : item.charAt(0).toUpperCase().concat(item.slice(1))
     )
     .join("");
 }
@@ -105,7 +95,7 @@ function isMerge(s, part1, part2) {
       ? res.push(part11.shift())
       : part22.includes(item)
       ? res.push(part22.shift())
-      : null,
+      : null
   );
 
   return s.length !== part1.length + part2.length && s !== part1 + part2
@@ -113,7 +103,7 @@ function isMerge(s, part1, part2) {
     : res.join("") === ss.join("");
 }
 
-console.log(isMerge("codewars", "code", "wasr"));
+//console.log(isMerge("codewars", "code", "wasr"));
 
 function humanReadable(seconds) {
   let totalmin = Math.floor(seconds / 60);
@@ -123,7 +113,7 @@ function humanReadable(seconds) {
   let min = totalmin % 60;
   return `${String(hours).padStart(2, "0")}:${String(min).padStart(
     2,
-    "0",
+    "0"
   )}:${String(sec).padStart(2, "0")}`;
 }
 
@@ -152,7 +142,7 @@ function josephus(items, k) {
   return res;
 }
 
-console.log(josephus([1, 2, 3, 4, 5, 6, 7], 3));
+// console.log(josephus([1, 2, 3, 4, 5, 6, 7], 3));
 
 //[3,6,2,7,5,1,4]
 
@@ -189,7 +179,7 @@ function primeFactors(n) {
   return str;
 }
 
-console.log(primeFactors(7775460));
+// console.log(primeFactors(7775460));
 
 //"(2**2)(3**3)(5)(7)(11**2)(17)"
 
