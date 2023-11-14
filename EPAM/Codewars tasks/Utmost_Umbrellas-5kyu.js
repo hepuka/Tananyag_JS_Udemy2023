@@ -47,7 +47,7 @@ var findMissing2 = function (list) {
   }
 };
 
-console.log(findMissing2([1, 3, 4]));
+// console.log(findMissing2([1, 3, 4]));
 
 function cutTheRopes(a) {
   let res = [];
@@ -69,7 +69,22 @@ function cutTheRopes(a) {
   return res.filter((item) => item !== 0);
 }
 
-//console.log(cutTheRopes([3, 3, 2, 9, 7]));
+function cutTheRopes2(a) {
+  let result = [];
+  let tmpArray = [...a];
+
+  while (tmpArray.length !== 0) {
+    result.push(tmpArray.length);
+    // tmpArray = tmpArray.filter((item) => item !== 0);
+    tmpArray = tmpArray.filter(Boolean);
+
+    tmpArray = tmpArray.map((item) => item - Math.min(...tmpArray));
+  }
+
+  return result.slice(1);
+}
+
+// console.log(cutTheRopes2([3, 3, 2, 9, 7]));
 
 function toCamelCase(str) {
   return str
@@ -80,30 +95,43 @@ function toCamelCase(str) {
     .join("");
 }
 
-// console.log(toCamelCase("the-stealth-warrior"));
-// console.log(toCamelCase("The_Stealth_Warrior"));
-
-function isMerge(s, part1, part2) {
-  const part11 = part1.split("");
-  const part22 = part2.split("");
-  const ss = s.split("");
-
-  let res = [];
-
-  ss.map((item) =>
-    part11.includes(item)
-      ? res.push(part11.shift())
-      : part22.includes(item)
-      ? res.push(part22.shift())
-      : null
-  );
-
-  return s.length !== part1.length + part2.length && s !== part1 + part2
-    ? false
-    : res.join("") === ss.join("");
+function toCamelCase2(str) {
+  return str
+    .split(/[-_]/g)
+    .map((item, index) =>
+      index !== 0 ? item[0].toUpperCase() + item.slice(1) : item
+    )
+    .join("");
 }
 
-//console.log(isMerge("codewars", "code", "wasr"));
+// console.log(toCamelCase2("the-stealth-warrior"));
+// console.log(toCamelCase2("The_Stealth_Warrior"));
+
+function isMerge(s, part1, part2) {
+  if (part1 === part2) {
+    return false;
+  }
+
+  if (s.includes(part1)) {
+    return true;
+  }
+
+  let str = "";
+
+  for (let i = 0, j = 0, k = 0; i < s.length; i++) {
+    if (s[i] === part1[j]) {
+      str += s[i];
+      j++;
+    } else if (s[i] === part2[k]) {
+      str += s[i];
+      k++;
+    }
+  }
+
+  return str === s;
+}
+
+console.log(isMerge("codewars", "code", "code"));
 
 function humanReadable(seconds) {
   let totalmin = Math.floor(seconds / 60);
@@ -147,20 +175,19 @@ function josephus(items, k) {
 //[3,6,2,7,5,1,4]
 
 function primeFactors(n) {
-  const factors = [];
   let divisor = 2;
   let obj = {};
   let str = "";
 
   while (n >= 2) {
     if (n % divisor === 0) {
-      factors.push(divisor);
-
       if (!obj[divisor]) {
         obj[divisor] = 1;
       } else {
         obj[divisor] += 1;
       }
+
+      console.log(obj);
 
       n = n / divisor;
     } else {
@@ -179,8 +206,6 @@ function primeFactors(n) {
   return str;
 }
 
-// console.log(primeFactors(7775460));
+// console.log(primeFactors(86240));
 
 //"(2**2)(3**3)(5)(7)(11**2)(17)"
-
-function loop_size(node) {}
